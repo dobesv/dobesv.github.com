@@ -59,13 +59,12 @@ and live as my preferred "home base" in life.
 
 ## My Profiles/Sites
 
+ * <a href="https://plus.google.com/102960720201244684959" rel="me">Google+ Profile</a>
+ * [Careers 2.0 Stack Overflow Profile](http://careers.stackoverflow.com/dobesv)
+ * [LinkedIn Profile](http://www.linkedin.com/in/dobesv)
+ * [More...](http://lmgtfy.com/?q=dobes+vandermeer")
 
 <a href="https://plus.google.com/102960720201244684959" rel="me">Google+ Profile</a>
-
-[Careers 2.0 Stack Overflow Profile](http://careers.stackoverflow.com/dobesv)
-[LinkedIn Profile](http://www.linkedin.com/in/dobesv)
-[More...](http://lmgtfy.com/?q=dobes+vandermeer")
-
 
 
 
