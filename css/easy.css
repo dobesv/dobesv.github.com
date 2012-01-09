@@ -229,7 +229,7 @@ please read http://easyframework.com/documentation.php
 /* navigation */
 	
 		#nav, #nav ul, #nav li{margin:0;}
-		#nav ul{}
+		#nav ul{height:32px;padding-bottom:4px;}
 		#nav li{
 			float:left;
 			display:inline;
