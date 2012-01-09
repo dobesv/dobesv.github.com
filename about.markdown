@@ -15,7 +15,7 @@ merely surviving and maintaining a lifestyle.
 ## Maxims
 
 [Integrity](http://ssrn.com/abstract=1511274) is important to me in business as
-in all areas of life.  I'm greatly influenced by [Landmark Education]{http://www.landmarkeducation.com/} and by
+in all areas of life.  I'm greatly influenced by [Landmark Education](http://www.landmarkeducation.com/) and by
 [The Four Agreements](http://www.toltecspirit.com/) when it comes to understanding and
 defining integrity.  When you treat your word with honor and respect anything
 is possible.
