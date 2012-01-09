@@ -49,22 +49,20 @@ then later working a stint at Rockstar Games Vancouver where they shipped the ga
 with a bit of help from yours truly.  I still enjoy playing video games and hope to
 make more games in the future.
 
-## History
+## Origins
 
 I was born in Vancouver, BC, Canada and quickly was moved to a nearby town called
 [Powell River](http://www.discoverpowellriver.com/) where I spent my childhood
 and teenage years.  I spent a lot of time reading books and playing with computers,
-which is still how things are today.  Later I moved back to Vancouver to study, work,
-and live as my preferred "home base" in life.
+periodically interrupted by family members and household chores --
+similar to how things are today.  Later I moved back to Vancouver to study, work,
+and live as my preferred "home base" for things.
 
-## My Profiles/Sites
+## Learn more elsewhere
 
- * <a href="https://plus.google.com/102960720201244684959" rel="me">Google+ Profile</a>
- * [Careers 2.0 Stack Overflow Profile](http://careers.stackoverflow.com/dobesv)
- * [LinkedIn Profile](http://www.linkedin.com/in/dobesv)
- * [More...](http://lmgtfy.com/?q=dobes+vandermeer")
+My career history is listed in detail via my [LinkedIn Profile](http://linkedin.com/in/dobesv).
 
-<a href="https://plus.google.com/102960720201244684959" rel="me">Google+ Profile</a>
+Some more personal history is available on my [Facebook Profile](http://facebook.com/dobesv).
 
-
+And you can see where I've been contributing on the internet by [Googling 'Dobes Vandermeer'](https://www.google.com/search?q=dobes+vandermeer).
 
