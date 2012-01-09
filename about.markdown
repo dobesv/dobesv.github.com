@@ -1,9 +1,9 @@
 ---
 layout: index
-title: Dobes Vandermeer
+title: About | Dobes Vandermeer
 ---
 
-# Objectives
+## Objectives
 
 My current intention is to use my talents to create things that are useful
 for people, and which make a difference for them.
@@ -12,7 +12,7 @@ In doing so I will must earn a comfortable standard of living that allows
 me to focus my attention on pursuing my interests more so than spend energy
 merely surviving and maintaining a lifestyle.
 
-# Maxims
+## Maxims
 
 [Integrity](http://ssrn.com/abstract=1511274) is important to me in business as
 in all areas of life.  I'm greatly influenced by [Landmark Education]{http://www.landmarkeducation.com/} and by
@@ -23,7 +23,7 @@ is possible.
 Freedom is my second maxim - I don't like to control other or be controlled.  I
 seek to always have a freedom of choice and to offer others the same.
 
-# Interests
+## Interests
 
 Early my teenage years I started to spend a lot of time doing computer programming.  Starting with
 the examples from the BASIC programming book that came with the Commodore 64, then continuing
@@ -49,7 +49,7 @@ then later working a stint at Rockstar Games Vancouver where they shipped the ga
 with a bit of help from yours truly.  I still enjoy playing video games and hope to
 make more games in the future.
 
-# History
+## History
 
 I was born in Vancouver, BC, Canada and quickly was moved to a nearby town called
 [Powell River](http://www.discoverpowellriver.com/) where I spent my childhood
@@ -60,9 +60,9 @@ and live as my preferred "home base" in life.
 ## My Profiles/Sites
 
  * <a href="https://plus.google.com/102960720201244684959" rel="me">Google+ Profile</a>
- * <a href="http://careers.stackoverflow.com/dobesv">Careers 2.0 Stack Overflow Profile</a>
- * <a href="http://www.linkedin.com/in/dobesv">LinkedIn Profile</a>
- * <a href="http://lmgtfy.com/?q=dobes+vandermeer">More...</a>
+ * [Careers 2.0 Stack Overflow Profile](http://careers.stackoverflow.com/dobesv)
+ * [LinkedIn Profile](http://www.linkedin.com/in/dobesv)
+ * [More...](http://lmgtfy.com/?q=dobes+vandermeer")
 
 
 
