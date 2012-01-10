@@ -1,9 +1,0 @@
----
-title: Test post
-layout: post
----
-
-# Test
-
-This is a test of the jekyll / github pages stuff.
-
