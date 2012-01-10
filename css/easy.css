@@ -229,6 +229,10 @@ please read http://easyframework.com/documentation.php
 /* navigation */
 	
 		#nav, #nav ul, #nav li{margin:0;}
+        #nav {
+            background: #000;
+            height: 32px;
+        }
 		#nav ul{height:32px;padding-bottom:4px;}
 		#nav li{
 			float:left;
@@ -239,8 +243,14 @@ please read http://easyframework.com/documentation.php
 			margin-right:2em;
 			list-style:none;
 			}	
-		#nav a{}
-		
+		#nav a, #nav a:visited{
+            color:#CCC;
+        }
+        #nav a:hover {
+            color:#DDD;
+            text-decoration: underline;
+        }
+
 		/* second level */
 		#nav ul{
 			position:absolute;
