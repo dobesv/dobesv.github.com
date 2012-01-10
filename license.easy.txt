@@ -1,0 +1,29 @@
+Easy front-end framework is available under the terms of this license. 
+(http://easyframework.com/license.php)
+
+Any use of the framework constitutes recipients acceptance of this agreement.
+
+IMPORTANT: 
+
+Reproduction, redistribution or inclusion of the code in downloadable items such as templates or themes (free or commercial), in whole or in part, is strictly forbidden. This rule applies to all licenses named here.
+
+Easy front-end framework is released under Creative Commons Attribution 3.0 Unported license. 
+You are free to use the framework on both commercial and no-commercial projects as long as you follow these rules:
+
+1. you must leave the copyright information found in easy.css, easyprint.css and easy.js files from the download package
+2. you are not allowed to change the names of the files easy.css, easyprint.css and easy.js
+3. you must leave the footer backlink to the frameworks's homepage (http://easyframework.com)
+
+
+DEVELOPER'S LICENSE
+Since some of the agencies, web studios and freelance developers are not in position to comply to the terms above, there is a developer's license available.
+
+Developer's license includes:
+
+1. the right to remove the footer backlink and copyright info found in files easy.css, easyprint.css and easy.js
+2. the right to rename all of the files found in the download package
+3. the right to use the current or any other release of the framework on unlimited number of commercial or non-commercial projects
+
+Developer's license is issued to a person or agency. Each purchaser receives a license in PDF format. License is not transferable.
+
+You can obtain developer's license here: http://easyframework.com/order.php
