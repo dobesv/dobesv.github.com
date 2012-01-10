@@ -1,6 +1,6 @@
 ---
 layout: index
-title: About | Dobes Vandermeer
+title: A Bit About Myself (Dobes Vandermeer)
 ---
 
 ## Objectives
@@ -19,6 +19,8 @@ in all areas of life.  I'm greatly influenced by [Landmark Education](http://www
 [The Four Agreements](http://www.toltecspirit.com/) when it comes to understanding and
 defining integrity.  When you treat your word with honor and respect anything
 is possible.
+
+Authenticity I also consider important.  TODO: More about this.
 
 Freedom is my second maxim - I don't like to control other or be controlled.  I
 seek to always have a freedom of choice and to offer others the same.
@@ -64,5 +66,6 @@ My career history is listed in detail via my [LinkedIn Profile](http://linkedin.
 
 Some more personal history is available on my [Facebook Profile](http://facebook.com/dobesv).
 
-And you can see where I've been contributing on the internet by [Googling 'Dobes Vandermeer'](https://www.google.com/search?q=dobes+vandermeer).
+And you can see where else I've been contributing on the internet by
+[Googling 'Dobes Vandermeer'](https://www.google.com/search?q=dobes+vandermeer).
 
