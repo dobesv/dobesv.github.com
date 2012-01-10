@@ -227,11 +227,14 @@ please read http://easyframework.com/documentation.php
 /* // layout */
 
 /* navigation */
-	
+	    #navbar {
+            background:#000;
+            height: 32px;
+        }
 		#nav, #nav ul, #nav li{margin:0;}
         #nav {
-            background: #000;
-            height: 32px;
+            margin:0 auto;
+            width:920px;
         }
 		#nav ul{height:32px;padding-bottom:4px;}
 		#nav li{
