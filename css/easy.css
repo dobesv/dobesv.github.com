@@ -170,6 +170,7 @@ please read http://easyframework.com/documentation.php
 	#footer{
 		position:relative;
 		clear:both;
+        
 		}	
 	
 	.content{
@@ -297,8 +298,22 @@ please read http://easyframework.com/documentation.php
 	
 	#footer a, #footer a:visited{
 		text-decoration:underline;
-		}
+        color: #8AC;
+    }
 	
+    #footer {
+        border-top: solid 1px #CCC;
+        border-bottom: solid 1px #CCC;
+        padding-top: 1em;
+        margin-top: 3em;
+        color: #888;
+    }
+    
+    #footer p {
+        width: 920px;
+        margin: 0 auto;
+        text-align: center;
+    }
 /* // footer */
 
 /* clearfix (use class name "block") */
