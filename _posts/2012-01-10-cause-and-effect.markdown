@@ -13,14 +13,14 @@ Here's a section on cause and effect as a limiting world view.
 > worldview is most people’s worldview of “cause/effect”.  Most of us believe that
 > whatever we encounter has been caused by something.  This aspect of our worldview
 > makes unintelligible for many of us any non-cause/effect phenomenon.
-
+>
 > A scientifically verified  example of a non-cause/effect phenomenon is
 > “entanglement”.  This is the name given by quantum physicists to the instantaneous
 > invariant non-cause/effect correlation of the states of a certain two particles (quanta)
 > that come into contact and are later at a distance from one another.  “No matter how
 > far they move apart, if one  is tweaked, measured, observed, the other seems to
 > instantly respond, even if the whole world now lies between them.”
-
+>
 > Given our non-physicist’s  worldview (model of reality) that everything we
 > encounter is caused by something, we would like to say that the state of the one
 > particle causes the effect of the state of the other particle.  However, this cannot be
