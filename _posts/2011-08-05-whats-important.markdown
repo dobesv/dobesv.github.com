@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Personal
+category: enlightenment
 title: The importance of importance
 ---
 

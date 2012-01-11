@@ -1,6 +1,6 @@
 ---
 title: I Should … vs I want …
-category: Personal
+category: enlightenment
 layout: post
 ---
 

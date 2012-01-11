@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Cause and Effect as a Limiting Worldview
+category: enlightenment
 ---
 
 Been reading an interesting [article about leadership](http://ssrn.com/abstract=1585976) written by some Landmark people
