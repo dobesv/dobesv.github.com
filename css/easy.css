@@ -280,9 +280,16 @@ please read http://easyframework.com/documentation.php
 		height:3em;
 		margin:0;
         clear:both;
-		}
-	#header h1 a{		
-		}		
+    }
+	#header h1 a{
+    }
+    #header h1 a.link-icon{
+        padding-left:20px;
+        display:none;
+    }
+    #header h1:hover a {
+        display:block;
+    }
 
 /* // header */
 	
