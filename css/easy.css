@@ -283,7 +283,7 @@ please read http://easyframework.com/documentation.php
     }
 	#header h1 a{
     }
-    #header h1 a.link-icon{
+    #header h1 a {
         padding-left:20px;
         display:none;
     }
