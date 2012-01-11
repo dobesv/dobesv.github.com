@@ -3,6 +3,8 @@ layout: index
 title: Dobes' Site
 ---
 
-# Home
+# Enlightenment
 
-This is the home page ... no content here yet, though!
+{% for post in site.posts limit: 5 %}
+* {{ post.date | date:"%Y-%m-%d" }} [{{ post.title }}]({{ post.url }})
+{% endfor %}
