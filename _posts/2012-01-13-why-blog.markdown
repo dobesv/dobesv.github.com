@@ -1,0 +1,27 @@
+---
+title: Why blog?
+category: me
+layout: post
+---
+
+After I registered dobesv.com I deliberated for a long time about what
+to do with it.  Should I blog?  About what?  Who cares anyway?
+
+Some of the topics I like writing about:
+
+ * Startups
+ * Personal development / enlightenment
+ * My opinion and prediction (punditry)
+ * Programming
+ * Apps I've found
+ * (One day) fiction writing
+
+I was held back from writing because I'm pretty sure that my regular readership will be quite
+minimal with this range of topics.  I'm bound to put off people with what will be off-topic
+for them.
+
+Furthermore, most of what I might want to say has been said quite effectively elsewhere.
+
+Finally I decided I should just blog for my own benefit.  A place to put some
+notes, express myself, and generally write without any purpose.  I have many thoughts in
+my head that might be quieter if I took the time to put them to words.
