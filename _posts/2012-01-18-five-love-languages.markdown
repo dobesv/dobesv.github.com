@@ -29,7 +29,7 @@ in the effort to consider a person's needs and proactively take care of her is t
 sign of true affection.
 
 The best way to figure out a person's "language of love" is to observe them, since people generally
-express love in similar ways to how the expect it to be expressed for them.  You can also ask them
+express love in similar ways to how they expect it to be expressed for them.  You can also ask them
 about it and tell them what sorts of things mean love for you.
 
 If you explore your languages of love you are likely to find that much of the effort you've put into
