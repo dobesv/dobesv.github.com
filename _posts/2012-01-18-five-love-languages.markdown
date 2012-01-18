@@ -51,5 +51,9 @@ to make it easier to imagine what your love language might be.  The five are:</p
 * Gifts - Some prefer flowers, others something hand-crafted.  Sometimes the cost is important, sometimes careful thought is appreciated most.
 * Quality Time - Go out on a date, actively listen to how their life has been, spend time one on one giving undivided attention.  Put away your smartphone.
 
-<iframe src="http://rcm.amazon.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=dobesvcom-20&o=1&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B0035G04TI" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+If you've never discussed this with your partner before (assuming you have one) it can make for an
+interesting and fun conversation piece, I highly recommend giving it a try.  Also, if you get the
+book it has a kind of questionnaire at the end to help figure out which of the five love
+languages you like the best.
+
 
