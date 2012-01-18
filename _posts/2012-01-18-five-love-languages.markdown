@@ -42,7 +42,7 @@ reassurances and reminders that we are loved.  Perhaps on a biochemical level th
 acts trigger a release of some love juice in our body and if we don't get a regular dose of it
 then we start to feel a bit empty and insecure.
 
-<p>In <a href="http://www.amazon.com/gp/product/B0035G04TI/ref=as_li_ss_tl?ie=UTF8&tag=dobesvcom-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=B0035G04TI">The Five Love Languages: How to Express Heartfelt Commitment to Your Mate</a><img src="http://www.assoc-amazon.com/e/ir?t=dobesvcom-20&l=as2&o=1&a=B0035G04TI" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> divides the languages of love in five categories,
+<p>In <a href="http://www.amazon.com/gp/product/B0035G04TI/ref=as_li_ss_tl?ie=UTF8&tag=dobesvcom-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=B0035G04TI">The Five Love Languages: How to Express Heartfelt Commitment to Your Mate</a><img src="http://www.assoc-amazon.com/e/ir?t=dobesvcom-20&l=as2&o=1&a=B0035G04TI" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> the author divides the languages of love in five categories,
 to make it easier to imagine what your love language might be.  The five are:</p>
 
 * Words of Affirmation - Giving compliments, saying "I love you", and other verbals affirmations
