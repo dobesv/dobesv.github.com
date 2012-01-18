@@ -1,7 +1,7 @@
 ---
 title: The Five Love Languages
 layout: post
-category: enlightenment
+category: books
 ---
 
 A while back when I was dating my wife we having a sort of meltdown and she was packing her
