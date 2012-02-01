@@ -1,5 +1,5 @@
 ---
-title: Web Development: One-page apps or multi-page apps?
+title: One-page apps or multi-page apps?
 category: programming
 layout: post
 ---
