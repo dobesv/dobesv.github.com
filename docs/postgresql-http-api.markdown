@@ -1,5 +1,7 @@
-
-# PostgreSQL HTTP API Draft
+---
+layout: post
+title: PostgreSQL HTTP API Draft
+---
 
 The benefit of an HTTP API would be easier access via tools that don't support the PostgreSQL protocol,
 such as curl, web browsers, new programming languages, etc..
