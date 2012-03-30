@@ -87,7 +87,7 @@ POST: Add a new login role
 * PUT: Update this group role
 * DELETE: Remove this role
 
-### Data Formats
+## Data Formats
 
 The HTTP server should consider supporting XML, JSON, and SQL output formats.  It determines the output
 format to use based on the "Accept" header of an HTTP request, or optionally the URI extension.  It determines
@@ -95,27 +95,29 @@ the format of the input based on the "Content-Type" header of an HTTP request, o
 extension in the Content-Disposition header.
 
 
-#### SQL output
+### SQL
 
 SQL output should match what you see in a pg_dump.  TODO: Examples
 
-#### XML output
+### XML
 
 To be designed...
 
-#### JSON output
+### JSON
 
 To be designed...
 
-#### SQL MIME Types
+### SQL MIME Types
 
-There is currently no registered mime type for SQL source code.  If there were, it might be text/sql or
-application/sql.  For future proofing we should accept these as well as text/x-sql, application/x-sql.
+There is currently no registered mime type for SQL source code.  MIME types that look SQL-ish should be treated
+as application/vnd.postgresql.sql, including but not limited to:
 
-For text/plain we'll need other clues as to whether the file is really SQL; the file extension in the
-filename in Content-Disposition
+* application/sql
+* text/sql
+* application/x-sql
+* text/x-sql
 
-#### Versioning
+### Versioning
 
 The fields defined for the PostgreSQL data model might change over time.  The mime-type can contain the
 version of the schema which should be tied to the release of PostgreSQL.  For example:
@@ -124,15 +126,21 @@ Accept: application/vnd.postgresql.login-role+json;version=9.3
 
 Means the client only wants to receive a json response compatible with the data model of PG 9.3.
 
-#### File Extensions
+### File Extensions
 
 Applying a suffix to a URI such as .sql, .csv, or .html overrides the provided Accept: header(s) (if any) with
 a matching content type for that suffix.  When the Content-Type is text/plain or application/octet-stream then
 we will look at the file extension of the filename in the Content-Disposition header, if any, and override
 the Content-Type based on that.
 
-* .sql -> application/x-sql
+* .sql -> application/vnd.postgresql.sql
 * .csv -> text/csv
 * .html -> text/html
 
 
+## Some features to think about
+
+* Ability to put EXPLAIN ANALYZE and other timing/performance information in a query response
+* SPDY protocol support (possibly without encryption / compression if we have a fat / secure pipe)
+* Partition IDs (possibly specifying a cluster node or partition in the request)
+* Virtual Hosts (direct request to a completely different DB server based on Host header)
