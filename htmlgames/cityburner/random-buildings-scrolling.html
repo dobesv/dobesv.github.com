@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Main</title><style type="text/css">html,head,body { padding:0; margin:0; }body { font-family: helvetica, arial, sans-serif; }</style></head><body><script type="text/javascript" src="../elm-runtime-0.6.0.3.js"></script><script type="text/javascript">
+<html><head><meta charset="UTF-8"><title>Main</title><style type="text/css">html,head,body { padding:0; margin:0; }body { font-family: helvetica, arial, sans-serif; }</style></head><body><script type="text/javascript" src="../elm-runtime-0.7.js"></script><script type="text/javascript">
 try{
 
 if (Elm.Main) throw "Module name collision, 'Main' is already defined."; 
@@ -21,117 +21,112 @@ Elm.Main=function(){
   throw ("Module 'Automaton' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
  }
  var init_=Elm.Automaton.init_;
- function Fire_0(a1){
-  return function(a2){
-   return ['Fire',a1,a2];};}
- function GameState_1(a1){
-  return ['GameState',a1];}
- function Input_2(a1){
-  return function(a2){
-   return function(a3){
-    return ['Input',a1,a2,a3];};};}
- function updateGame_3(Input$tmouseDownmousePosition_9){
-  return function(GameState$oldFires_10){
+ function updateGame_0(a1_6){
+  return function(a0_7){
    return function(){
-   switch(Input$tmouseDownmousePosition_9[0]){
-    case 'Input':
+    var t_8=function(r){
+     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(a1_6);
+    var mouseDown_9=function(r){
+     return r.hasOwnProperty('_') ? r.mouseDown[0] : r.mouseDown;}(a1_6);
+    var mousePosition_10=function(r){
+     return r.hasOwnProperty('_') ? r.mousePosition[0] : r.mousePosition;}(a1_6);
     return function(){
-    switch(GameState$oldFires_10[0]){
-     case 'GameState':
+     var oldFires_11=function(r){
+      return r.hasOwnProperty('_') ? r.oldFires[0] : r.oldFires;}(a0_7);
      return function(){
-      var Tuple2$mouseXmouseY_15=Input$tmouseDownmousePosition_9[3];
-      var mouseX_16=function(){
-      switch(Tuple2$mouseXmouseY_15[0]){
+      var a0_12=mousePosition_10;
+      var mouseX_13=function(){
+      switch(a0_12[0]){
        case 'Tuple2':
-       return Tuple2$mouseXmouseY_15[1];
+       return a0_12[1];
       }
-      throw "Non-exhaustive pattern match in case";}();
-      var mouseY_17=function(){
-      switch(Tuple2$mouseXmouseY_15[0]){
+      throw "Non-exhaustive pattern match in case expression (Line 4, Column 28)";}();
+      var mouseY_14=function(){
+      switch(a0_12[0]){
        case 'Tuple2':
-       return Tuple2$mouseXmouseY_15[2];
+       return a0_12[2];
       }
-      throw "Non-exhaustive pattern match in case";}();
-      var gameWidth_18=1024;
-      var gameHeight_19=768;
-      var speed_20=2.0e-2;
-      var distanceTravelled_21=truncate((Input$tmouseDownmousePosition_9[1]*speed_20));
-      var cityShapes_23=buildings_22(0);
-      var headSize_24=div(gameHeight_19)(10);
-      var headCenter_25=['Tuple2',div(gameWidth_18)(10),div(gameHeight_19)(4)];
-      var headCircle_26=filled(red)(circle(div(gameHeight_19)(10))(headCenter_25));
-      var monsterShapes_27=['Cons',headCircle_26,['Nil']];
-      var laserShapes_28=(Input$tmouseDownmousePosition_9[2]?['Cons',solid(red)(segment(headCenter_25)(Input$tmouseDownmousePosition_9[3])),['Nil']]:['Nil']);
-      var oldVisibleFires_32=filter(fireVisible_30)(GameState$oldFires_10[1]);
-      var mouseWorldPosition_33=['Tuple2',(mouseX_16+distanceTravelled_21),mouseY_17];
-      var mouseOverBuilding_34=any(isWithin(Input$tmouseDownmousePosition_9[3]))(cityShapes_23);
-      var mouseOverFire_35=any(isWithin(Input$tmouseDownmousePosition_9[3]))(map(fireShape_31)(oldVisibleFires_32));
-      var newFires_36=((Input$tmouseDownmousePosition_9[2]&&(mouseOverBuilding_34&&not(mouseOverFire_35)))?['Cons',Fire_0(mouseWorldPosition_33)(Input$tmouseDownmousePosition_9[1]),oldVisibleFires_32]:oldVisibleFires_32);
-      var newState_37=GameState_1(newFires_36);
-      var fireShapes_38=map(fireShape_31)(newFires_36);
-      var shapes_39=Value.append(monsterShapes_27,Value.append(cityShapes_23,Value.append(laserShapes_28,fireShapes_38)));
-      var newView_40=collage(gameWidth_18)(gameHeight_19)(shapes_39);
-      function buildings_22(x_45){
+      throw "Non-exhaustive pattern match in case expression (Line 4, Column 28)";}();
+      var gameWidth_15=1024;
+      var gameHeight_16=768;
+      var speed_17=2.0e-2;
+      var distanceTravelled_18=truncate((t_8*speed_17));
+      var cityShapes_20=buildings_19(0);
+      var headSize_21=div(gameHeight_16)(10);
+      var headCenter_22=['Tuple2',div(gameWidth_15)(10),div(gameHeight_16)(4)];
+      var headCircle_23=filled(red)(circle(div(gameHeight_16)(10))(headCenter_22));
+      var monsterShapes_24=['Cons',headCircle_23,['Nil']];
+      var laserShapes_25=(mouseDown_9?['Cons',solid(red)(segment(headCenter_22)(mousePosition_10)),['Nil']]:['Nil']);
+      var oldVisibleFires_29=filter(fireVisible_27)(oldFires_11);
+      var newFire_30=
+       {since : [t_8],
+        worldX : [(mouseX_13+distanceTravelled_18)],
+        worldY : [mouseY_14],
+        _ : [true]};
+      var mouseOverBuilding_31=any(isWithin(mousePosition_10))(cityShapes_20);
+      var mouseOverFire_32=any(isWithin(mousePosition_10))(map(fireShape_28)(oldVisibleFires_29));
+      var newFires_33=((mouseDown_9&&(mouseOverBuilding_31&&not(mouseOverFire_32)))?['Cons',newFire_30,oldVisibleFires_29]:oldVisibleFires_29);
+      var newState_34=
+       {oldFires : [newFires_33],
+        _ : [true]};
+      var fireShapes_35=map(fireShape_28)(newFires_33);
+      var shapes_36=Value.append(monsterShapes_24,Value.append(cityShapes_20,Value.append(laserShapes_25,fireShapes_35)));
+      var newView_37=collage(gameWidth_15)(gameHeight_16)(shapes_36);
+      function buildings_19(x_42){
        return function(){
-        var bldgWidth_46=div(gameWidth_18)(10);
-        var bldgSpace_47=div(bldgWidth_46)(5);
-        var bldgStep_48=(bldgWidth_46+bldgSpace_47);
-        var bldgOffset_49=(div(bldgWidth_46)(2)-rem(distanceTravelled_21)(bldgStep_48));
-        var bldgStagger_50=rem((36969*div((distanceTravelled_21+truncate(x_45)))(bldgStep_48)))(100);
-        var bldgHeight_51=(div(gameHeight_19)(10)+bldgStagger_50);
-        var building_52=filled(grey)(rect(bldgWidth_46)(bldgHeight_51)(['Tuple2',(x_45+bldgOffset_49),(gameHeight_19-(bldgHeight_51/2))]));
-        return ((compare((x_45-bldgWidth_46))(gameWidth_18)[0] === 'GT')?['Nil']:['Cons',building_52,buildings_22(((x_45+bldgWidth_46)+bldgSpace_47))]);}();}
-      function fireRadius_29(since_53){
-       return (10*(sqrt((Input$tmouseDownmousePosition_9[1]-since_53))*speed_20));}
-      function fireVisible_30(Fire$Tuple2$worldXysince_54){
+        var bldgWidth_43=div(gameWidth_15)(10);
+        var bldgSpace_44=div(bldgWidth_43)(5);
+        var bldgStep_45=(bldgWidth_43+bldgSpace_44);
+        var bldgOffset_46=(div(bldgWidth_43)(2)-rem(distanceTravelled_18)(bldgStep_45));
+        var bldgStagger_47=rem((36969*div((distanceTravelled_18+truncate(x_42)))(bldgStep_45)))(100);
+        var bldgHeight_48=(div(gameHeight_16)(10)+bldgStagger_47);
+        var building_49=filled(grey)(rect(bldgWidth_43)(bldgHeight_48)(['Tuple2',(x_42+bldgOffset_46),(gameHeight_16-(bldgHeight_48/2))]));
+        return ((compare((x_42-bldgWidth_43))(gameWidth_15)[0] === 'GT')?['Nil']:['Cons',building_49,buildings_19(((x_42+bldgWidth_43)+bldgSpace_44))]);}();}
+      function fireRadius_26(since_50){
+       return (10*(sqrt((t_8-since_50))*speed_17));}
+      function fireVisible_27(a0_51){
        return function(){
-       switch(Fire$Tuple2$worldXysince_54[0]){
-        case 'Fire':
-        switch(Fire$Tuple2$worldXysince_54[1][0]){
-         case 'Tuple2':
-         return (compare(Fire$Tuple2$worldXysince_54[1][1])((distanceTravelled_21-fireRadius_29(Fire$Tuple2$worldXysince_54[2])))[0] === 'GT');
-        }break;
-       }
-       throw "Non-exhaustive pattern match in case";}();}
-      function fireShape_31(Fire$Tuple2$worldXysince_58){
+        var worldX_52=function(r){
+         return r.hasOwnProperty('_') ? r.worldX[0] : r.worldX;}(a0_51);
+        var since_53=function(r){
+         return r.hasOwnProperty('_') ? r.since[0] : r.since;}(a0_51);
+        return (compare(worldX_52)((distanceTravelled_18-fireRadius_26(since_53)))[0] === 'GT');}();}
+      function fireShape_28(a0_54){
        return function(){
-       switch(Fire$Tuple2$worldXysince_58[0]){
-        case 'Fire':
-        switch(Fire$Tuple2$worldXysince_58[1][0]){
-         case 'Tuple2':
-         return function(){
-          var radius_62=fireRadius_29(Fire$Tuple2$worldXysince_58[2]);
-          var x_63=(Fire$Tuple2$worldXysince_58[1][1]-distanceTravelled_21);
-          return filled(red)(circle(radius_62)(['Tuple2',x_63,Fire$Tuple2$worldXysince_58[1][2]]));}();
-        }break;
-       }
-       throw "Non-exhaustive pattern match in case";}();}
-      return ['Tuple2',newView_40,newState_37];}();
-    }
-    throw "Non-exhaustive pattern match in case";}();
-   }
-   throw "Non-exhaustive pattern match in case";}();};}
- function first_6(Tuple2$ab_64){
-  return function(){
-  switch(Tuple2$ab_64[0]){
-   case 'Tuple2':
-   return Tuple2$ab_64[1];
-  }
-  throw "Non-exhaustive pattern match in case";}();}
- var input_4=lift3(Input_2)(every(0.1))(Mouse.isDown)(Mouse.position);
- var startState_5=GameState_1(['Nil']);
- var gameAutomaton_7=init_(startState_5)(updateGame_3);
- var main_8=Automaton.run(gameAutomaton_7)(input_4);
+        var worldX_55=function(r){
+         return r.hasOwnProperty('_') ? r.worldX[0] : r.worldX;}(a0_54);
+        var worldY_56=function(r){
+         return r.hasOwnProperty('_') ? r.worldY[0] : r.worldY;}(a0_54);
+        var since_57=function(r){
+         return r.hasOwnProperty('_') ? r.since[0] : r.since;}(a0_54);
+        return function(){
+         var radius_58=fireRadius_26(since_57);
+         var x_59=(worldX_55-distanceTravelled_18);
+         return filled(red)(circle(radius_58)(['Tuple2',x_59,worldY_56]));}();}();}
+      return ['Tuple2',newView_37,newState_34];}();}();}();};}
+ function mkinput_1(t_60){
+  return function(mouseDown_61){
+   return function(mousePosition_62){
+    return function(){
+     var r_63=
+      {mouseDown : [mouseDown_61],
+       mousePosition : [mousePosition_62],
+       t : [t_60],
+       _ : [true]};
+     return r_63;}();};};}
+ var input_2=lift3(mkinput_1)(every(0.1))(Mouse.isDown)(Mouse.position);
+ var startState_3=
+  {oldFires : [['Nil']],
+   _ : [true]};
+ var gameAutomaton_4=init_(startState_3)(updateGame_0);
+ var main_5=Automaton.run(gameAutomaton_4)(input_2);
  return {$op : {},
- Fire:Fire_0,
- GameState:GameState_1,
- Input:Input_2,
- updateGame:updateGame_3,
- input:input_4,
- startState:startState_5,
- first:first_6,
- gameAutomaton:gameAutomaton_7,
- main:main_8};}();
+ updateGame:updateGame_0,
+ mkinput:mkinput_1,
+ input:input_2,
+ startState:startState_3,
+ gameAutomaton:gameAutomaton_4,
+ main:main_5};}();
 Elm.main=function(){
  return Elm.Main.main;};
 } catch (e) {

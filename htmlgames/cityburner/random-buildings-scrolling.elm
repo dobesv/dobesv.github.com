@@ -1,10 +1,6 @@
 import Automaton (init')
 
-data Fire = Fire (Int,Int) Time
-data GameState = GameState [Fire]
-data Input = Input Time Bool (Int,Int)
-
-updateGame (Input t mouseDown mousePosition) (GameState oldFires) =
+updateGame {t,mouseDown,mousePosition} {oldFires} =
     let (mouseX, mouseY) = mousePosition
         gameWidth = 1024
         gameHeight = 768
@@ -29,20 +25,22 @@ updateGame (Input t mouseDown mousePosition) (GameState oldFires) =
         laserShapes = if mouseDown then [solid red (segment headCenter mousePosition)] else []
 
         fireRadius since = (sqrt (t - since))*speed*10
-        fireVisible (Fire (worldX,y) since) = worldX > distanceTravelled - (fireRadius since)
+        fireVisible {worldX,since} = worldX > distanceTravelled - (fireRadius since)
 
-        fireShape (Fire (worldX,y) since) =
+        fireShape {worldX,worldY,since} =
             let radius = fireRadius since
                 x = worldX - distanceTravelled
-            in filled red (circle radius (x,y))
+            in filled red (circle radius (x,worldY))
         oldVisibleFires = filter fireVisible oldFires
 
-        mouseWorldPosition = (mouseX + distanceTravelled, mouseY)
+        newFire = {worldX=mouseX + distanceTravelled,
+                   worldY=mouseY,
+                   since=t}
         mouseOverBuilding = any (isWithin mousePosition) cityShapes
         mouseOverFire = any (isWithin mousePosition) (map fireShape oldVisibleFires)
-        newFires = if mouseDown && mouseOverBuilding && (not mouseOverFire) then (Fire mouseWorldPosition t) : oldVisibleFires else oldVisibleFires
+        newFires = if mouseDown && mouseOverBuilding && (not mouseOverFire) then newFire : oldVisibleFires else oldVisibleFires
 
-        newState = GameState newFires
+        newState = {oldFires=newFires}
         fireShapes = map fireShape newFires
 
         shapes = monsterShapes ++ cityShapes ++ laserShapes ++ fireShapes
@@ -51,8 +49,8 @@ updateGame (Input t mouseDown mousePosition) (GameState oldFires) =
 
     in (newView,newState)
 
-input = lift3 Input (every 0.1) Mouse.isDown Mouse.position
-startState = GameState []
-first (a,b) = a
+mkinput t mouseDown mousePosition = let r = {t=t, mouseDown=mouseDown, mousePosition=mousePosition} in r
+input = lift3 mkinput (every 0.1) Mouse.isDown Mouse.position
+startState = {oldFires=[]}
 gameAutomaton = init' startState updateGame
 main = Automaton.run gameAutomaton input
