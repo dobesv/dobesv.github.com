@@ -39,157 +39,157 @@ Elm.Main=function(){
  for (Elm['i'] in Elm.Text) {
   if (hiddenVars[Elm['i']]) continue;
   eval('var ' + Elm['i'] + ' = Elm.Text[Elm.i];');}
- function inRect_12(x_19){
-  return function(y_20){
-   return function(rect_21){
+ function inRect_13(x_20){
+  return function(y_21){
+   return function(rect_22){
     return function(){
-     var dx_22=(x_19-function(r){
-      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(rect_21));
-     var dy_23=(y_20-function(r){
-      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(rect_21));
-     return (function() { var ord = compare(dx_22)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&((compare(dx_22)(function(r){
-      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(rect_21))[0] === 'LT')&&(function() { var ord = compare(dy_23)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&(compare(dy_23)(function(r){
-      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(rect_21))[0] === 'LT'))));}();};};}
- function headMaybe_13(lst_24){
+     var dx_23=(x_20-function(r){
+      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(rect_22));
+     var dy_24=(y_21-function(r){
+      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(rect_22));
+     return (function() { var ord = compare(dx_23)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&((compare(dx_23)(function(r){
+      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(rect_22))[0] === 'LT')&&(function() { var ord = compare(dy_24)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&(compare(dy_24)(function(r){
+      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(rect_22))[0] === 'LT'))));}();};};}
+ function headMaybe_14(lst_25){
   return function(){
-  switch(lst_24[0]){
+  switch(lst_25[0]){
    case 'Cons':
-   return Just(lst_24[1]);
+   return Just(lst_25[1]);
    case 'Nil':
    return Nothing;
   }
-  throw "Non-exhaustive pattern match in case expression (Line 53, Column 17)";}();}
- function updateGame_14(input_26){
-  return function(oldState_27){
+  throw "Non-exhaustive pattern match in case expression (Line 55, Column 17)";}();}
+ function updateGame_15(input_27){
+  return function(oldState_28){
    return function(){
-    var clicked_28=function(r){
+    var clicked_29=function(r){
      return r.hasOwnProperty('_') ? r.clicked[0] : r.clicked;}(function(r){
-     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(input_26));
-    var mouseX_29=function(r){
+     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(input_27));
+    var mouseX_30=function(r){
      return r.hasOwnProperty('_') ? r.x[0] : r.x;}(function(r){
-     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(input_26));
-    var mouseY_30=function(r){
+     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(input_27));
+    var mouseY_31=function(r){
      return r.hasOwnProperty('_') ? r.y[0] : r.y;}(function(r){
-     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(input_26));
-    var clickedDoorActivities_36=map(clickedDoorActivity_35)(filterClickedOn_34(doors_7));
-    var clickedPropActivities_38=map(clickedPropActivity_37)(filterClickedOn_34(props_8));
-    var defaultActivity_39=(clicked_28?idle_9:function(r){
-     return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_27));
-    var activity_40=head(Value.append(clickedPropActivities_38,Value.append(clickedDoorActivities_36,['Cons',defaultActivity_39,['Nil']])));
-    var newState_45=doChangeRoom_41(doShowDescription_42(rememberActivity_44(rememberLastClick_43(oldState_27))));
-    var room_46=function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_45);
-    var bg_47=function(r){
-     return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(room_46);
-    var t_48=function(r){
-     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(input_26);
-    var bgImage_49=image(function(r){
-     return r.hasOwnProperty('_') ? r.width[0] : r.width;}(bg_47))(function(r){
-     return r.hasOwnProperty('_') ? r.height[0] : r.height;}(bg_47))(Value.append(Value.str('images/bg/'),function(r){
-     return r.hasOwnProperty('_') ? r.image[0] : r.image;}(bg_47)));
-    var debugView_50=flow(down)(map(function(x){
-     return plainText(show(x));})(['Cons',input_26,['Cons',oldState_27,['Cons',newState_45,['Nil']]]]));
-    var dialogView_51=width(gameWidth_0)(centeredText(Text.color(white)(toText(fromMaybe(Value.str('(no dialog)'))(function(r){
-     return r.hasOwnProperty('_') ? r.dialog[0] : r.dialog;}(newState_45))))));
-    var view_52=flow(down)(['Cons',layers(['Cons',bgImage_49,['Cons',dialogView_51,['Nil']]]),['Cons',debugView_50,['Nil']]]);
-    function inThisRoom_31(obj_53){
+     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(input_27));
+    var clickedDoorActivities_37=map(clickedDoorActivity_36)(filterClickedOn_35(doors_8));
+    var clickedPropActivities_39=map(clickedPropActivity_38)(filterClickedOn_35(props_9));
+    var defaultActivity_40=(clicked_29?idle_10:function(r){
+     return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_28));
+    var activity_41=head(Value.append(clickedPropActivities_39,Value.append(clickedDoorActivities_37,['Cons',defaultActivity_40,['Nil']])));
+    var newState_46=doChangeRoom_42(doShowDescription_43(rememberActivity_45(rememberLastClick_44(oldState_28))));
+    var room_47=function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_46);
+    var bg_48=function(r){
+     return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(room_47);
+    var t_49=function(r){
+     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(input_27);
+    var bgImage_50=image(function(r){
+     return r.hasOwnProperty('_') ? r.width[0] : r.width;}(bg_48))(function(r){
+     return r.hasOwnProperty('_') ? r.height[0] : r.height;}(bg_48))(Value.append(Value.str('images/bg/'),function(r){
+     return r.hasOwnProperty('_') ? r.image[0] : r.image;}(bg_48)));
+    var debugView_51=flow(down)(map(function(x){
+     return plainText(show(x));})(['Cons',input_27,['Cons',oldState_28,['Cons',newState_46,['Nil']]]]));
+    var dialogView_52=width(gameWidth_0)(centeredText(Text.color(white)(toText(fromMaybe(Value.str('(no dialog)'))(function(r){
+     return r.hasOwnProperty('_') ? r.dialog[0] : r.dialog;}(newState_46))))));
+    var view_53=flow(down)(['Cons',layers(['Cons',bgImage_50,['Cons',dialogView_52,['Nil']]]),['Cons',debugView_51,['Nil']]]);
+    function inThisRoom_32(obj_54){
      return eq(function(r){
-      return r.hasOwnProperty('_') ? r.room[0] : r.room;}(obj_53),function(r){
-      return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_27));}
-    function inRectInThisRoom_32(x_54){
-     return function(y_55){
-      return function(obj_56){
-       return (inThisRoom_31(obj_56)&&inRect_12(x_54)(y_55)(obj_56));};};}
-    function clickedOnInThisRoom_33(obj_57){
-     return inRectInThisRoom_32(mouseX_29)(mouseY_30)(obj_57);}
-    function filterClickedOn_34(objs_58){
-     return (clicked_28?filter(clickedOnInThisRoom_33)(objs_58):['Nil']);}
-    function clickedDoorActivity_35(door_59){
+      return r.hasOwnProperty('_') ? r.room[0] : r.room;}(obj_54),function(r){
+      return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_28));}
+    function inRectInThisRoom_33(x_55){
+     return function(y_56){
+      return function(obj_57){
+       return (inThisRoom_32(obj_57)&&inRect_13(x_55)(y_56)(obj_57));};};}
+    function clickedOnInThisRoom_34(obj_58){
+     return inRectInThisRoom_33(mouseX_30)(mouseY_31)(obj_58);}
+    function filterClickedOn_35(objs_59){
+     return (clicked_29?filter(clickedOnInThisRoom_34)(objs_59):['Nil']);}
+    function clickedDoorActivity_36(door_60){
      return function(){
       var r={_:[true]};
-      var e=idle_9;
+      var e=idle_10;
       for(var i in e){r[i]=e[i];}
       r.changeToRoom=r.changeToRoom.slice(0);
       r.changeToRoom[0]=Just(function(r){
-       return r.hasOwnProperty('_') ? r.targetRoom[0] : r.targetRoom;}(door_59));
+       return r.hasOwnProperty('_') ? r.targetRoom[0] : r.targetRoom;}(door_60));
       return r;}();}
-    function clickedPropActivity_37(prop_60){
+    function clickedPropActivity_38(prop_61){
      return function(){
       var r={_:[true]};
-      var e=idle_9;
+      var e=idle_10;
       for(var i in e){r[i]=e[i];}
       r.showDescription=r.showDescription.slice(0);
-      r.showDescription[0]=headMaybe_13(function(r){
-       return r.hasOwnProperty('_') ? r.descriptions[0] : r.descriptions;}(prop_60));
+      r.showDescription[0]=headMaybe_14(function(r){
+       return r.hasOwnProperty('_') ? r.descriptions[0] : r.descriptions;}(prop_61));
       return r;}();}
-    function doChangeRoom_41(oldState_61){
-     return maybe(oldState_61)(function(room_62){
+    function doChangeRoom_42(oldState_62){
+     return maybe(oldState_62)(function(room_63){
       return function(){
        var r={_:[true]};
-       var e=oldState_61;
+       var e=oldState_62;
        for(var i in e){r[i]=e[i];}
        r.room=r.room.slice(0);
-       r.room[0]=room_62;
+       r.room[0]=room_63;
        r.activity=r.activity.slice(0);
-       r.activity[0]=idle_9;
+       r.activity[0]=idle_10;
        return r;}();})(function(r){
-      return r.hasOwnProperty('_') ? r.changeToRoom[0] : r.changeToRoom;}(activity_40));}
-    function doShowDescription_42(oldState_63){
+      return r.hasOwnProperty('_') ? r.changeToRoom[0] : r.changeToRoom;}(activity_41));}
+    function doShowDescription_43(oldState_64){
      return function(){
-      var r={_:[true]};
-      var e=oldState_63;
-      for(var i in e){r[i]=e[i];}
-      r.dialog=r.dialog.slice(0);
-      r.dialog[0]=function(r){
-       return r.hasOwnProperty('_') ? r.showDescription[0] : r.showDescription;}(activity_40);
-      return r;}();}
-    function rememberLastClick_43(oldState_64){
-     return (clicked_28?function(){
       var r={_:[true]};
       var e=oldState_64;
       for(var i in e){r[i]=e[i];}
-      r.lastClick=r.lastClick.slice(0);
-      r.lastClick[0]=activity_40;
-      return r;}():oldState_64);}
-    function rememberActivity_44(oldState_65){
-     return function(){
+      r.dialog=r.dialog.slice(0);
+      r.dialog[0]=function(r){
+       return r.hasOwnProperty('_') ? r.showDescription[0] : r.showDescription;}(activity_41);
+      return r;}();}
+    function rememberLastClick_44(oldState_65){
+     return (clicked_29?function(){
       var r={_:[true]};
       var e=oldState_65;
       for(var i in e){r[i]=e[i];}
+      r.lastClick=r.lastClick.slice(0);
+      r.lastClick[0]=activity_41;
+      return r;}():oldState_65);}
+    function rememberActivity_45(oldState_66){
+     return function(){
+      var r={_:[true]};
+      var e=oldState_66;
+      for(var i in e){r[i]=e[i];}
       r.activity=r.activity.slice(0);
-      r.activity[0]=activity_40;
+      r.activity[0]=activity_41;
       return r;}();}
-    return ['Tuple2',view_52,newState_45];}();};}
- function mkinput_15(t_66){
-  return function(clicked_67){
-   return function(a0_68){
+    return ['Tuple2',view_53,newState_46];}();};}
+ function mkinput_16(t_67){
+  return function(clicked_68){
+   return function(a0_69){
     return function(){
-    switch(a0_68[0]){
+    switch(a0_69[0]){
      case 'Tuple2':
      return function(){
-      var r_71=
-       {mouse : [
-       {clicked : [clicked_67],
-        x : [a0_68[1]],
-        y : [a0_68[2]],
+      var r_72={
+        mouse : [{
+        clicked : [clicked_68],
+        x : [a0_69[1]],
+        y : [a0_69[2]],
         _ : [true]}],
-        t : [t_66],
+        t : [t_67],
         _ : [true]};
-      return r_71;}();
+      return r_72;}();
     }
-    throw "Non-exhaustive pattern match in case expression (Line 84, Column 37)";}();};};}
+    throw "Non-exhaustive pattern match in case expression (Line 86, Column 37)";}();};};}
  var gameWidth_0=1024;
  var gameHeight_1=768;
- var xga_2=
-  {height : [768],
+ var xga_2={
+   height : [768],
    width : [1024],
    _ : [true]};
- var ico_3=
-  {height : [100],
+ var ico_3={
+   height : [100],
    width : [100],
    _ : [true]};
- var office_4=
-  {bg : [function(){
+ var office_4={
+   bg : [function(){
   var r={_:[true]};
   var e=xga_2;
   for(var i in e){r[i]=e[i];}
@@ -200,8 +200,8 @@ Elm.Main=function(){
   } else { r.image = [v]; }
   return r;}()],
    _ : [true]};
- var corridor_5=
-  {bg : [function(){
+ var corridor_5={
+   bg : [function(){
   var r={_:[true]};
   var e=xga_2;
   for(var i in e){r[i]=e[i];}
@@ -212,8 +212,8 @@ Elm.Main=function(){
   } else { r.image = [v]; }
   return r;}()],
    _ : [true]};
- var infirmary_6=
-  {bg : [function(){
+ var infirmary_6={
+   bg : [function(){
   var r={_:[true]};
   var e=xga_2;
   for(var i in e){r[i]=e[i];}
@@ -224,90 +224,109 @@ Elm.Main=function(){
   } else { r.image = [v]; }
   return r;}()],
    _ : [true]};
- var doors_7=['Cons',
-  {height : [407],
+ var escapePod_7={
+   bg : [function(){
+  var r={_:[true]};
+  var e=xga_2;
+  for(var i in e){r[i]=e[i];}
+  var v=Value.str('Escape Pod.jpg');
+  if (r.hasOwnProperty('image')) {
+   r.image = r.image.slice(0);
+   r.image.unshift(v);
+  } else { r.image = [v]; }
+  return r;}()],
+   _ : [true]};
+ var doors_8=['Cons',{
+   height : [407],
    left : [473],
    room : [office_4],
    targetRoom : [corridor_5],
    top : [99],
    width : [248],
-   _ : [true]},['Cons',
-  {height : [120],
+   _ : [true]},['Cons',{
+   height : [120],
    left : [140],
    room : [corridor_5],
    targetRoom : [office_4],
    top : [320],
    width : [96],
-   _ : [true]},['Cons',
-  {height : [120],
+   _ : [true]},['Cons',{
+   height : [120],
    left : [770],
    room : [corridor_5],
    targetRoom : [infirmary_6],
    top : [320],
    width : [96],
-   _ : [true]},['Cons',
-  {height : [395],
+   _ : [true]},['Cons',{
+   height : [395],
    left : [665],
    room : [infirmary_6],
    targetRoom : [corridor_5],
    top : [232],
    width : [313],
-   _ : [true]},['Nil']]]]];
- var props_8=['Cons',
-  {descriptions : [['Cons',Value.str('Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!'),['Nil']]],
+   _ : [true]},['Cons',{
+   height : [28],
+   left : [538],
+   room : [corridor_5],
+   targetRoom : [escapePod_7],
+   top : [433],
+   width : [73],
+   _ : [true]},['Cons',{
+   height : [91],
+   left : [294],
+   room : [escapePod_7],
+   targetRoom : [corridor_5],
+   top : [139],
+   width : [199],
+   _ : [true]},['Nil']]]]]]];
+ var props_9=['Cons',{
+   descriptions : [['Cons',Value.str('Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!'),['Nil']]],
    height : [93],
    left : [212],
    room : [office_4],
    top : [247],
    width : [59],
-   _ : [true]},['Cons',
-  {descriptions : [['Cons',Value.str('My predecessor.'),['Nil']]],
+   _ : [true]},['Cons',{
+   descriptions : [['Cons',Value.str('My predecessor.'),['Nil']]],
    height : [75],
    left : [297],
    room : [office_4],
    top : [303],
    width : [75],
-   _ : [true]},['Cons',
-  {descriptions : [['Cons',Value.str('Those instruments look very unique.  Could they be part of my job here?'),['Nil']]],
+   _ : [true]},['Cons',{
+   descriptions : [['Cons',Value.str('Those instruments look very unique.  Could they be part of my job here?'),['Nil']]],
    height : [390],
    left : [738],
    room : [office_4],
    top : [290],
    width : [133],
-   _ : [true]},['Cons',
-  {descriptions : [['Cons',Value.str('Looks like the escape pod has already launched.'),['Nil']]],
+   _ : [true]},['Cons',{
+   descriptions : [['Cons',Value.str('Looks like the escape pod has already launched.'),['Nil']]],
    height : [25],
    left : [301],
    room : [corridor_5],
    top : [437],
    width : [73],
-   _ : [true]},['Cons',
-  {descriptions : [['Cons',Value.str('The escape pod hatch was left open.  How strange!'),['Nil']]],
-   height : [25],
-   left : [536],
-   room : [corridor_5],
-   top : [437],
-   width : [73],
-   _ : [true]},['Nil']]]]]];
- var idle_9=
-  {changeToRoom : [Nothing],
+   _ : [true]},['Nil']]]]];
+ var idle_10={
+   changeToRoom : [Nothing],
    showDescription : [Nothing],
    walkTo : [Nothing],
    _ : [true]};
- var items_10=['Cons',
-  {icon : [Value.str('ScrewDriver_1_inventory.png')],
+ var items_11=['Cons',{
+   icon : [Value.str('ScrewDriver_1_inventory.png')],
    _ : [true]},['Nil']];
- var startState_11=
-  {activity : [idle_9],
+ var startState_12={
+   activity : [idle_10],
    dialog : [Nothing],
-   lastClick : [
-  {_ : [true]}],
+   lastClick : [{
+   _ : [true]}],
    room : [office_4],
    showingInventory : [true],
    _ : [true]};
- var input_16=lift3(mkinput_15)(Time.every(0.1))(Mouse.isClicked)(Mouse.position);
- var gameAutomaton_17=init_(startState_11)(updateGame_14);
- var main_18=Automaton.run(gameAutomaton_17)(input_16);
+ var input_17=lift3(mkinput_16)(Time.every(0.1))(Mouse.isClicked)(Mouse.position);
+ var gameAutomaton_18=init_(startState_12)(updateGame_15);
+ var main_19=Automaton.run(gameAutomaton_18)(input_17);
  return {$op : {},
  gameWidth:gameWidth_0,
  gameHeight:gameHeight_1,
@@ -316,18 +335,19 @@ Elm.Main=function(){
  office:office_4,
  corridor:corridor_5,
  infirmary:infirmary_6,
- doors:doors_7,
- props:props_8,
- idle:idle_9,
- items:items_10,
- startState:startState_11,
- inRect:inRect_12,
- headMaybe:headMaybe_13,
- updateGame:updateGame_14,
- mkinput:mkinput_15,
- input:input_16,
- gameAutomaton:gameAutomaton_17,
- main:main_18};}();
+ escapePod:escapePod_7,
+ doors:doors_8,
+ props:props_9,
+ idle:idle_10,
+ items:items_11,
+ startState:startState_12,
+ inRect:inRect_13,
+ headMaybe:headMaybe_14,
+ updateGame:updateGame_15,
+ mkinput:mkinput_16,
+ input:input_17,
+ gameAutomaton:gameAutomaton_18,
+ main:main_19};}();
 Elm.main=function(){
  return Elm.Main.main;};
 } catch (e) {
