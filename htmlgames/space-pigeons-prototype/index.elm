@@ -11,13 +11,16 @@ ico = { width=100, height=100 }
 office = { bg = {xga|image="Office.jpg"} }
 corridor = { bg = {xga|image="Corridor.jpg"} }
 infirmary = { bg = {xga|image="Infirmary.jpg"} }
+escapePod = { bg = {xga|image="Escape Pod.jpg"} }
 
 -- Doors
 doors = [
     { room=office,    left=473, top= 99, width=248, height=407, targetRoom=corridor  }, -- Office Exit
     { room=corridor,  left=140, top=320, width= 96, height=120, targetRoom=office    }, -- Office Entrance
     { room=corridor,  left=770, top=320, width= 96, height=120, targetRoom=infirmary }, -- Infirmary Entrance
-    { room=infirmary, left=665, top=232, width=313, height=395, targetRoom=corridor  }  -- Infirmary Exit
+    { room=infirmary, left=665, top=232, width=313, height=395, targetRoom=corridor  },  -- Infirmary Exit
+    { room=corridor,  left=538, top=433, width= 73, height= 28, targetRoom=escapePod }, -- Escape Pod Entrance
+    { room=escapePod, left=294, top=139, width=199, height= 91, targetRoom=corridor  }  -- Infirmary Exit
  ]
 
 -- Props
@@ -25,8 +28,7 @@ props = [
     {room=office,   left=212, top=247, width= 59, height= 93, descriptions=["Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!"]},
     {room=office,   left=297, top=303, width= 75, height= 75, descriptions=["My predecessor."]},
     {room=office,   left=738, top=290, width=133, height=390, descriptions=["Those instruments look very unique.  Could they be part of my job here?"]},
-    {room=corridor, left=301, top=437, width= 73, height= 25, descriptions=["Looks like the escape pod has already launched."]},
-    {room=corridor, left=536, top=437, width= 73, height= 25, descriptions=["The escape pod hatch was left open.  How strange!"]}
+    {room=corridor, left=301, top=437, width= 73, height= 25, descriptions=["Looks like the escape pod has already launched."]}
  ]
 
 -- Game state
