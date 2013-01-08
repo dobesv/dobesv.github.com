@@ -191,10 +191,12 @@ updateGame input oldState =
                                      (topLeftAt (absolute p.left) (absolute p.top))
                                      (image p.width p.height ("images/props/"++p.image))) pickupsNotPickedUp
         inventoryView =
-            let itemImage item = image 100 100 ("images/icon/"++item.icon)
-                itemIcons = flow right (List.map (findItem >>> itemImage) (Dict.keys newState.inventory))
-                itemBg = image 809 106 "images/ui/inventorybg.png"
-            in container gameWidth gameHeight midBottom (layers [itemBg, itemIcons])
+            if newState.inventory == Dict.empty then plainText "" else
+                let heldItems = Dict.keys newState.inventory
+                    itemImage item = image 100 100 ("images/icon/"++item.icon)
+                    itemIcons = flow right (List.map (findItem >>> itemImage) heldItems)
+                    itemBg = image 809 106 "images/ui/inventorybg.png"
+                in container gameWidth gameHeight midBottom (layers [itemBg, itemIcons])
         applyFade elt =
             let fadeAmount {next, startTime, endTime} = (t - startTime) / (endTime - startTime)
                 alpha = case newActivity of
