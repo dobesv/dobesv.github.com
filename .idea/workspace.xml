@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list id="9f31702b-96c3-417e-93c2-ab550a90107a" name="Default" comment="Updated space pigeons prototype with room navigation and clickable &quot;props&quot; that show some text.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/sass_stdlib.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/draft-c10k.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/draft-ego-vs-no-ego.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/draft-hiring.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/draft-just-being-here.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/draft-ultimate-web-framework.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/draft-youtube-disruption.markdown" />
+      <change type="DELETED" beforePath="E:\projects\dobesv.com\book1\act1\chap1.markdown" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/headshots/hs1.JPG" afterPath="$PROJECT_DIR$/images/headshots/hs1.JPG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/icons/link.png" afterPath="$PROJECT_DIR$/images/icons/link.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dobesv.com.iml" afterPath="$PROJECT_DIR$/.idea/dobesv.com.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/404.html" afterPath="$PROJECT_DIR$/404.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CNAME" afterPath="$PROJECT_DIR$/CNAME" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/footer.html" afterPath="$PROJECT_DIR$/_includes/footer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/head.html" afterPath="$PROJECT_DIR$/_includes/head.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/nav.html" afterPath="$PROJECT_DIR$/_includes/nav.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/sidebar.html" afterPath="$PROJECT_DIR$/_includes/sidebar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/index.html" afterPath="$PROJECT_DIR$/_layouts/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/post.html" afterPath="$PROJECT_DIR$/_layouts/post.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-08-05-should-vs-want.markdown" afterPath="$PROJECT_DIR$/_posts/2011-08-05-should-vs-want.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-08-05-whats-important.markdown" afterPath="$PROJECT_DIR$/_posts/2011-08-05-whats-important.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-01-10-cause-and-effect.markdown" afterPath="$PROJECT_DIR$/_posts/2012-01-10-cause-and-effect.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-01-10-ego.markdown" afterPath="$PROJECT_DIR$/_posts/2012-01-10-ego.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-01-13-why-blog.markdown" afterPath="$PROJECT_DIR$/_posts/2012-01-13-why-blog.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-01-15-4-relationship-toxins.markdown" afterPath="$PROJECT_DIR$/_posts/2012-01-15-4-relationship-toxins.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-01-16-future-of-computers.markdown" afterPath="$PROJECT_DIR$/_posts/2012-01-16-future-of-computers.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-01-18-five-love-languages.markdown" afterPath="$PROJECT_DIR$/_posts/2012-01-18-five-love-languages.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-02-01-one-page-apps-vs-multipage-apps.markdown" afterPath="$PROJECT_DIR$/_posts/2012-02-01-one-page-apps-vs-multipage-apps.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/draft-build-your-self-to-last.markdown" afterPath="$PROJECT_DIR$/_posts/draft-build-your-self-to-last.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about.markdown" afterPath="$PROJECT_DIR$/about.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives.markdown" afterPath="$PROJECT_DIR$/archives.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channel.html" afterPath="$PROJECT_DIR$/channel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/accordion.html" afterPath="$PROJECT_DIR$/components/accordion.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/tabs.html" afterPath="$PROJECT_DIR$/components/tabs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/easy.css" afterPath="$PROJECT_DIR$/css/easy.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/easyprint.css" afterPath="$PROJECT_DIR$/css/easyprint.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/syntax.css" afterPath="$PROJECT_DIR$/css/syntax.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo.html" afterPath="$PROJECT_DIR$/demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/postgresql-http-api.markdown" afterPath="$PROJECT_DIR$/docs/postgresql-http-api.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/postgresql-materialized-views.markdown" afterPath="$PROJECT_DIR$/docs/postgresql-materialized-views.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feed/articles.xml" afterPath="$PROJECT_DIR$/feed/articles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feed/links.xml" afterPath="$PROJECT_DIR$/feed/links.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feed/posts.xml" afterPath="$PROJECT_DIR$/feed/posts.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlee14323586d916d7f.html" afterPath="$PROJECT_DIR$/googlee14323586d916d7f.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htmlgames/cityburner/build.bat" afterPath="$PROJECT_DIR$/htmlgames/cityburner/build.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htmlgames/cityburner/index.elm" afterPath="$PROJECT_DIR$/htmlgames/cityburner/index.elm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htmlgames/cityburner/index.html" afterPath="$PROJECT_DIR$/htmlgames/cityburner/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htmlgames/elm-runtime-0.6.0.3.js" afterPath="$PROJECT_DIR$/htmlgames/elm-runtime-0.6.0.3.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htmlgames/elm-runtime-0.7.js" afterPath="$PROJECT_DIR$/htmlgames/elm-runtime-0.7.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htmlgames/index.html" afterPath="$PROJECT_DIR$/htmlgames/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.markdown" afterPath="$PROJECT_DIR$/index.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/easy.js" afterPath="$PROJECT_DIR$/js/easy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery.js" afterPath="$PROJECT_DIR$/js/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/comments_1.html" afterPath="$PROJECT_DIR$/library/comments_1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/form_1.html" afterPath="$PROJECT_DIR$/library/form_1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/form_2.html" afterPath="$PROJECT_DIR$/library/form_2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/form_search.html" afterPath="$PROJECT_DIR$/library/form_search.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/list_1.html" afterPath="$PROJECT_DIR$/library/list_1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/list_2.html" afterPath="$PROJECT_DIR$/library/list_2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/list_3.html" afterPath="$PROJECT_DIR$/library/list_3.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/navigation_absolute.html" afterPath="$PROJECT_DIR$/library/navigation_absolute.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/navigation_inline.html" afterPath="$PROJECT_DIR$/library/navigation_inline.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/pagination.html" afterPath="$PROJECT_DIR$/library/pagination.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/license.easy.txt" afterPath="$PROJECT_DIR$/license.easy.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.xml" afterPath="$PROJECT_DIR$/sitemap.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.xsl" afterPath="$PROJECT_DIR$/sitemap.xsl" />
+    </list>
+    <list default="true" id="82dc0daa-fa48-4e07-b92a-42be84252dbc" name="spiace pigeons prototype" comment="Add an inventory drawer, the ability to pick up items, and a fade effect between rooms.  Still lots to do ..." />
+    <ignored path="dobesv.com.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="dobesv.com" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="build.bat" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htmlgames/space-pigeons-prototype/build.bat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="38" selection-start="0" selection-end="38" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.elm" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/htmlgames/space-pigeons-prototype/index.elm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="149" column="74" selection-start="6050" selection-end="6050" vertical-scroll-proportion="0.588535">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="FrameworkCommandLineHistory">
+    <commandsHistory>
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="help" />
+      <command text="elm-server" />
+      <command text="start elm-server" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm --ehlp" />
+      <command text="elm --help" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+      <command text="elm index.elm -r ../elm-runtime-0.7.js" />
+    </commandsHistory>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Dobes Vandermeer &lt;dobesv@gm..." />
+        <option value="Dobes Vandermeer &lt;dobesv@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="mySelectedBranch" value="refs/heads/master" />
+    <option name="myStructureFilterPaths" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.txt" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/_posts/draft-one-page-apps-vs-multipage-apps.markdown" />
+        <option value="$PROJECT_DIR$/_posts/2012-02-01-one-page-apps-vs-multipage-apps.markdown" />
+        <option value="$PROJECT_DIR$/_posts/draft-c10k.markdown" />
+        <option value="$PROJECT_DIR$/_posts/draft-ultimate-web-framework.markdown" />
+        <option value="$PROJECT_DIR$/docs/postgresql-materialized-views.markdown" />
+        <option value="$PROJECT_DIR$/docs/postgresql-http-api.markdown" />
+        <option value="$PROJECT_DIR$/htmlgames/cityburner/random-buildings-scrolling.html" />
+        <option value="$PROJECT_DIR$/htmlgames/cityburner/random-buildings-scrolling.elm" />
+        <option value="$PROJECT_DIR$/htmlgames/space-pigeons-prototype/build.bat" />
+        <option value="$PROJECT_DIR$/htmlgames/space-pigeons-prototype/undefbug.elm" />
+        <option value="$PROJECT_DIR$/htmlgames/space-pigeons-prototype/undefbug2.elm" />
+        <option value="$PROJECT_DIR$/htmlgames/space-pigeons-prototype/index2.html" />
+        <option value="$PROJECT_DIR$/htmlgames/space-pigeons-prototype/index.html" />
+        <option value="$PROJECT_DIR$/htmlgames/cityburner/build.bat" />
+        <option value="$PROJECT_DIR$/htmlgames/index.html" />
+        <option value="$PROJECT_DIR$/htmlgames/space-pigeons-prototype/index.elm" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1524" />
+    <option name="height" value="1400" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htmlgames" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htmlgames" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="space-pigeons-prototype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htmlgames" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="space-pigeons-prototype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htmlgames" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="space-pigeons-prototype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="props" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htmlgames" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="space-pigeons-prototype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dobesv.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htmlgames" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="space-pigeons-prototype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/htmlgames/space-pigeons-prototype" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="PublishConfig" serverName="elm-server in space-pigeons-prototype" serverId="6862767e-50b2-4d3e-9dca-5517047f4ff4">
+    <servers>
+      <server id="6862767e-50b2-4d3e-9dca-5517047f4ff4">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/htmlgames/space-pigeons-prototype" web="/" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\projects\dobesv.com\htmlgames\space-pigeons-prototype" />
+      <recent name="F:\projects\dobesv.com\htmlgames" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\projects\dobesv.com\htmlgames\space-pigeons-prototype\images\props" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="true">C:\Users\dobes\AppData\Roaming\Subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task id="Default" summary="Default task">
+      <changelist id="9f31702b-96c3-417e-93c2-ab550a90107a" name="Default" comment="" />
+      <created>1326089094825</created>
+      <updated>1357597430999</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Start on a concept for an HTTP API to PostgreSQL.">
+      <created>1333030261752</created>
+      <updated>1333030261752</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add layout / post to PGHTTP page.">
+      <created>1333030293374</created>
+      <updated>1333030293374</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add layout / post to PGHTTP page.">
+      <created>1333086894383</created>
+      <updated>1333086894383</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Try adding this elm demo to dobesv.com">
+      <created>1356542814309</created>
+      <updated>1356542814309</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Try adding this elm demo to dobesv.com">
+      <created>1356629492410</created>
+      <updated>1356629492410</updated>
+    </task>
+    <task id="LOCAL-00006" summary="New version using extensible records instead of data constructors.&#10;">
+      <created>1356652359186</created>
+      <updated>1356652359186</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Updated space pigeons prototype with room navigation and clickable &quot;props&quot; that show some text.  Updated to elm 0.7">
+      <created>1357165225558</created>
+      <updated>1357165225558</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Updated space pigeons prototype with room navigation and clickable &quot;props&quot; that show some text.">
+      <created>1357165638703</created>
+      <updated>1357165638703</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Change cityburner to use index.elm so the URL is easier to look at.">
+      <created>1357328278439</created>
+      <updated>1357328278439</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add navigation into the escape pod.">
+      <created>1357332580529</created>
+      <updated>1357332580529</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add an index in htmlgames/.  Rebuild space pigeons prototype to include the escape pod room.">
+      <created>1357332733928</created>
+      <updated>1357332733928</updated>
+    </task>
+    <task active="true" id="LOCAL-00012" summary="spiace pigeons prototype">
+      <option name="associatedChangelistId" value="82dc0daa-fa48-4e07-b92a-42be84252dbc" />
+      <changelist id="82dc0daa-fa48-4e07-b92a-42be84252dbc" name="spiace pigeons prototype" comment="" />
+      <changelist id="82dc0daa-fa48-4e07-b92a-42be84252dbc" name="spiace pigeons prototype" comment="" />
+      <created>1357597430988</created>
+      <updated>1357597431065</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add an inventory drawer, the ability to pick up items, and a fade effect between rooms.  Still lots to do ...">
+      <created>1357630381324</created>
+      <updated>1357630381324</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add an inventory drawer, the ability to pick up items, and a fade effect between rooms.  Still lots to do ...">
+      <created>1357630622906</created>
+      <updated>1357630622906</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1524" height="1400" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24455206" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3408488" sideWeight="0.6708861" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add an inventory drawer, the ability to pick up items, and a fade effect between rooms.  Still lots to do ..." />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="Add layout to about.markdown." />
+    <MESSAGE value="More tweaks.&#10;" />
+    <MESSAGE value="Try to fix the Google+ Profile link." />
+    <MESSAGE value="Post a couple excerpts from that leadership paper I've been reading." />
+    <MESSAGE value="Add Facebook Like, Send, and Comments to each post." />
+    <MESSAGE value="Fix the date on the about page in sitemap.xml" />
+    <MESSAGE value="A couple new posts." />
+    <MESSAGE value="Fix the links and add a link to Alfred's site." />
+    <MESSAGE value="Add an article about the future of computers.&#10;" />
+    <MESSAGE value="Add an article about the Five Love Languages" />
+    <MESSAGE value="Change Five Love Languages category to books." />
+    <MESSAGE value="the -&gt; they" />
+    <MESSAGE value="Fix another error." />
+    <MESSAGE value="Remove amazon thingy from the end and add a little closing paragraph." />
+    <MESSAGE value="Fix up the title I think it was confusing jekyll by having a : in it." />
+    <MESSAGE value="Start on a concept for an HTTP API to PostgreSQL." />
+    <MESSAGE value="Add layout / post to PGHTTP page." />
+    <MESSAGE value="Try adding this elm demo to dobesv.com" />
+    <MESSAGE value="New version using extensible records instead of data constructors.&#10;" />
+    <MESSAGE value="Updated space pigeons prototype with room navigation and clickable &quot;props&quot; that show some text.  Updated to elm 0.7" />
+    <MESSAGE value="Updated space pigeons prototype with room navigation and clickable &quot;props&quot; that show some text." />
+    <MESSAGE value="Change cityburner to use index.elm so the URL is easier to look at." />
+    <MESSAGE value="Add navigation into the escape pod." />
+    <MESSAGE value="Add an index in htmlgames/.  Rebuild space pigeons prototype to include the escape pod room." />
+    <MESSAGE value="Add an inventory drawer, the ability to pick up items, and a fade effect between rooms.  Still lots to do ..." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/htmlgames/space-pigeons-prototype/build.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/cityburner/build.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/elm-runtime-0.7.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="412" column="22" selection-start="11419" selection-end="11419" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/draft-c10k.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="87" selection-start="17" selection-end="102" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/draft-ultimate-web-framework.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="77" selection-start="8009" selection-end="8009" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/postgresql-materialized-views.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/postgresql-http-api.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="0" selection-start="55" selection-end="4537" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/cityburner/index.elm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="39" selection-start="26" selection-end="78" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/space-pigeons-prototype/images/bg/Corridor.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/elm-runtime-0.7.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="412" column="22" selection-start="11419" selection-end="11419" vertical-scroll-proportion="0.018930959">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/space-pigeons-prototype/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="334" column="11" selection-start="12030" selection-end="12030" vertical-scroll-proportion="0.47362384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/cityburner/build.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.018660812" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="41" selection-start="93" selection-end="93" vertical-scroll-proportion="0.03841808" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/space-pigeons-prototype/build.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="38" selection-start="0" selection-end="38" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.WebIde50/config/commandlinetools/elm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htmlgames/space-pigeons-prototype/index.elm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="74" selection-start="6050" selection-end="6050" vertical-scroll-proportion="0.588535">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
