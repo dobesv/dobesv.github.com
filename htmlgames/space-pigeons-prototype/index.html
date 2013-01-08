@@ -39,145 +39,342 @@ Elm.Main=function(){
  for (Elm['i'] in Elm.Text) {
   if (hiddenVars[Elm['i']]) continue;
   eval('var ' + Elm['i'] + ' = Elm.Text[Elm.i];');}
- function inRect_13(x_20){
-  return function(y_21){
-   return function(rect_22){
+ try{
+  if (!(Elm.Graphics instanceof Object)) throw 'module not found';
+ } catch(e) {
+  throw ("Module 'Graphics' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
+ }
+ var hiddenVars={};
+ for (Elm['i'] in Elm.Graphics) {
+  if (hiddenVars[Elm['i']]) continue;
+  eval('var ' + Elm['i'] + ' = Elm.Graphics[Elm.i];');}
+ var Idle_13=['Idle'];
+ function ShowDescription_14(a1){
+  return ['ShowDescription',a1];}
+ function FadeOutTo_15(a1){
+  return ['FadeOutTo',a1];}
+ function FadeInTo_16(a1){
+  return ['FadeInTo',a1];}
+ function ChangeToRoom_17(a1){
+  return ['ChangeToRoom',a1];}
+ function PickUpItem_18(a1){
+  return ['PickUpItem',a1];}
+ function indexBy_4(f_32){
+  return function(lst_33){
+   return Dict.fromList(map(function(v_34){
     return function(){
-     var dx_23=(x_20-function(r){
-      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(rect_22));
-     var dy_24=(y_21-function(r){
-      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(rect_22));
-     return (function() { var ord = compare(dx_23)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&((compare(dx_23)(function(r){
-      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(rect_22))[0] === 'LT')&&(function() { var ord = compare(dy_24)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&(compare(dy_24)(function(r){
-      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(rect_22))[0] === 'LT'))));}();};};}
- function headMaybe_14(lst_25){
+     var k_35=f_32(v_34);
+     return ['Tuple2',k_35,v_34];}();})(lst_33));};}
+ function indexById_5(lst_36){
+  return indexBy_4(function(__37){
+   return function(r){
+    return r.hasOwnProperty('_') ? r.id[0] : r.id;}(__37);})(lst_36);}
+ function groupBy_6(f_38){
+  return function(lst_39){
+   return function(){
+    function addToGroup_40(v_41){
+     return function(dict_42){
+      return function(){
+       var k_43=f_38(v_41);
+       return ['Cons',Dict.insert(k_43)(v_41),Dict.findWithDefault(['Nil'])(k_43)(dict_42)];}();};}
+    return List.foldr(addToGroup_40)(Dict.empty)(lst_39);}();};}
+ $op['>>>'] = function(f_44){
+  return function(g_45){
+   return function(x){
+    return g_45(f_44(x));};};};
+ $op['|>'] = function(x_46){
+  return function(g_47){
+   return g_47(x_46);};};
+ function half_7(x_48){
+  return div(x_48)(2);}
+ function inRect_20(x_63){
+  return function(y_64){
+   return function(rect_65){
+    return function(){
+     var dx_66=(x_63-function(r){
+      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(rect_65));
+     var dy_67=(y_64-function(r){
+      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(rect_65));
+     return (function() { var ord = compare(dx_66)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&((compare(dx_66)(function(r){
+      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(rect_65))[0] === 'LT')&&(function() { var ord = compare(dy_67)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&(compare(dy_67)(function(r){
+      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(rect_65))[0] === 'LT'))));}();};};}
+ function headMaybe_21(lst_68){
   return function(){
-  switch(lst_25[0]){
+  switch(lst_68[0]){
    case 'Cons':
-   return Just(lst_25[1]);
+   return Just(lst_68[1]);
    case 'Nil':
    return Nothing;
   }
-  throw "Non-exhaustive pattern match in case expression (Line 55, Column 17)";}();}
- function updateGame_15(input_27){
-  return function(oldState_28){
+  throw "Non-exhaustive pattern match in case expression (Line 100, Column 17)";}();}
+ function find_22(p_70){
+  return function(lst_71){
    return function(){
-    var clicked_29=function(r){
-     return r.hasOwnProperty('_') ? r.clicked[0] : r.clicked;}(function(r){
-     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(input_27));
-    var mouseX_30=function(r){
-     return r.hasOwnProperty('_') ? r.x[0] : r.x;}(function(r){
-     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(input_27));
-    var mouseY_31=function(r){
-     return r.hasOwnProperty('_') ? r.y[0] : r.y;}(function(r){
-     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(input_27));
-    var clickedDoorActivities_37=map(clickedDoorActivity_36)(filterClickedOn_35(doors_8));
-    var clickedPropActivities_39=map(clickedPropActivity_38)(filterClickedOn_35(props_9));
-    var defaultActivity_40=(clicked_29?idle_10:function(r){
-     return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_28));
-    var activity_41=head(Value.append(clickedPropActivities_39,Value.append(clickedDoorActivities_37,['Cons',defaultActivity_40,['Nil']])));
-    var newState_46=doChangeRoom_42(doShowDescription_43(rememberActivity_45(rememberLastClick_44(oldState_28))));
-    var room_47=function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_46);
-    var bg_48=function(r){
-     return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(room_47);
-    var t_49=function(r){
-     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(input_27);
-    var bgImage_50=image(function(r){
-     return r.hasOwnProperty('_') ? r.width[0] : r.width;}(bg_48))(function(r){
-     return r.hasOwnProperty('_') ? r.height[0] : r.height;}(bg_48))(Value.append(Value.str('images/bg/'),function(r){
-     return r.hasOwnProperty('_') ? r.image[0] : r.image;}(bg_48)));
-    var debugView_51=flow(down)(map(function(x){
-     return plainText(show(x));})(['Cons',input_27,['Cons',oldState_28,['Cons',newState_46,['Nil']]]]));
-    var dialogView_52=width(gameWidth_0)(centeredText(Text.color(white)(toText(fromMaybe(Value.str('(no dialog)'))(function(r){
-     return r.hasOwnProperty('_') ? r.dialog[0] : r.dialog;}(newState_46))))));
-    var view_53=flow(down)(['Cons',layers(['Cons',bgImage_50,['Cons',dialogView_52,['Nil']]]),['Cons',debugView_51,['Nil']]]);
-    function inThisRoom_32(obj_54){
-     return eq(function(r){
-      return r.hasOwnProperty('_') ? r.room[0] : r.room;}(obj_54),function(r){
-      return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_28));}
-    function inRectInThisRoom_33(x_55){
-     return function(y_56){
-      return function(obj_57){
-       return (inThisRoom_32(obj_57)&&inRect_13(x_55)(y_56)(obj_57));};};}
-    function clickedOnInThisRoom_34(obj_58){
-     return inRectInThisRoom_33(mouseX_30)(mouseY_31)(obj_58);}
-    function filterClickedOn_35(objs_59){
-     return (clicked_29?filter(clickedOnInThisRoom_34)(objs_59):['Nil']);}
-    function clickedDoorActivity_36(door_60){
-     return function(){
-      var r={_:[true]};
-      var e=idle_10;
-      for(var i in e){r[i]=e[i];}
-      r.changeToRoom=r.changeToRoom.slice(0);
-      r.changeToRoom[0]=Just(function(r){
-       return r.hasOwnProperty('_') ? r.targetRoom[0] : r.targetRoom;}(door_60));
-      return r;}();}
-    function clickedPropActivity_38(prop_61){
-     return function(){
-      var r={_:[true]};
-      var e=idle_10;
-      for(var i in e){r[i]=e[i];}
-      r.showDescription=r.showDescription.slice(0);
-      r.showDescription[0]=headMaybe_14(function(r){
-       return r.hasOwnProperty('_') ? r.descriptions[0] : r.descriptions;}(prop_61));
-      return r;}();}
-    function doChangeRoom_42(oldState_62){
-     return maybe(oldState_62)(function(room_63){
-      return function(){
-       var r={_:[true]};
-       var e=oldState_62;
-       for(var i in e){r[i]=e[i];}
-       r.room=r.room.slice(0);
-       r.room[0]=room_63;
-       r.activity=r.activity.slice(0);
-       r.activity[0]=idle_10;
-       return r;}();})(function(r){
-      return r.hasOwnProperty('_') ? r.changeToRoom[0] : r.changeToRoom;}(activity_41));}
-    function doShowDescription_43(oldState_64){
-     return function(){
-      var r={_:[true]};
-      var e=oldState_64;
-      for(var i in e){r[i]=e[i];}
-      r.dialog=r.dialog.slice(0);
-      r.dialog[0]=function(r){
-       return r.hasOwnProperty('_') ? r.showDescription[0] : r.showDescription;}(activity_41);
-      return r;}();}
-    function rememberLastClick_44(oldState_65){
-     return (clicked_29?function(){
-      var r={_:[true]};
-      var e=oldState_65;
-      for(var i in e){r[i]=e[i];}
-      r.lastClick=r.lastClick.slice(0);
-      r.lastClick[0]=activity_41;
-      return r;}():oldState_65);}
-    function rememberActivity_45(oldState_66){
-     return function(){
-      var r={_:[true]};
-      var e=oldState_66;
-      for(var i in e){r[i]=e[i];}
-      r.activity=r.activity.slice(0);
-      r.activity[0]=activity_41;
-      return r;}();}
-    return ['Tuple2',view_53,newState_46];}();};}
- function mkinput_16(t_67){
-  return function(clicked_68){
-   return function(a0_69){
+   switch(lst_71[0]){
+    case 'Cons':
+    return (p_70(lst_71[1])?Just(lst_71[1]):find_22(p_70)(lst_71[2]));
+    case 'Nil':
+    return Nothing;
+   }
+   throw "Non-exhaustive pattern match in case expression (Line 104, Column 14)";}();};}
+ function findRoom_23(id_74){
+  return Dict.findWithDefault(badRoomId_12)(id_74)(rooms_11);}
+ function findItem_24(id_75){
+  return Dict.findWithDefault(badItemId_10)(id_75)(items_9);}
+ function tryInTurn_25(defaultValue_76){
+  return function(flist_77){
+   return function(){
+   switch(flist_77[0]){
+    case 'Cons':
     return function(){
-    switch(a0_69[0]){
+    var case9=flist_77[1](['Tuple0']);
+    switch(case9[0]){
+     case 'Just':
+     return case9[1];
+     case 'Nothing':
+     return tryInTurn_25(defaultValue_76)(flist_77[2]);
+    }
+    throw "Non-exhaustive pattern match in case expression (Line 114, Column 17)";}();
+    case 'Nil':
+    return defaultValue_76;
+   }
+   throw "Non-exhaustive pattern match in case expression (Line 112, Column 5)";}();};}
+ function maybeMap_26(f_81){
+  return function(x_82){
+   return function(){
+   switch(x_82[0]){
+    case 'Just':
+    return Just(f_81(x_82[1]));
+    case 'Nothing':
+    return Nothing;
+   }
+   throw "Non-exhaustive pattern match in case expression (Line 118, Column 5)";}();};}
+ function updateGame_27(input_84){
+  return function(oldState_85){
+   return function(){
+    var a0_86=input_84;
+    var t_87=function(r){
+     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(a0_86);
+    var mouse_88=function(r){
+     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(a0_86);
+    var clicked_89=function(r){
+     return r.hasOwnProperty('_') ? r.clicked[0] : r.clicked;}(mouse_88);
+    var oldRoom_91=findRoom_23(function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_85));
+    var pickupsNotPickedUp_92=filter(function(p_107){
+     return eq(false,Dict.findWithDefault(false)(function(r){
+      return r.hasOwnProperty('_') ? r.item[0] : r.item;}(p_107))(function(r){
+      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_85)));})(function(r){
+     return r.hasOwnProperty('_') ? r.pickups[0] : r.pickups;}(oldRoom_91));
+    var newActivity_94=function(){
+     var oldActivity_109=function(r){
+      return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_85);
+     var fadeTime_110=500;
+     var descriptionTime_115=5000;
+     function fadeOutTo_111(next_121){
+      return FadeOutTo_15({
+        endTime : [(t_87+fadeTime_110)],
+        next : [next_121],
+        startTime : [t_87],
+        _ : [true]});}
+     function fadeInTo_112(next_122){
+      return FadeInTo_16({
+        endTime : [(t_87+fadeTime_110)],
+        next : [next_122],
+        startTime : [t_87],
+        _ : [true]});}
+     function checkFade_113(a0_123){
+      return function(){
+      switch(a0_123[0]){
+       case 'Tuple0':
+       return function(){
+       var case14=function(r){
+        return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_85);
+       switch(case14[0]){
+        case 'FadeInTo':
+        return Just(((compare(function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case14[1]))(t_87)[0] === 'LT')?function(r){
+         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case14[1]):function(r){
+         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_85)));
+        case 'FadeOutTo':
+        return Just(((compare(function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case14[1]))(t_87)[0] === 'LT')?function(r){
+         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case14[1]):function(r){
+         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_85)));
+       }
+       return Nothing;}();
+      }
+      throw "Non-exhaustive pattern match in case expression (Line 135, Column 21)";}();}
+     function checkEnteredRoom_114(a0_127){
+      return function(){
+      switch(a0_127[0]){
+       case 'Tuple0':
+       return function(){
+       switch(oldActivity_109[0]){
+        case 'ChangeToRoom':
+        return Just(fadeInTo_112(Idle_13));
+       }
+       return Nothing;}();
+      }
+      throw "Non-exhaustive pattern match in case expression (Line 140, Column 21)";}();}
+     function showDescription_116(text_129){
+      return ShowDescription_14({
+        endTime : [(t_87+descriptionTime_115)],
+        text : [text_129],
+        _ : [true]});}
+     function checkDoor_117(a0_130){
+      return function(){
+      switch(a0_130[0]){
+       case 'Tuple0':
+       return maybeMap_26($op['>>>'](function(__131){
+        return function(r){
+         return r.hasOwnProperty('_') ? r.targetRoom[0] : r.targetRoom;}(__131);})(function(x){
+        return fadeOutTo_111(ChangeToRoom_17(x));}))(findClickedOn_93(function(r){
+        return r.hasOwnProperty('_') ? r.doors[0] : r.doors;}(oldRoom_91)));
+      }
+      throw "Non-exhaustive pattern match in case expression (Line 145, Column 32)";}();}
+     function checkPickup_118(a0_132){
+      return function(){
+      switch(a0_132[0]){
+       case 'Tuple0':
+       return maybeMap_26($op['>>>'](function(__133){
+        return function(r){
+         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(__133);})(PickUpItem_18))(findClickedOn_93(pickupsNotPickedUp_92));
+      }
+      throw "Non-exhaustive pattern match in case expression (Line 146, Column 34)";}();}
+     function checkProp_119(a0_134){
+      return function(){
+      switch(a0_134[0]){
+       case 'Tuple0':
+       return maybeMap_26($op['>>>'](function(__135){
+        return function(r){
+         return r.hasOwnProperty('_') ? r.description[0] : r.description;}(__135);})(showDescription_116))(findClickedOn_93(function(r){
+        return r.hasOwnProperty('_') ? r.props[0] : r.props;}(oldRoom_91)));
+      }
+      throw "Non-exhaustive pattern match in case expression (Line 147, Column 32)";}();}
+     function checkDescription_120(a0_136){
+      return function(){
+      switch(a0_136[0]){
+       case 'Tuple0':
+       return function(){
+       switch(oldActivity_109[0]){
+        case 'ShowDescription':
+        return ((compare(function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(oldActivity_109[1]))(t_87)[0] === 'LT')?Nothing:Just(oldActivity_109));
+       }
+       return Nothing;}();
+      }
+      throw "Non-exhaustive pattern match in case expression (Line 149, Column 21)";}();}
+     return tryInTurn_25(Idle_13)(['Cons',checkFade_113,['Cons',checkEnteredRoom_114,['Cons',checkPickup_118,['Cons',checkProp_119,['Cons',checkDoor_117,['Cons',checkDescription_120,['Nil']]]]]]]);}();
+    var newState_95={
+      activity : [newActivity_94],
+      inventory : [function(){
+    switch(newActivity_94[0]){
+     case 'PickUpItem':
+     return Dict.insert(newActivity_94[1])(true)(function(r){
+      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_85));
+    }
+    return function(r){
+     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_85);}()],
+      lastClick : [(clicked_89?mouse_88:input_84)],
+      room : [function(){
+    switch(newActivity_94[0]){
+     case 'ChangeToRoom':
+     return newActivity_94[1];
+    }
+    return function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_85);}()],
+      _ : [true]};
+    var newRoom_96=(eq(function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_95),function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_85))?oldRoom_91:findRoom_23(function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_95)));
+    var bg_97=function(r){
+     return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(newRoom_96);
+    var bgImage_98=image(function(r){
+     return r.hasOwnProperty('_') ? r.width[0] : r.width;}(bg_97))(function(r){
+     return r.hasOwnProperty('_') ? r.height[0] : r.height;}(bg_97))(Value.append(Value.str('images/bg/'),function(r){
+     return r.hasOwnProperty('_') ? r.image[0] : r.image;}(bg_97)));
+    var debugView_99=function(){
+     var debugTextView_143=$op['>>>'](show)($op['>>>'](toText)($op['>>>'](Text.color(green))($op['>>>'](Text.monospace)(Graphics.text))));
+     var views_144=['Cons',input_84,['Cons',oldState_85,['Cons',newState_95,['Nil']]]];
+     return flow(down)(map(debugTextView_143)(views_144));}();
+    var dialogView_100=function(){
+     var text_145=function(){
+     switch(newActivity_94[0]){
+      case 'ShowDescription':
+      return function(){
+       var a0_147=newActivity_94[1];
+       var text_148=function(r){
+        return r.hasOwnProperty('_') ? r.text[0] : r.text;}(a0_147);
+       return text_148;}();
+     }
+     return Value.str('');}();
+     return $op['|>'](text_145)($op['>>>'](toText)($op['>>>'](Text.color(Color.rgb(220)(220)(220)))($op['>>>'](Text.height(2))($op['>>>'](Text.typeface(Value.str('\'Trebuchet MS\', Helvetica, sans-serif')))($op['>>>'](centeredText)($op['>>>'](Graphics.width(gameWidth_0))($op['>>>'](Graphics.color(Color.rgba(0)(0)(0)(0.5)))(container(gameWidth_0)(half_7(gameHeight_1))(middle)))))))));}();
+    var pickupViews_101=map(function(p_150){
+     return container(gameWidth_0)(gameHeight_1)(topLeftAt(absolute(function(r){
+      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(p_150)))(absolute(function(r){
+      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(p_150))))(image(function(r){
+      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(p_150))(function(r){
+      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(p_150))(Value.append(Value.str('images/props/'),function(r){
+      return r.hasOwnProperty('_') ? r.image[0] : r.image;}(p_150))));})(pickupsNotPickedUp_92);
+    var inventoryView_102=function(){
+     var itemIcons_152=flow(right)(List.map($op['>>>'](findItem_24)(itemImage_151))(Dict.keys(function(r){
+      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(newState_95))));
+     var itemBg_153=image(809)(106)(Value.str('images/ui/inventorybg.png'));
+     function itemImage_151(item_154){
+      return image(100)(100)(Value.append(Value.str('images/icon/'),function(r){
+       return r.hasOwnProperty('_') ? r.icon[0] : r.icon;}(item_154)));}
+     return container(gameWidth_0)(gameHeight_1)(midBottom)(layers(['Cons',itemBg_153,['Cons',itemIcons_152,['Nil']]]));}();
+    var stage_104=layers(['Cons',bgImage_98,Value.append(pickupViews_101,['Cons',inventoryView_102,['Cons',dialogView_100,['Nil']]])]);
+    var view_105=Graphics.color(black)(flow(down)(['Cons',applyFade_103(stage_104),['Cons',debugView_99,['Nil']]]));
+    function underMouse_90(obj_106){
+     return inRect_20(function(r){
+      return r.hasOwnProperty('_') ? r.x[0] : r.x;}(mouse_88))(function(r){
+      return r.hasOwnProperty('_') ? r.y[0] : r.y;}(mouse_88))(obj_106);}
+    function findClickedOn_93(objs_108){
+     return (clicked_89?find_22(underMouse_90)(objs_108):Nothing);}
+    function applyFade_103(elt_155){
+     return function(){
+      var alpha_157=function(){
+      switch(newActivity_94[0]){
+       case 'ChangeToRoom':
+       return 0.0;
+       case 'FadeInTo':
+       return fadeAmount_156(newActivity_94[1]);
+       case 'FadeOutTo':
+       return (1.0-fadeAmount_156(newActivity_94[1]));
+      }
+      return 1.0;}();
+      function fadeAmount_156(a0_158){
+       return function(){
+        var next_159=function(r){
+         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(a0_158);
+        var startTime_160=function(r){
+         return r.hasOwnProperty('_') ? r.startTime[0] : r.startTime;}(a0_158);
+        var endTime_161=function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(a0_158);
+        return ((t_87-startTime_160)/(endTime_161-startTime_160));}();}
+      return ((compare(alpha_157)(1.0)[0] === 'LT')?opacity(alpha_157)(elt_155):elt_155);}();}
+    return ['Tuple2',view_105,newState_95];}();};}
+ function mkinput_28(t_165){
+  return function(clicked_166){
+   return function(a0_167){
+    return function(){
+    switch(a0_167[0]){
      case 'Tuple2':
      return function(){
-      var r_72={
+      var r_170={
         mouse : [{
-        clicked : [clicked_68],
-        x : [a0_69[1]],
-        y : [a0_69[2]],
+        clicked : [clicked_166],
+        x : [a0_167[1]],
+        y : [a0_167[2]],
         _ : [true]}],
-        t : [t_67],
+        t : [t_165],
         _ : [true]};
-      return r_72;}();
+      return r_170;}();
     }
-    throw "Non-exhaustive pattern match in case expression (Line 86, Column 37)";}();};};}
+    throw "Non-exhaustive pattern match in case expression (Line 210, Column 37)";}();};};}
  var gameWidth_0=1024;
  var gameHeight_1=768;
  var xga_2={
@@ -188,169 +385,263 @@ Elm.Main=function(){
    height : [100],
    width : [100],
    _ : [true]};
- var office_4={
+ var itemList_8=['Cons',{
+   icon : [Value.str('screwdriver.png')],
+   id : [Value.str('screwdriver')],
+   _ : [true]},['Cons',{
+   icon : [Value.str('superphone.png')],
+   id : [Value.str('superphone')],
+   _ : [true]},['Nil']]];
+ var items_9=indexById_5(itemList_8);
+ var badItemId_10={
+   icon : [Value.str('XXX.png')],
+   id : [Value.str('bad')],
+   _ : [true]};
+ var rooms_11=function(){
+  var roomList_49=['Cons',{
+    bg : [function(){
+   var r={_:[true]};
+   var e=xga_2;
+   for(var i in e){r[i]=e[i];}
+   var v=Value.str('Office.jpg');
+   if (r.hasOwnProperty('image')) {
+    r.image = r.image.slice(0);
+    r.image.unshift(v);
+   } else { r.image = [v]; }
+   return r;}()],
+    id : [Value.str('office')],
+    _ : [true]},['Cons',{
+    bg : [function(){
+   var r={_:[true]};
+   var e=xga_2;
+   for(var i in e){r[i]=e[i];}
+   var v=Value.str('Corridor.jpg');
+   if (r.hasOwnProperty('image')) {
+    r.image = r.image.slice(0);
+    r.image.unshift(v);
+   } else { r.image = [v]; }
+   return r;}()],
+    id : [Value.str('corridor')],
+    _ : [true]},['Cons',{
+    bg : [function(){
+   var r={_:[true]};
+   var e=xga_2;
+   for(var i in e){r[i]=e[i];}
+   var v=Value.str('Infirmary.jpg');
+   if (r.hasOwnProperty('image')) {
+    r.image = r.image.slice(0);
+    r.image.unshift(v);
+   } else { r.image = [v]; }
+   return r;}()],
+    id : [Value.str('infirmary')],
+    _ : [true]},['Cons',{
+    bg : [function(){
+   var r={_:[true]};
+   var e=xga_2;
+   for(var i in e){r[i]=e[i];}
+   var v=Value.str('Escape Pod.jpg');
+   if (r.hasOwnProperty('image')) {
+    r.image = r.image.slice(0);
+    r.image.unshift(v);
+   } else { r.image = [v]; }
+   return r;}()],
+    id : [Value.str('escapePod')],
+    _ : [true]},['Nil']]]]];
+  var doors_50=['Cons',{
+    height : [407],
+    left : [473],
+    room : [Value.str('office')],
+    targetRoom : [Value.str('corridor')],
+    top : [99],
+    width : [248],
+    _ : [true]},['Cons',{
+    height : [120],
+    left : [140],
+    room : [Value.str('corridor')],
+    targetRoom : [Value.str('office')],
+    top : [320],
+    width : [96],
+    _ : [true]},['Cons',{
+    height : [120],
+    left : [770],
+    room : [Value.str('corridor')],
+    targetRoom : [Value.str('infirmary')],
+    top : [320],
+    width : [96],
+    _ : [true]},['Cons',{
+    height : [395],
+    left : [665],
+    room : [Value.str('infirmary')],
+    targetRoom : [Value.str('corridor')],
+    top : [232],
+    width : [313],
+    _ : [true]},['Cons',{
+    height : [26],
+    left : [305],
+    room : [Value.str('corridor')],
+    targetRoom : [Value.str('escapePod')],
+    top : [469],
+    width : [118],
+    _ : [true]},['Cons',{
+    height : [91],
+    left : [294],
+    room : [Value.str('escapePod')],
+    targetRoom : [Value.str('corridor')],
+    top : [139],
+    width : [199],
+    _ : [true]},['Nil']]]]]]];
+  var props_51=['Cons',{
+    description : [Value.str('Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!')],
+    height : [93],
+    left : [117],
+    room : [Value.str('office')],
+    top : [249],
+    width : [59],
+    _ : [true]},['Cons',{
+    description : [Value.str('My predecessor.')],
+    height : [213],
+    left : [183],
+    room : [Value.str('office')],
+    top : [316],
+    width : [106],
+    _ : [true]},['Cons',{
+    description : [Value.str('Those instruments look very unique.  Could they be part of my job here?')],
+    height : [390],
+    left : [738],
+    room : [Value.str('office')],
+    top : [290],
+    width : [133],
+    _ : [true]},['Cons',{
+    description : [Value.str('Looks like the escape pod has already launched!')],
+    height : [25],
+    left : [514],
+    room : [Value.str('corridor')],
+    top : [469],
+    width : [111],
+    _ : [true]},['Nil']]]]];
+  var pickups_52=['Cons',{
+    height : [100],
+    image : [Value.str('ScrewDriver_1_screen.png')],
+    item : [Value.str('screwdriver')],
+    left : [190],
+    room : [Value.str('office')],
+    top : [291],
+    width : [100],
+    _ : [true]},['Cons',{
+    height : [100],
+    image : [Value.str('phone_pocket.png')],
+    item : [Value.str('superphone')],
+    left : [169],
+    room : [Value.str('office')],
+    top : [379],
+    width : [100],
+    _ : [true]},['Nil']]];
+  function aug_53(r_54){
+   return function(){
+    var r1_56=function(){
+     var r={_:[true]};
+     var e=r_54;
+     for(var i in e){r[i]=e[i];}
+     var v=flt_55(r_54)(doors_50);
+     if (r.hasOwnProperty('doors')) {
+      r.doors = r.doors.slice(0);
+      r.doors.unshift(v);
+     } else { r.doors = [v]; }
+     return r;}();
+    var r2_57=function(){
+     var r={_:[true]};
+     var e=r1_56;
+     for(var i in e){r[i]=e[i];}
+     var v=flt_55(r_54)(props_51);
+     if (r.hasOwnProperty('props')) {
+      r.props = r.props.slice(0);
+      r.props.unshift(v);
+     } else { r.props = [v]; }
+     return r;}();
+    var r3_58=function(){
+     var r={_:[true]};
+     var e=r2_57;
+     for(var i in e){r[i]=e[i];}
+     var v=flt_55(r_54)(pickups_52);
+     if (r.hasOwnProperty('pickups')) {
+      r.pickups = r.pickups.slice(0);
+      r.pickups.unshift(v);
+     } else { r.pickups = [v]; }
+     return r;}();
+    function flt_55(r_59){
+     return List.filter($op['>>>'](function(__60){
+      return function(r){
+       return r.hasOwnProperty('_') ? r.room[0] : r.room;}(__60);})(function(x_61){
+      return function(y_62){
+       return eq(x_61,y_62);};}(function(r){
+      return r.hasOwnProperty('_') ? r.id[0] : r.id;}(r_59))));}
+    return r3_58;}();}
+  return indexById_5(map(aug_53)(roomList_49));}();
+ var badRoomId_12={
    bg : [function(){
   var r={_:[true]};
   var e=xga_2;
   for(var i in e){r[i]=e[i];}
-  var v=Value.str('Office.jpg');
+  var v=Value.str('Missing.jpg');
   if (r.hasOwnProperty('image')) {
    r.image = r.image.slice(0);
    r.image.unshift(v);
   } else { r.image = [v]; }
   return r;}()],
+   doors : [['Nil']],
+   id : [Value.str('')],
+   pickups : [['Nil']],
+   props : [['Nil']],
    _ : [true]};
- var corridor_5={
-   bg : [function(){
-  var r={_:[true]};
-  var e=xga_2;
-  for(var i in e){r[i]=e[i];}
-  var v=Value.str('Corridor.jpg');
-  if (r.hasOwnProperty('image')) {
-   r.image = r.image.slice(0);
-   r.image.unshift(v);
-  } else { r.image = [v]; }
-  return r;}()],
-   _ : [true]};
- var infirmary_6={
-   bg : [function(){
-  var r={_:[true]};
-  var e=xga_2;
-  for(var i in e){r[i]=e[i];}
-  var v=Value.str('Infirmary.jpg');
-  if (r.hasOwnProperty('image')) {
-   r.image = r.image.slice(0);
-   r.image.unshift(v);
-  } else { r.image = [v]; }
-  return r;}()],
-   _ : [true]};
- var escapePod_7={
-   bg : [function(){
-  var r={_:[true]};
-  var e=xga_2;
-  for(var i in e){r[i]=e[i];}
-  var v=Value.str('Escape Pod.jpg');
-  if (r.hasOwnProperty('image')) {
-   r.image = r.image.slice(0);
-   r.image.unshift(v);
-  } else { r.image = [v]; }
-  return r;}()],
-   _ : [true]};
- var doors_8=['Cons',{
-   height : [407],
-   left : [473],
-   room : [office_4],
-   targetRoom : [corridor_5],
-   top : [99],
-   width : [248],
-   _ : [true]},['Cons',{
-   height : [120],
-   left : [140],
-   room : [corridor_5],
-   targetRoom : [office_4],
-   top : [320],
-   width : [96],
-   _ : [true]},['Cons',{
-   height : [120],
-   left : [770],
-   room : [corridor_5],
-   targetRoom : [infirmary_6],
-   top : [320],
-   width : [96],
-   _ : [true]},['Cons',{
-   height : [395],
-   left : [665],
-   room : [infirmary_6],
-   targetRoom : [corridor_5],
-   top : [232],
-   width : [313],
-   _ : [true]},['Cons',{
-   height : [28],
-   left : [538],
-   room : [corridor_5],
-   targetRoom : [escapePod_7],
-   top : [433],
-   width : [73],
-   _ : [true]},['Cons',{
-   height : [91],
-   left : [294],
-   room : [escapePod_7],
-   targetRoom : [corridor_5],
-   top : [139],
-   width : [199],
-   _ : [true]},['Nil']]]]]]];
- var props_9=['Cons',{
-   descriptions : [['Cons',Value.str('Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!'),['Nil']]],
-   height : [93],
-   left : [212],
-   room : [office_4],
-   top : [247],
-   width : [59],
-   _ : [true]},['Cons',{
-   descriptions : [['Cons',Value.str('My predecessor.'),['Nil']]],
-   height : [75],
-   left : [297],
-   room : [office_4],
-   top : [303],
-   width : [75],
-   _ : [true]},['Cons',{
-   descriptions : [['Cons',Value.str('Those instruments look very unique.  Could they be part of my job here?'),['Nil']]],
-   height : [390],
-   left : [738],
-   room : [office_4],
-   top : [290],
-   width : [133],
-   _ : [true]},['Cons',{
-   descriptions : [['Cons',Value.str('Looks like the escape pod has already launched.'),['Nil']]],
-   height : [25],
-   left : [301],
-   room : [corridor_5],
-   top : [437],
-   width : [73],
-   _ : [true]},['Nil']]]]];
- var idle_10={
-   changeToRoom : [Nothing],
-   showDescription : [Nothing],
-   walkTo : [Nothing],
-   _ : [true]};
- var items_11=['Cons',{
-   icon : [Value.str('ScrewDriver_1_inventory.png')],
-   _ : [true]},['Nil']];
- var startState_12={
-   activity : [idle_10],
+ var startState_19={
+   activity : [Idle_13],
    dialog : [Nothing],
+   fade : [0],
+   inventory : [Dict.empty],
    lastClick : [{
    _ : [true]}],
-   room : [office_4],
+   room : [Value.str('office')],
    showingInventory : [true],
    _ : [true]};
- var input_17=lift3(mkinput_16)(Time.every(0.1))(Mouse.isClicked)(Mouse.position);
- var gameAutomaton_18=init_(startState_12)(updateGame_15);
- var main_19=Automaton.run(gameAutomaton_18)(input_17);
- return {$op : {},
+ var input_29=lift3(mkinput_28)(Time.every(0.1))(Mouse.isClicked)(Mouse.position);
+ var gameAutomaton_30=init_(startState_19)(updateGame_27);
+ var main_31=Automaton.run(gameAutomaton_30)(input_29);
+ return {$op : {'>>>' : $op['>>>'], '|>' : $op['|>']},
  gameWidth:gameWidth_0,
  gameHeight:gameHeight_1,
  xga:xga_2,
  ico:ico_3,
- office:office_4,
- corridor:corridor_5,
- infirmary:infirmary_6,
- escapePod:escapePod_7,
- doors:doors_8,
- props:props_9,
- idle:idle_10,
- items:items_11,
- startState:startState_12,
- inRect:inRect_13,
- headMaybe:headMaybe_14,
- updateGame:updateGame_15,
- mkinput:mkinput_16,
- input:input_17,
- gameAutomaton:gameAutomaton_18,
- main:main_19};}();
+ indexBy:indexBy_4,
+ indexById:indexById_5,
+ groupBy:groupBy_6,
+ half:half_7,
+ itemList:itemList_8,
+ items:items_9,
+ badItemId:badItemId_10,
+ rooms:rooms_11,
+ badRoomId:badRoomId_12,
+ Idle:Idle_13,
+ ShowDescription:ShowDescription_14,
+ FadeOutTo:FadeOutTo_15,
+ FadeInTo:FadeInTo_16,
+ ChangeToRoom:ChangeToRoom_17,
+ PickUpItem:PickUpItem_18,
+ startState:startState_19,
+ inRect:inRect_20,
+ headMaybe:headMaybe_21,
+ find:find_22,
+ findRoom:findRoom_23,
+ findItem:findItem_24,
+ tryInTurn:tryInTurn_25,
+ maybeMap:maybeMap_26,
+ updateGame:updateGame_27,
+ mkinput:mkinput_28,
+ input:input_29,
+ gameAutomaton:gameAutomaton_30,
+ main:main_31};}();
 Elm.main=function(){
  return Elm.Main.main;};
 } catch (e) {
 Elm.main=function() {
 var msg = ('<br/><h2>Your browser may not be supported. Are you using a modern browser?</h2>' + '<br/><span style="color:grey">Runtime Error in Main module:<br/>' + e + '<br/><br/>The problem may stem from an improper usage of:<br/>Text.color, init\'</span>');
-document.body.innerHTML = Elm.Text.monospace(msg);throw e;};}</script><div id="widthChecker" style="width:100%; height:1px; position:absolute; top:-1px;"></div><div id="content"></div><script type="text/javascript">Dispatcher.initialize()</script><noscript><p>images/bg/</p><p>(no dialog)</p></noscript></body></html>
+document.body.innerHTML = Elm.Text.monospace(msg);throw e;};}</script><div id="widthChecker" style="width:100%; height:1px; position:absolute; top:-1px;"></div><div id="content"></div><script type="text/javascript">Dispatcher.initialize()</script><noscript><p>images/bg/</p><p></p><p>'Trebuchet MS', Helvetica, sans-serif</p><p>images/props/</p><p>images/icon/</p><p>images/ui/inventorybg.png</p></noscript></body></html>
