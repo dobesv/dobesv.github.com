@@ -20,7 +20,7 @@ Elm.Main=function(){
  } catch(e) {
   throw ("Module 'Automaton' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
  }
- var init_=Elm.Automaton.init_;
+ var init$=Elm.Automaton.init$;
  try{
   if (!(Elm.Maybe instanceof Object)) throw 'module not found';
  } catch(e) {
@@ -59,322 +59,404 @@ Elm.Main=function(){
   return ['ChangeToRoom',a1];}
  function PickUpItem_18(a1){
   return ['PickUpItem',a1];}
- function indexBy_4(f_32){
-  return function(lst_33){
-   return Dict.fromList(map(function(v_34){
+ function UseItem_19(a1){
+  return ['UseItem',a1];}
+ function indexBy_4(f_44){
+  return function(lst_45){
+   return Dict.fromList(map(function(v_46){
     return function(){
-     var k_35=f_32(v_34);
-     return ['Tuple2',k_35,v_34];}();})(lst_33));};}
- function indexById_5(lst_36){
-  return indexBy_4(function(__37){
+     var k_47=f_44(v_46);
+     return ['Tuple2',k_47,v_46];}();})(lst_45));};}
+ function indexById_5(lst_48){
+  return indexBy_4(function(__49){
    return function(r){
-    return r.hasOwnProperty('_') ? r.id[0] : r.id;}(__37);})(lst_36);}
- function groupBy_6(f_38){
-  return function(lst_39){
+    return r.hasOwnProperty('_') ? r.id[0] : r.id;}(__49);})(lst_48);}
+ function groupBy_6(f_50){
+  return function(lst_51){
    return function(){
-    function addToGroup_40(v_41){
-     return function(dict_42){
+    function addToGroup_52(v_53){
+     return function(dict_54){
       return function(){
-       var k_43=f_38(v_41);
-       return ['Cons',Dict.insert(k_43)(v_41),Dict.findWithDefault(['Nil'])(k_43)(dict_42)];}();};}
-    return List.foldr(addToGroup_40)(Dict.empty)(lst_39);}();};}
- $op['>>>'] = function(f_44){
-  return function(g_45){
+       var k_55=f_50(v_53);
+       return ['Cons',Dict.insert(k_55)(v_53),Dict.findWithDefault(['Nil'])(k_55)(dict_54)];}();};}
+    return List.foldr(addToGroup_52)(Dict.empty)(lst_51);}();};}
+ $op['>>>'] = function(f_56){
+  return function(g_57){
    return function(x){
-    return g_45(f_44(x));};};};
- $op['|>'] = function(x_46){
-  return function(g_47){
-   return g_47(x_46);};};
- function half_7(x_48){
-  return div(x_48)(2);}
- function inRect_20(x_63){
-  return function(y_64){
-   return function(rect_65){
+    return g_57(f_56(x));};};};
+ $op['|>'] = function(x_58){
+  return function(g_59){
+   return g_59(x_58);};};
+ function half_7(x_60){
+  return div(x_60)(2);}
+ function inRect_21(x_76){
+  return function(y_77){
+   return function(rect_78){
     return function(){
-     var dx_66=(x_63-function(r){
-      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(rect_65));
-     var dy_67=(y_64-function(r){
-      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(rect_65));
-     return (function() { var ord = compare(dx_66)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&((compare(dx_66)(function(r){
-      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(rect_65))[0] === 'LT')&&(function() { var ord = compare(dy_67)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&(compare(dy_67)(function(r){
-      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(rect_65))[0] === 'LT'))));}();};};}
- function headMaybe_21(lst_68){
+     var dx_79=(x_76-function(r){
+      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(rect_78));
+     var dy_80=(y_77-function(r){
+      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(rect_78));
+     return (function() { var ord = compare(dx_79)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&((compare(dx_79)(function(r){
+      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(rect_78))[0] === 'LT')&&(function() { var ord = compare(dy_80)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&(compare(dy_80)(function(r){
+      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(rect_78))[0] === 'LT'))));}();};};}
+ function headMaybe_22(lst_81){
   return function(){
-  switch(lst_68[0]){
+  switch(lst_81[0]){
    case 'Cons':
-   return Just(lst_68[1]);
+   return Just(lst_81[1]);
    case 'Nil':
    return Nothing;
   }
-  throw "Non-exhaustive pattern match in case expression (Line 100, Column 17)";}();}
- function find_22(p_70){
-  return function(lst_71){
+  throw "Non-exhaustive pattern match in case expression (Line 101, Column 17)";}();}
+ function find_23(p_83){
+  return function(lst_84){
    return function(){
-   switch(lst_71[0]){
+   switch(lst_84[0]){
     case 'Cons':
-    return (p_70(lst_71[1])?Just(lst_71[1]):find_22(p_70)(lst_71[2]));
+    return (p_83(lst_84[1])?Just(lst_84[1]):find_23(p_83)(lst_84[2]));
     case 'Nil':
     return Nothing;
    }
-   throw "Non-exhaustive pattern match in case expression (Line 104, Column 14)";}();};}
- function findRoom_23(id_74){
-  return Dict.findWithDefault(badRoomId_12)(id_74)(rooms_11);}
- function findItem_24(id_75){
-  return Dict.findWithDefault(badItemId_10)(id_75)(items_9);}
- function tryInTurn_25(defaultValue_76){
-  return function(flist_77){
+   throw "Non-exhaustive pattern match in case expression (Line 105, Column 14)";}();};}
+ function findRoom_24(id_87){
+  return Dict.findWithDefault(badRoomId_12)(id_87)(rooms_11);}
+ function findItem_25(id_88){
+  return Dict.findWithDefault(badItemId_10)(id_88)(items_9);}
+ function tryInTurn_26(defaultValue_89){
+  return function(flist_90){
    return function(){
-   switch(flist_77[0]){
+   switch(flist_90[0]){
     case 'Cons':
     return function(){
-    var case9=flist_77[1](['Tuple0']);
+    var case9=flist_90[1](['Tuple0']);
     switch(case9[0]){
      case 'Just':
      return case9[1];
      case 'Nothing':
-     return tryInTurn_25(defaultValue_76)(flist_77[2]);
+     return tryInTurn_26(defaultValue_89)(flist_90[2]);
     }
-    throw "Non-exhaustive pattern match in case expression (Line 114, Column 17)";}();
+    throw "Non-exhaustive pattern match in case expression (Line 115, Column 17)";}();
     case 'Nil':
-    return defaultValue_76;
+    return defaultValue_89;
    }
-   throw "Non-exhaustive pattern match in case expression (Line 112, Column 5)";}();};}
- function maybeMap_26(f_81){
-  return function(x_82){
+   throw "Non-exhaustive pattern match in case expression (Line 113, Column 5)";}();};}
+ function maybeMap_27(f_94){
+  return function(x_95){
    return function(){
-   switch(x_82[0]){
+   switch(x_95[0]){
     case 'Just':
-    return Just(f_81(x_82[1]));
+    return Just(f_94(x_95[1]));
     case 'Nothing':
     return Nothing;
    }
-   throw "Non-exhaustive pattern match in case expression (Line 118, Column 5)";}();};}
- function updateGame_27(input_84){
-  return function(oldState_85){
+   throw "Non-exhaustive pattern match in case expression (Line 119, Column 5)";}();};}
+ function offsetBy_33(_0_97){
+  return function(elt_98){
    return function(){
-    var a0_86=input_84;
-    var t_87=function(r){
-     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(a0_86);
-    var mouse_88=function(r){
-     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(a0_86);
-    var clicked_89=function(r){
-     return r.hasOwnProperty('_') ? r.clicked[0] : r.clicked;}(mouse_88);
-    var oldRoom_91=findRoom_23(function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_85));
-    var pickupsNotPickedUp_92=filter(function(p_107){
+    var left_99=function(r){
+     return r.hasOwnProperty('_') ? r.left[0] : r.left;}(_0_97);
+    var top_100=function(r){
+     return r.hasOwnProperty('_') ? r.top[0] : r.top;}(_0_97);
+    return function(){
+     var width_101=(left_99+widthOf(elt_98));
+     var height_102=(top_100+heightOf(elt_98));
+     var location_103=topLeftAt(absolute(left_99))(absolute(top_100));
+     return container(width_101)(height_102)(location_103)(elt_98);}();}();};}
+ function paddedBy_35(_0_104){
+  return function(elt_105){
+   return function(){
+    var left_106=function(r){
+     return r.hasOwnProperty('_') ? r.left[0] : r.left;}(_0_104);
+    var top_107=function(r){
+     return r.hasOwnProperty('_') ? r.top[0] : r.top;}(_0_104);
+    var right_108=function(r){
+     return r.hasOwnProperty('_') ? r.right[0] : r.right;}(_0_104);
+    var bottom_109=function(r){
+     return r.hasOwnProperty('_') ? r.bottom[0] : r.bottom;}(_0_104);
+    return function(){
+     var location_110=topLeftAt(absolute(left_106))(absolute(top_107));
+     var width_111=((left_106+widthOf(elt_105))+right_108);
+     var height_112=((top_107+heightOf(elt_105))+bottom_109);
+     return container(width_111)(height_112)(location_110)(elt_105);}();}();};}
+ function nthMaybe_36(n_113){
+  return function(lst_114){
+   return function(){
+   switch(lst_114[0]){
+    case 'Cons':
+    return (eq(n_113,0)?Just(lst_114[1]):nthMaybe_36((n_113-1))(lst_114[2]));
+    case 'Nil':
+    return Nothing;
+   }
+   throw "Non-exhaustive pattern match in case expression (Line 164, Column 5)";}();};}
+ function updateGame_39(input_117){
+  return function(oldState_118){
+   return function(){
+    var _0_119=input_117;
+    var t_120=function(r){
+     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(_0_119);
+    var mouse_121=function(r){
+     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(_0_119);
+    var clicked_122=function(r){
+     return r.hasOwnProperty('_') ? r.clicked[0] : r.clicked;}(mouse_121);
+    var oldRoom_124=findRoom_24(function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_118));
+    var pickupsNotPickedUp_125=filter(function(p_143){
      return eq(false,Dict.findWithDefault(false)(function(r){
-      return r.hasOwnProperty('_') ? r.item[0] : r.item;}(p_107))(function(r){
-      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_85)));})(function(r){
-     return r.hasOwnProperty('_') ? r.pickups[0] : r.pickups;}(oldRoom_91));
-    var newActivity_94=function(){
-     var oldActivity_109=function(r){
-      return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_85);
-     var fadeTime_110=500;
-     var descriptionTime_115=5000;
-     function fadeOutTo_111(next_121){
+      return r.hasOwnProperty('_') ? r.item[0] : r.item;}(p_143))(function(r){
+      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_118)));})(function(r){
+     return r.hasOwnProperty('_') ? r.pickups[0] : r.pickups;}(oldRoom_124));
+    var heldItems_126=Dict.keys(function(r){
+     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_118));
+    var newActivity_128=function(){
+     var oldActivity_145=function(r){
+      return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_118);
+     function fadeOutTo_146(next_156){
       return FadeOutTo_15({
-        endTime : [(t_87+fadeTime_110)],
-        next : [next_121],
-        startTime : [t_87],
+        endTime : [(t_120+fadeTime_37)],
+        next : [next_156],
+        startTime : [t_120],
         _ : [true]});}
-     function fadeInTo_112(next_122){
+     function fadeInTo_147(next_157){
       return FadeInTo_16({
-        endTime : [(t_87+fadeTime_110)],
-        next : [next_122],
-        startTime : [t_87],
+        endTime : [(t_120+fadeTime_37)],
+        next : [next_157],
+        startTime : [t_120],
         _ : [true]});}
-     function checkFade_113(a0_123){
+     function checkFade_148(_0_158){
       return function(){
-      switch(a0_123[0]){
+      switch(_0_158[0]){
        case 'Tuple0':
        return function(){
-       var case14=function(r){
-        return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_85);
-       switch(case14[0]){
+       var case17=function(r){
+        return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_118);
+       switch(case17[0]){
         case 'FadeInTo':
         return Just(((compare(function(r){
-         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case14[1]))(t_87)[0] === 'LT')?function(r){
-         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case14[1]):function(r){
-         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_85)));
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case17[1]))(t_120)[0] === 'LT')?function(r){
+         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case17[1]):function(r){
+         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_118)));
         case 'FadeOutTo':
         return Just(((compare(function(r){
-         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case14[1]))(t_87)[0] === 'LT')?function(r){
-         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case14[1]):function(r){
-         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_85)));
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case17[1]))(t_120)[0] === 'LT')?function(r){
+         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case17[1]):function(r){
+         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_118)));
        }
        return Nothing;}();
       }
-      throw "Non-exhaustive pattern match in case expression (Line 135, Column 21)";}();}
-     function checkEnteredRoom_114(a0_127){
+      throw "Non-exhaustive pattern match in case expression (Line 185, Column 21)";}();}
+     function checkEnteredRoom_149(_0_162){
       return function(){
-      switch(a0_127[0]){
+      switch(_0_162[0]){
        case 'Tuple0':
        return function(){
-       switch(oldActivity_109[0]){
+       switch(oldActivity_145[0]){
         case 'ChangeToRoom':
-        return Just(fadeInTo_112(Idle_13));
+        return Just(fadeInTo_147(Idle_13));
        }
        return Nothing;}();
       }
-      throw "Non-exhaustive pattern match in case expression (Line 140, Column 21)";}();}
-     function showDescription_116(text_129){
+      throw "Non-exhaustive pattern match in case expression (Line 190, Column 21)";}();}
+     function showDescription_150(text_164){
       return ShowDescription_14({
-        endTime : [(t_87+descriptionTime_115)],
-        text : [text_129],
+        endTime : [(t_120+descriptionTime_38)],
+        text : [text_164],
         _ : [true]});}
-     function checkDoor_117(a0_130){
+     function checkDoor_151(_0_165){
       return function(){
-      switch(a0_130[0]){
+      switch(_0_165[0]){
        case 'Tuple0':
-       return maybeMap_26($op['>>>'](function(__131){
+       return maybeMap_27($op['>>>'](function(__166){
         return function(r){
-         return r.hasOwnProperty('_') ? r.targetRoom[0] : r.targetRoom;}(__131);})(function(x){
-        return fadeOutTo_111(ChangeToRoom_17(x));}))(findClickedOn_93(function(r){
-        return r.hasOwnProperty('_') ? r.doors[0] : r.doors;}(oldRoom_91)));
+         return r.hasOwnProperty('_') ? r.targetRoom[0] : r.targetRoom;}(__166);})(function(x){
+        return fadeOutTo_146(ChangeToRoom_17(x));}))(findClickedOn_127(function(r){
+        return r.hasOwnProperty('_') ? r.doors[0] : r.doors;}(oldRoom_124)));
       }
-      throw "Non-exhaustive pattern match in case expression (Line 145, Column 32)";}();}
-     function checkPickup_118(a0_132){
+      throw "Non-exhaustive pattern match in case expression (Line 194, Column 32)";}();}
+     function checkPickup_152(_0_167){
       return function(){
-      switch(a0_132[0]){
+      switch(_0_167[0]){
        case 'Tuple0':
-       return maybeMap_26($op['>>>'](function(__133){
+       return maybeMap_27($op['>>>'](function(__168){
         return function(r){
-         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(__133);})(PickUpItem_18))(findClickedOn_93(pickupsNotPickedUp_92));
+         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(__168);})(PickUpItem_18))(findClickedOn_127(pickupsNotPickedUp_125));
       }
-      throw "Non-exhaustive pattern match in case expression (Line 146, Column 34)";}();}
-     function checkProp_119(a0_134){
+      throw "Non-exhaustive pattern match in case expression (Line 195, Column 34)";}();}
+     function checkProp_153(_0_169){
       return function(){
-      switch(a0_134[0]){
+      switch(_0_169[0]){
        case 'Tuple0':
-       return maybeMap_26($op['>>>'](function(__135){
+       return maybeMap_27($op['>>>'](function(__170){
         return function(r){
-         return r.hasOwnProperty('_') ? r.description[0] : r.description;}(__135);})(showDescription_116))(findClickedOn_93(function(r){
-        return r.hasOwnProperty('_') ? r.props[0] : r.props;}(oldRoom_91)));
+         return r.hasOwnProperty('_') ? r.description[0] : r.description;}(__170);})(showDescription_150))(findClickedOn_127(function(r){
+        return r.hasOwnProperty('_') ? r.props[0] : r.props;}(oldRoom_124)));
       }
-      throw "Non-exhaustive pattern match in case expression (Line 147, Column 32)";}();}
-     function checkDescription_120(a0_136){
+      throw "Non-exhaustive pattern match in case expression (Line 196, Column 32)";}();}
+     function checkInventory_154(_0_171){
       return function(){
-      switch(a0_136[0]){
+      switch(_0_171[0]){
+       case 'Tuple0':
+       return (clicked_122?(underMouse_123(inventoryArea_30)?function(){
+        var firstItemLeft_172=((function(r){
+         return r.hasOwnProperty('_') ? r.x[0] : r.x;}(mouse_121)-function(r){
+         return r.hasOwnProperty('_') ? r.left[0] : r.left;}(inventoryArea_30))-function(r){
+         return r.hasOwnProperty('_') ? r.left[0] : r.left;}(function(r){
+         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30)));
+        var invIndex_173=div(firstItemLeft_172)(function(r){
+         return r.hasOwnProperty('_') ? r.width[0] : r.width;}(function(r){
+         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30)));
+        return $op['|>'](nthMaybe_36(invIndex_173)(heldItems_126))(maybeMap_27(UseItem_19));}():Nothing):function(){
+       switch(oldActivity_145[0]){
+        case 'UseItem':
+        return Just(oldActivity_145);
+       }
+       return Nothing;}());
+      }
+      throw "Non-exhaustive pattern match in case expression (Line 198, Column 21)";}();}
+     function checkDescription_155(_0_176){
+      return function(){
+      switch(_0_176[0]){
        case 'Tuple0':
        return function(){
-       switch(oldActivity_109[0]){
+       switch(oldActivity_145[0]){
         case 'ShowDescription':
-        return ((clicked_89||(compare(function(r){
-         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(oldActivity_109[1]))(t_87)[0] === 'LT'))?Nothing:Just(oldActivity_109));
+        return ((clicked_122||(compare(function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(oldActivity_145[1]))(t_120)[0] === 'LT'))?Nothing:Just(oldActivity_145));
        }
        return Nothing;}();
       }
-      throw "Non-exhaustive pattern match in case expression (Line 149, Column 21)";}();}
-     return tryInTurn_25(Idle_13)(['Cons',checkFade_113,['Cons',checkEnteredRoom_114,['Cons',checkPickup_118,['Cons',checkProp_119,['Cons',checkDoor_117,['Cons',checkDescription_120,['Nil']]]]]]]);}();
-    var newState_95={
-      activity : [newActivity_94],
+      throw "Non-exhaustive pattern match in case expression (Line 209, Column 21)";}();}
+     return tryInTurn_26(Idle_13)(['Cons',checkFade_148,['Cons',checkEnteredRoom_149,['Cons',checkPickup_152,['Cons',checkProp_153,['Cons',checkDoor_151,['Cons',checkInventory_154,['Cons',checkDescription_155,['Nil']]]]]]]]);}();
+    var newState_129={
+      activity : [newActivity_128],
       inventory : [function(){
-    switch(newActivity_94[0]){
+    switch(newActivity_128[0]){
      case 'PickUpItem':
-     return Dict.insert(newActivity_94[1])(true)(function(r){
-      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_85));
+     return Dict.insert(newActivity_128[1])(true)(function(r){
+      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_118));
     }
     return function(r){
-     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_85);}()],
-      lastClick : [(clicked_89?mouse_88:input_84)],
+     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_118);}()],
+      lastClick : [(clicked_122?mouse_121:input_117)],
       room : [function(){
-    switch(newActivity_94[0]){
+    switch(newActivity_128[0]){
      case 'ChangeToRoom':
-     return newActivity_94[1];
+     return newActivity_128[1];
     }
     return function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_85);}()],
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_118);}()],
       _ : [true]};
-    var newRoom_96=(eq(function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_95),function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_85))?oldRoom_91:findRoom_23(function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_95)));
-    var bg_97=function(r){
-     return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(newRoom_96);
-    var bgImage_98=image(function(r){
-     return r.hasOwnProperty('_') ? r.width[0] : r.width;}(bg_97))(function(r){
-     return r.hasOwnProperty('_') ? r.height[0] : r.height;}(bg_97))(Value.append(Value.str('images/bg/'),function(r){
-     return r.hasOwnProperty('_') ? r.image[0] : r.image;}(bg_97)));
-    var debugView_99=function(){
-     var debugTextView_143=$op['>>>'](show)($op['>>>'](toText)($op['>>>'](Text.color(green))($op['>>>'](Text.monospace)(Graphics.text))));
-     var views_144=['Cons',input_84,['Cons',oldState_85,['Cons',newState_95,['Nil']]]];
-     return flow(down)(map(debugTextView_143)(views_144));}();
-    var dialogView_100=function(){
-     var text_145=function(){
-     switch(newActivity_94[0]){
+    var newRoom_130=(eq(function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_129),function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_118))?oldRoom_124:findRoom_24(function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_129)));
+    var bg_131=function(r){
+     return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(newRoom_130);
+    var bgImage_132=image(function(r){
+     return r.hasOwnProperty('_') ? r.width[0] : r.width;}(bg_131))(function(r){
+     return r.hasOwnProperty('_') ? r.height[0] : r.height;}(bg_131))(Value.append(Value.str('images/bg/'),function(r){
+     return r.hasOwnProperty('_') ? r.image[0] : r.image;}(bg_131)));
+    var debugView_133=function(){
+     var debugTextView_183=$op['>>>'](show)($op['>>>'](toText)($op['>>>'](Text.color(green))($op['>>>'](Text.monospace)(Graphics.text))));
+     var views_184=['Cons',input_117,['Cons',oldState_118,['Cons',newState_129,['Nil']]]];
+     return flow(down)(map(debugTextView_183)(views_184));}();
+    var dialogView_134=function(){
+     var text_185=function(){
+     switch(newActivity_128[0]){
       case 'ShowDescription':
       return function(){
-       var a0_147=newActivity_94[1];
-       var text_148=function(r){
-        return r.hasOwnProperty('_') ? r.text[0] : r.text;}(a0_147);
-       return text_148;}();
+       var _0_187=newActivity_128[1];
+       var text_188=function(r){
+        return r.hasOwnProperty('_') ? r.text[0] : r.text;}(_0_187);
+       return text_188;}();
      }
      return Value.str('');}();
-     return $op['|>'](text_145)($op['>>>'](toText)($op['>>>'](Text.color(Color.rgb(220)(220)(220)))($op['>>>'](Text.height(2))($op['>>>'](Text.typeface(Value.str('\'Trebuchet MS\', Helvetica, sans-serif')))($op['>>>'](centeredText)($op['>>>'](Graphics.width(gameWidth_0))($op['>>>'](Graphics.color(Color.rgba(0)(0)(0)(0.5)))(container(gameWidth_0)(half_7(gameHeight_1))(middle)))))))));}();
-    var pickupViews_101=map(function(p_150){
-     return container(gameWidth_0)(gameHeight_1)(topLeftAt(absolute(function(r){
-      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(p_150)))(absolute(function(r){
-      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(p_150))))(image(function(r){
-      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(p_150))(function(r){
-      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(p_150))(Value.append(Value.str('images/props/'),function(r){
-      return r.hasOwnProperty('_') ? r.image[0] : r.image;}(p_150))));})(pickupsNotPickedUp_92);
-    var inventoryView_102=function(){
-     var itemIcons_152=flow(right)(List.map($op['>>>'](findItem_24)(itemImage_151))(Dict.keys(function(r){
-      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(newState_95))));
-     var itemBg_153=image(809)(106)(Value.str('images/ui/inventorybg.png'));
-     function itemImage_151(item_154){
-      return image(100)(100)(Value.append(Value.str('images/icon/'),function(r){
-       return r.hasOwnProperty('_') ? r.icon[0] : r.icon;}(item_154)));}
-     return container(gameWidth_0)(gameHeight_1)(midBottom)(layers(['Cons',itemBg_153,['Cons',itemIcons_152,['Nil']]]));}();
-    var stage_104=layers(['Cons',bgImage_98,Value.append(pickupViews_101,['Cons',inventoryView_102,['Cons',dialogView_100,['Nil']]])]);
-    var view_105=Graphics.color(black)(flow(down)(['Cons',applyFade_103(stage_104),['Cons',debugView_99,['Nil']]]));
-    function underMouse_90(obj_106){
-     return inRect_20(function(r){
-      return r.hasOwnProperty('_') ? r.x[0] : r.x;}(mouse_88))(function(r){
-      return r.hasOwnProperty('_') ? r.y[0] : r.y;}(mouse_88))(obj_106);}
-    function findClickedOn_93(objs_108){
-     return (clicked_89?find_22(underMouse_90)(objs_108):Nothing);}
-    function applyFade_103(elt_155){
+     return $op['|>'](text_185)($op['>>>'](toText)($op['>>>'](Text.color(dialogTextColor_31))($op['>>>'](Text.height(2))($op['>>>'](Text.typeface(Value.str('\'Trebuchet MS\', Helvetica, sans-serif')))($op['>>>'](centeredText)($op['>>>'](Graphics.width(gameWidth_0))($op['>>>'](Graphics.color(Color.rgba(0)(0)(0)(0.5)))(container(gameWidth_0)(half_7(gameHeight_1))(middle)))))))));}();
+    var tipView_135=function(){
+     var tipText_191=tryInTurn_26(Value.str(''))(['Cons',checkPickup_190,['Nil']]);
+     function checkPickup_190(_0_192){
+      return function(){
+      switch(_0_192[0]){
+       case 'Tuple0':
+       return maybeMap_27($op['>>>'](function(__193){
+        return function(r){
+         return r.hasOwnProperty('_') ? r.label[0] : r.label;}(__193);})(function(y_195){
+        return Value.append(Value.str('Pick up '),y_195);}))(find_23(underMouse_123)(pickupsNotPickedUp_125));
+      }
+      throw "Non-exhaustive pattern match in case expression (Line 251, Column 34)";}();}
+     return $op['|>'](tipText_191)($op['>>>'](toText)($op['>>>'](Text.color(dialogTextColor_31))($op['>>>'](Text.height(1))($op['>>>'](Text.typeface(Value.str('\'Trebuchet MS\', Helvetica, sans-serif')))($op['>>>'](centeredText)($op['>>>'](Graphics.width(gameWidth_0))($op['>>>'](Graphics.color(Color.rgba(0)(0)(0)(0.5)))(container(gameWidth_0)(half_7(gameHeight_1))(middle)))))))));}();
+    var pickupViews_136=map(function(p_196){
+     return offsetBy_33(p_196)(image(function(r){
+      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(p_196))(function(r){
+      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(p_196))(Value.append(Value.str('images/props/'),function(r){
+      return r.hasOwnProperty('_') ? r.image[0] : r.image;}(p_196))));})(pickupsNotPickedUp_125);
+    var inventoryView_137=(eq(function(r){
+     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(newState_129),Dict.empty)?plainText(''):function(){
+     var itemIcons_198=flow(right)(List.map($op['>>>'](findItem_25)(itemImage_197))(heldItems_126));
+     var itemIconArea_199=offsetBy_33(function(r){
+      return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30))(itemIcons_198);
+     var itemBg_200=image(function(r){
+      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(inventoryArea_30))(function(r){
+      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(inventoryArea_30))(function(r){
+      return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(inventoryArea_30));
+     function itemImage_197(item_201){
+      return image(function(r){
+       return r.hasOwnProperty('_') ? r.width[0] : r.width;}(function(r){
+       return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30)))(function(r){
+       return r.hasOwnProperty('_') ? r.height[0] : r.height;}(function(r){
+       return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30)))(Value.append(Value.str('images/icon/'),function(r){
+       return r.hasOwnProperty('_') ? r.icon[0] : r.icon;}(item_201)));}
+     return layers(['Cons',itemBg_200,['Cons',itemIconArea_199,['Nil']]]);}());
+    var bottomUIView_139=container(gameWidth_0)(gameHeight_1)(midBottom)(flow(down)(['Cons',tipView_135,['Cons',inventoryView_137,['Nil']]]));
+    var stage_140=layers(['Cons',bgImage_132,Value.append(pickupViews_136,['Cons',bottomUIView_139,['Cons',dialogView_134,['Nil']]])]);
+    var view_141=Graphics.color(black)(flow(down)(['Cons',applyFade_138(stage_140),['Cons',debugView_133,['Nil']]]));
+    function underMouse_123(obj_142){
+     return inRect_21(function(r){
+      return r.hasOwnProperty('_') ? r.x[0] : r.x;}(mouse_121))(function(r){
+      return r.hasOwnProperty('_') ? r.y[0] : r.y;}(mouse_121))(obj_142);}
+    function findClickedOn_127(objs_144){
+     return (clicked_122?find_23(underMouse_123)(objs_144):Nothing);}
+    function applyFade_138(elt_202){
      return function(){
-      var alpha_157=function(){
-      switch(newActivity_94[0]){
+      var alpha_204=function(){
+      switch(newActivity_128[0]){
        case 'ChangeToRoom':
        return 0.0;
        case 'FadeInTo':
-       return fadeAmount_156(newActivity_94[1]);
+       return fadeAmount_203(newActivity_128[1]);
        case 'FadeOutTo':
-       return (1.0-fadeAmount_156(newActivity_94[1]));
+       return (1.0-fadeAmount_203(newActivity_128[1]));
       }
       return 1.0;}();
-      function fadeAmount_156(a0_158){
+      function fadeAmount_203(_0_205){
        return function(){
-        var next_159=function(r){
-         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(a0_158);
-        var startTime_160=function(r){
-         return r.hasOwnProperty('_') ? r.startTime[0] : r.startTime;}(a0_158);
-        var endTime_161=function(r){
-         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(a0_158);
-        return ((t_87-startTime_160)/(endTime_161-startTime_160));}();}
-      return ((compare(alpha_157)(1.0)[0] === 'LT')?opacity(alpha_157)(elt_155):elt_155);}();}
-    return ['Tuple2',view_105,newState_95];}();};}
- function mkinput_28(t_165){
-  return function(clicked_166){
-   return function(a0_167){
+        var next_206=function(r){
+         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(_0_205);
+        var startTime_207=function(r){
+         return r.hasOwnProperty('_') ? r.startTime[0] : r.startTime;}(_0_205);
+        var endTime_208=function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(_0_205);
+        return ((t_120-startTime_207)/(endTime_208-startTime_207));}();}
+      return ((compare(alpha_204)(1.0)[0] === 'LT')?opacity(alpha_204)(elt_202):elt_202);}();}
+    return ['Tuple2',view_141,newState_129];}();};}
+ function mkinput_40(t_212){
+  return function(clicked_213){
+   return function(_0_214){
     return function(){
-    switch(a0_167[0]){
+    switch(_0_214[0]){
      case 'Tuple2':
      return function(){
-      var r_170={
+      var r_217={
         mouse : [{
-        clicked : [clicked_166],
-        x : [a0_167[1]],
-        y : [a0_167[2]],
+        clicked : [clicked_213],
+        x : [_0_214[1]],
+        y : [_0_214[2]],
         _ : [true]}],
-        t : [t_165],
+        t : [t_212],
         _ : [true]};
-      return r_170;}();
+      return r_217;}();
     }
-    throw "Non-exhaustive pattern match in case expression (Line 210, Column 37)";}();};};}
+    throw "Non-exhaustive pattern match in case expression (Line 285, Column 37)";}();};};}
  var gameWidth_0=1024;
  var gameHeight_1=768;
  var xga_2={
@@ -398,7 +480,7 @@ Elm.Main=function(){
    id : [Value.str('bad')],
    _ : [true]};
  var rooms_11=function(){
-  var roomList_49=['Cons',{
+  var roomList_61=['Cons',{
     bg : [function(){
    var r={_:[true]};
    var e=xga_2;
@@ -447,7 +529,7 @@ Elm.Main=function(){
    return r;}()],
     id : [Value.str('escapePod')],
     _ : [true]},['Nil']]]]];
-  var doors_50=['Cons',{
+  var doors_62=['Cons',{
     height : [407],
     left : [473],
     room : [Value.str('office')],
@@ -490,7 +572,7 @@ Elm.Main=function(){
     top : [139],
     width : [199],
     _ : [true]},['Nil']]]]]]];
-  var props_51=['Cons',{
+  var props_63=['Cons',{
     description : [Value.str('Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!')],
     height : [93],
     left : [117],
@@ -519,10 +601,11 @@ Elm.Main=function(){
     top : [469],
     width : [111],
     _ : [true]},['Nil']]]]];
-  var pickups_52=['Cons',{
+  var pickups_64=['Cons',{
     height : [100],
     image : [Value.str('ScrewDriver_1_screen.png')],
     item : [Value.str('screwdriver')],
+    label : [Value.str('screw driver')],
     left : [190],
     room : [Value.str('office')],
     top : [291],
@@ -531,52 +614,54 @@ Elm.Main=function(){
     height : [100],
     image : [Value.str('phone_pocket.png')],
     item : [Value.str('superphone')],
+    label : [Value.str('phone')],
     left : [169],
     room : [Value.str('office')],
     top : [379],
     width : [100],
     _ : [true]},['Nil']]];
-  function aug_53(r_54){
+  function aug_65(r_66){
    return function(){
-    var r1_56=function(){
+    var r1_68=function(){
      var r={_:[true]};
-     var e=r_54;
+     var e=r_66;
      for(var i in e){r[i]=e[i];}
-     var v=flt_55(r_54)(doors_50);
+     var v=flt_67(r_66)(doors_62);
      if (r.hasOwnProperty('doors')) {
       r.doors = r.doors.slice(0);
       r.doors.unshift(v);
      } else { r.doors = [v]; }
      return r;}();
-    var r2_57=function(){
+    var r2_69=function(){
      var r={_:[true]};
-     var e=r1_56;
+     var e=r1_68;
      for(var i in e){r[i]=e[i];}
-     var v=flt_55(r_54)(props_51);
+     var v=flt_67(r_66)(props_63);
      if (r.hasOwnProperty('props')) {
       r.props = r.props.slice(0);
       r.props.unshift(v);
      } else { r.props = [v]; }
      return r;}();
-    var r3_58=function(){
+    var r3_70=function(){
      var r={_:[true]};
-     var e=r2_57;
+     var e=r2_69;
      for(var i in e){r[i]=e[i];}
-     var v=flt_55(r_54)(pickups_52);
+     var v=flt_67(r_66)(pickups_64);
      if (r.hasOwnProperty('pickups')) {
       r.pickups = r.pickups.slice(0);
       r.pickups.unshift(v);
      } else { r.pickups = [v]; }
      return r;}();
-    function flt_55(r_59){
-     return List.filter($op['>>>'](function(__60){
-      return function(r){
-       return r.hasOwnProperty('_') ? r.room[0] : r.room;}(__60);})(function(x_61){
-      return function(y_62){
-       return eq(x_61,y_62);};}(function(r){
-      return r.hasOwnProperty('_') ? r.id[0] : r.id;}(r_59))));}
-    return r3_58;}();}
-  return indexById_5(map(aug_53)(roomList_49));}();
+    function flt_67(r_71){
+     return function(lst_72){
+      return List.filter($op['>>>'](function(__73){
+       return function(r){
+        return r.hasOwnProperty('_') ? r.room[0] : r.room;}(__73);})(function(x_74){
+       return function(y_75){
+        return eq(x_74,y_75);};}(function(r){
+       return r.hasOwnProperty('_') ? r.id[0] : r.id;}(r_71))))(lst_72);};}
+    return r3_70;}();}
+  return indexById_5(map(aug_65)(roomList_61));}();
  var badRoomId_12={
    bg : [function(){
   var r={_:[true]};
@@ -589,11 +674,11 @@ Elm.Main=function(){
   } else { r.image = [v]; }
   return r;}()],
    doors : [['Nil']],
-   id : [Value.str('')],
+   id : [Value.str('bad')],
    pickups : [['Nil']],
    props : [['Nil']],
    _ : [true]};
- var startState_19={
+ var startState_20={
    activity : [Idle_13],
    dialog : [Nothing],
    fade : [0],
@@ -603,9 +688,37 @@ Elm.Main=function(){
    room : [Value.str('office')],
    showingInventory : [true],
    _ : [true]};
- var input_29=lift3(mkinput_28)(Time.every(0.1))(Mouse.isClicked)(Mouse.position);
- var gameAutomaton_30=init_(startState_19)(updateGame_27);
- var main_31=Automaton.run(gameAutomaton_30)(input_29);
+ var inventoryWidth_28=809;
+ var inventoryHeight_29=106;
+ var inventoryArea_30={
+   bg : [Value.str('images/ui/inventorybg.png')],
+   height : [inventoryHeight_29],
+   item : [{
+   height : [100],
+   left : [3],
+   top : [3],
+   width : [100],
+   _ : [true]}],
+   left : [div((gameWidth_0-inventoryWidth_28))(2)],
+   top : [(gameHeight_1-inventoryHeight_29)],
+   width : [inventoryWidth_28],
+   _ : [true]};
+ var dialogTextColor_31=Color.rgb(220)(220)(220);
+ var noOffset_32={
+   left : [0],
+   top : [0],
+   _ : [true]};
+ var noPadding_34={
+   bottom : [0],
+   left : [0],
+   right : [0],
+   top : [0],
+   _ : [true]};
+ var fadeTime_37=500;
+ var descriptionTime_38=5000;
+ var input_41=lift3(mkinput_40)(Time.every(0.1))(Mouse.isClicked)(Mouse.position);
+ var gameAutomaton_42=init$(startState_20)(updateGame_39);
+ var main_43=Automaton.run(gameAutomaton_42)(input_41);
  return {$op : {'>>>' : $op['>>>'], '|>' : $op['|>']},
  gameWidth:gameWidth_0,
  gameHeight:gameHeight_1,
@@ -626,22 +739,34 @@ Elm.Main=function(){
  FadeInTo:FadeInTo_16,
  ChangeToRoom:ChangeToRoom_17,
  PickUpItem:PickUpItem_18,
- startState:startState_19,
- inRect:inRect_20,
- headMaybe:headMaybe_21,
- find:find_22,
- findRoom:findRoom_23,
- findItem:findItem_24,
- tryInTurn:tryInTurn_25,
- maybeMap:maybeMap_26,
- updateGame:updateGame_27,
- mkinput:mkinput_28,
- input:input_29,
- gameAutomaton:gameAutomaton_30,
- main:main_31};}();
+ UseItem:UseItem_19,
+ startState:startState_20,
+ inRect:inRect_21,
+ headMaybe:headMaybe_22,
+ find:find_23,
+ findRoom:findRoom_24,
+ findItem:findItem_25,
+ tryInTurn:tryInTurn_26,
+ maybeMap:maybeMap_27,
+ inventoryWidth:inventoryWidth_28,
+ inventoryHeight:inventoryHeight_29,
+ inventoryArea:inventoryArea_30,
+ dialogTextColor:dialogTextColor_31,
+ noOffset:noOffset_32,
+ offsetBy:offsetBy_33,
+ noPadding:noPadding_34,
+ paddedBy:paddedBy_35,
+ nthMaybe:nthMaybe_36,
+ fadeTime:fadeTime_37,
+ descriptionTime:descriptionTime_38,
+ updateGame:updateGame_39,
+ mkinput:mkinput_40,
+ input:input_41,
+ gameAutomaton:gameAutomaton_42,
+ main:main_43};}();
 Elm.main=function(){
  return Elm.Main.main;};
 } catch (e) {
 Elm.main=function() {
 var msg = ('<br/><h2>Your browser may not be supported. Are you using a modern browser?</h2>' + '<br/><span style="color:grey">Runtime Error in Main module:<br/>' + e + '<br/><br/>The problem may stem from an improper usage of:<br/>Text.color, init\'</span>');
-document.body.innerHTML = Elm.Text.monospace(msg);throw e;};}</script><div id="widthChecker" style="width:100%; height:1px; position:absolute; top:-1px;"></div><div id="content"></div><script type="text/javascript">Dispatcher.initialize()</script><noscript><p>images/bg/</p><p></p><p>'Trebuchet MS', Helvetica, sans-serif</p><p>images/props/</p><p>images/icon/</p><p>images/ui/inventorybg.png</p></noscript></body></html>
+document.body.innerHTML = Elm.Text.monospace(msg);throw e;};}</script><div id="widthChecker" style="width:100%; height:1px; position:absolute; top:-1px;"></div><div id="content"></div><script type="text/javascript">Dispatcher.initialize()</script><noscript><p>images/bg/</p><p></p><p>'Trebuchet MS', Helvetica, sans-serif</p><p>Pick up </p><p></p><p>'Trebuchet MS', Helvetica, sans-serif</p><p>images/props/</p><p></p><p>images/icon/</p></noscript></body></html>

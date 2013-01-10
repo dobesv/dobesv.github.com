@@ -60,19 +60,19 @@ rooms =
 
         -- Pickups
         pickups = [
-            {room="office",   left=190, top=291, width=100, height=100, item="screwdriver", image="ScrewDriver_1_screen.png"},
-            {room="office",   left=169, top=379, width=100, height=100, item="superphone",  image="phone_pocket.png"}
+            {room="office",   left=190, top=291, width=100, height=100, label="screw driver", item="screwdriver", image="ScrewDriver_1_screen.png"},
+            {room="office",   left=169, top=379, width=100, height=100, label="phone", item="superphone",  image="phone_pocket.png"}
          ]
 
         aug r =
-            let flt r = List.filter (.room >>> ((==) r.id))
+            let flt r lst = List.filter (.room >>> ((==) r.id)) lst
                 r1 = {r | doors = flt r doors}
                 r2 = {r1 | props = flt r props}
                 r3 = {r2 | pickups = flt r pickups}
             in r3
     in indexById (map aug roomList)
 
-badRoomId = {id="", bg = {xga|image="Missing.jpg"}, doors=[], props=[], pickups=[]}
+badRoomId = {id="bad", bg = {xga|image="Missing.jpg"}, doors=[], props=[], pickups=[]}
 
 -- Game state
 data Activity = Idle
@@ -81,6 +81,7 @@ data Activity = Idle
               | FadeInTo {next::Activity, startTime::Int, endTime::Int}
               | ChangeToRoom String
               | PickUpItem String
+              | UseItem String
 
 startState = {
     room = "office",
@@ -119,16 +120,65 @@ maybeMap f x =
         Just v -> Just (f v)
         Nothing -> Nothing
 
+
+inventoryWidth = 809
+inventoryHeight = 106
+inventoryArea = {
+    width = inventoryWidth,
+    height = inventoryHeight,
+    left = ((gameWidth - inventoryWidth) `div` 2),
+    top = gameHeight - inventoryHeight,
+    item = {
+        top = 3, -- relative to inventory area top
+        left = 3, -- relative to inventory area left
+        width = 100,
+        height = 100
+    },
+    bg = "images/ui/inventorybg.png"
+ }
+
+dialogTextColor = Color.rgb 220 220 220
+
+-- Defaults for offset
+noOffset = {left=0,top=0}
+
+-- Offset an element by the given x and y (in pixels) in its parent container
+offsetBy {left,top} elt =
+    let width = left + (widthOf elt)
+        height = top + (heightOf elt)
+        location = topLeftAt (absolute left) (absolute top)
+     in container width height location elt
+
+-- Defaults for padding
+noPadding = {left=0,top=0,right=0,bottom=0}
+
+-- Put an element into a slightly larger container, adding some padding around it
+paddedBy {left,top,right,bottom} elt =
+    let location = topLeftAt (absolute left) (absolute top)
+        width = left + (widthOf elt) + right
+        height = top + (heightOf elt) + bottom
+    in container width height location elt
+
+-- Find the nth element of a list, or Nothing if the list is too short
+nthMaybe n lst =
+    case lst of
+        [] -> Nothing
+        x:xs -> if n == 0 then Just x else nthMaybe (n-1) xs
+
+
+fadeTime = 500
+descriptionTime = 5000
+
 updateGame input oldState =
     let {t,mouse} = input
         clicked = mouse.clicked
         underMouse obj = inRect mouse.x mouse.y obj
         oldRoom = findRoom oldState.room
         pickupsNotPickedUp = filter (\p -> False == Dict.findWithDefault False p.item oldState.inventory) oldRoom.pickups
+        heldItems = Dict.keys oldState.inventory
         findClickedOn objs = if clicked then find underMouse objs else Nothing
         newActivity =
             let oldActivity = oldState.activity
-                fadeTime = 500
                 fadeOutTo next = FadeOutTo {next=next, startTime=t, endTime=t+fadeTime}
                 fadeInTo next = FadeInTo {next=next, startTime=t, endTime=t+fadeTime}
                 checkFade () =
@@ -140,11 +190,21 @@ updateGame input oldState =
                     case oldActivity of
                         ChangeToRoom _ -> Just (fadeInTo Idle)
                         otherwise -> Nothing
-                descriptionTime = 5000
                 showDescription text = ShowDescription {text=text, endTime=t+descriptionTime}
                 checkDoor () = maybeMap (.targetRoom >>> (fadeOutTo . ChangeToRoom)) (findClickedOn oldRoom.doors)
                 checkPickup () = maybeMap (.item >>> PickUpItem) (findClickedOn pickupsNotPickedUp)
                 checkProp () = maybeMap (.description >>> showDescription) (findClickedOn oldRoom.props)
+                checkInventory () =
+                    if clicked then
+                        if underMouse inventoryArea then
+                            let firstItemLeft = mouse.x - inventoryArea.left - inventoryArea.item.left
+                                invIndex = firstItemLeft `div` inventoryArea.item.width
+                            in (nthMaybe invIndex heldItems) |> maybeMap UseItem
+                        else Nothing -- TODO Support using an item on something ...
+                    else case oldActivity of
+                        UseItem n -> Just oldActivity
+                        otherwise -> Nothing
+
                 checkDescription () =
                     case oldActivity of
                         ShowDescription x -> if clicked || (x.endTime < t) then Nothing else Just oldActivity
@@ -155,6 +215,7 @@ updateGame input oldState =
                 checkPickup,
                 checkProp,
                 checkDoor,
+                checkInventory,
                 checkDescription
             ]
         newState = {
@@ -179,24 +240,35 @@ updateGame input oldState =
                             ShowDescription d -> let {text} = d in text
                             otherwise -> ""
             in text |> (toText
-                    >>> (Text.color (Color.rgb 220 220 220))
+                    >>> (Text.color dialogTextColor)
                     >>> (Text.height 2)
                     >>> (Text.typeface "'Trebuchet MS', Helvetica, sans-serif")
                     >>> centeredText
                     >>> (Graphics.width gameWidth)
                     >>> (Graphics.color (Color.rgba 0 0 0 0.5))
                     >>> (container gameWidth (half gameHeight) middle))
+        tipView =
+            let checkPickup () = maybeMap (.label >>> ((++) "Pick up ")) (find underMouse pickupsNotPickedUp)
+                tipText = tryInTurn "" [
+                    checkPickup
+                ]
+            in tipText |> (toText
+              >>> (Text.color dialogTextColor)
+              >>> (Text.height 1)
+              >>> (Text.typeface "'Trebuchet MS', Helvetica, sans-serif")
+              >>> centeredText
+              >>> (Graphics.width gameWidth)
+              >>> (Graphics.color (Color.rgba 0 0 0 0.5))
+              >>> (container gameWidth (half gameHeight) middle))
 
-        pickupViews = map (\p -> container gameWidth gameHeight
-                                     (topLeftAt (absolute p.left) (absolute p.top))
-                                     (image p.width p.height ("images/props/"++p.image))) pickupsNotPickedUp
+        pickupViews = map (\p -> offsetBy p (image p.width p.height ("images/props/"++p.image))) pickupsNotPickedUp
         inventoryView =
             if newState.inventory == Dict.empty then plainText "" else
-                let heldItems = Dict.keys newState.inventory
-                    itemImage item = image 100 100 ("images/icon/"++item.icon)
+                let itemImage item = image inventoryArea.item.width inventoryArea.item.height ("images/icon/"++item.icon)
                     itemIcons = flow right (List.map (findItem >>> itemImage) heldItems)
-                    itemBg = image 809 106 "images/ui/inventorybg.png"
-                in container gameWidth gameHeight midBottom (layers [itemBg, itemIcons])
+                    itemIconArea = offsetBy inventoryArea.item itemIcons
+                    itemBg = image inventoryArea.width inventoryArea.height inventoryArea.bg
+                in layers [itemBg, itemIconArea]
         applyFade elt =
             let fadeAmount {next, startTime, endTime} = (t - startTime) / (endTime - startTime)
                 alpha = case newActivity of
@@ -205,7 +277,8 @@ updateGame input oldState =
                             ChangeToRoom _ -> 0.0 -- While changing rooms
                             otherwise -> 1.0
             in if alpha < 1.0 then opacity alpha elt else elt
-        stage = layers ([bgImage] ++ pickupViews ++ [inventoryView, dialogView])
+        bottomUIView = container gameWidth gameHeight midBottom (flow down [tipView,inventoryView])
+        stage = layers ([bgImage] ++ pickupViews ++ [bottomUIView, dialogView])
         view = Graphics.color black (flow down [applyFade stage, debugView])
     in (view,newState)
 
