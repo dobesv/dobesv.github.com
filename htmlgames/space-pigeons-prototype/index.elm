@@ -277,7 +277,8 @@ updateGame input oldState =
                             ChangeToRoom _ -> 0.0 -- While changing rooms
                             otherwise -> 1.0
             in if alpha < 1.0 then opacity alpha elt else elt
-        bottomUIView = container gameWidth gameHeight midBottom (flow down [tipView,inventoryView])
+        bottomUIView = container gameWidth gameHeight midBottom
+            (flow down [tipView, offsetBy inventoryArea inventoryView])
         stage = layers ([bgImage] ++ pickupViews ++ [bottomUIView, dialogView])
         view = Graphics.color black (flow down [applyFade stage, debugView])
     in (view,newState)
