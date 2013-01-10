@@ -21,7 +21,7 @@ Elm.JavaScript = function() {
       return function(node) {
 	return ["Element",Guid.guid(),
 		["EExternalHtml",node],
-		w,h,1,Nothing,Nothing];
+		w,h,1,["Nothing"],["Nothing"]];
       }
     }
   }
@@ -1280,17 +1280,21 @@ function collageForms(w,h,forms) {
     return canvas;
 };
 
+function applyTransforms(theta,scale,x,y,w,h,e) {
+  var t = "translate(" + (x - w / 2) + "px,"+ (y - h / 2) + "px)";
+  var r = theta === (~~theta) ? "" : "rotate(" + theta*360 + "deg)";
+  var s = scale === 1 ? "" : "scale(" + scale + "," + scale + ")";
+  var transforms = t + " " + s + " " + r;
+  e.style.transform       = transforms;
+  e.style.msTransform     = transforms;
+  e.style.MozTransform    = transforms;
+  e.style.webkitTransform = transforms;
+  e.style.OTransform      = transforms;
+}
+
 function collageElement(w,h,theta,scale,x,y,elem) {
     var e = Render.render(elem);
-    var t = "translate(" + (x - elem[3] / 2) + "px,"+ (y - elem[4] / 2) + "px)";
-    var r = theta === (~~theta) ? "" : "rotate(" + theta*360 + "deg)";
-    var s = scale === 1 ? "" : "scale(" + scale + "," + scale + ")";
-    var transforms = t + " " + s + " " + r;
-    e.style.transform       = transforms;
-    e.style.msTransform     = transforms;
-    e.style.MozTransform    = transforms;
-    e.style.webkitTransform = transforms;
-    e.style.OTransform      = transforms;
+    applyTransforms(theta,scale,x,y,elem[3],elem[4],e);
     var div = Render.newElement('div');
     Render.addTo(div,e);
     div.style.width = (~~w) + "px";
@@ -1315,25 +1319,27 @@ function collage(w,h,formss) {
 }
 
 function updateFormSet(node,currSet,nextSet) {
-    if (Value.eq(nextSet,currSet)) return;
-    var w = node.style.width.slice(0,-2) - 0;
-    var h = node.style.height.slice(0,-2) - 0;
-    if (typeof nextSet[0] === "object") {
-	if (typeof currSet[0] === "object") {
-	    if (node.getContext) {
-		var ctx = node.getContext('2d');
-		function redo() { renderForms(this,ctx,w,h,nextSet); }
-		return renderForms(redo,ctx,w,h,nextSet);
-	    }
-	}
-	var newNode = collageForms(w,h,nextSet);
-	newNode.style.position = 'absolute';
-	return node.parentNode.replaceChild(newNode,node);
+  if (Value.eq(nextSet,currSet)) return;
+  var w = node.style.width.slice(0,-2) - 0;
+  var h = node.style.height.slice(0,-2) - 0;
+  if (typeof nextSet[0] === "object") {
+    if (typeof currSet[0] === "object") {
+      if (node.getContext) {
+        var ctx = node.getContext('2d');
+	function redo() { renderForms(this,ctx,w,h,nextSet); }
+	  return renderForms(redo,ctx,w,h,nextSet);
+      }
     }
-    var f = nextSet;
-    var newNode = collageElement(w,h,f[1],f[2],f[3][1],f[3][2],f[4][1]);
+    var newNode = collageForms(w,h,nextSet);
     newNode.style.position = 'absolute';
     return node.parentNode.replaceChild(newNode,node);
+  }
+  node.style.width = (~~w) + "px";
+  node.style.height = (~~h) + "px";
+  var f = nextSet;
+  var next = nextSet[4][1];
+  Render.update(node.firstChild, currSet[4][1], next);
+  applyTransforms(f[1],f[2],f[3][1],f[3][2],next[3],next[4],node.firstChild);
 }
 
 // assumes that the form sets are the same length.
@@ -2541,7 +2547,7 @@ Elm.Signal = function() {
               return new lift(f, [e1,e2,e3,e4,e5,e6,e7,e8]);};};};};};};};};},
     foldp : function(f) { return function(b) { return function(e) {
 		  return new fold(f,b,false,e); }; }; },
-    foldp_ : function(f) { return function(b) { return function(e) {
+    foldp$ : function(f) { return function(b) { return function(e) {
 		  return new fold(f,b,true,e); }; }; },
     foldp1 : function(f) { return function(e) {
 	      return new fold(f,function(x){return x;},true,e); }; },
@@ -2783,6 +2789,7 @@ Elm.Input = function() {
 Elm.Keyboard = { Raw : function() {
   var keysDown = Elm.Signal.constant(["Nil"]);
   var charPressed = Elm.Signal.constant(["Nothing"]);
+
   function remove(x,xs) {
 	if (xs[0] === "Nil") return xs;
 	if (xs[1] === x) return xs[2];
@@ -2822,6 +2829,51 @@ Elm.Keyboard = { Raw : function() {
 	  charPressed:charPressed};
     }()
 };
+
+(function() {
+  function keySignal(f) {
+    var signal = Elm.Signal.lift(f)(Elm.Keyboard.Raw.keysDown);
+    Elm.Keyboard.Raw.keysDown.defaultNumberOfKids += 1;
+    signal.defaultNumberOfKids = 0;
+    return signal;
+  }
+
+  function dir(left,right,up,down) {
+    function f(ks) {
+      var x = 0, y = 0;
+      while (ks[0] == "Cons") {
+	switch (ks[1]) {
+	case left : --x; break;
+	case right: ++x; break;
+	case up   : ++y; break;
+	case down : --y; break;
+	}
+	ks = ks[2];
+      }
+      return { _:[true], x:[x], y:[y] };
+    }
+    return keySignal(f);
+  }
+
+  function is(key) {
+    function f(ks) {
+      while (ks[0] == "Cons") {
+	if (key == ks[1]) return true;
+	ks = ks[2];
+      }
+      return false;
+    }
+    return keySignal(f);
+  }
+
+  Elm.Keyboard.arrows = dir(37,39,38,40);
+  Elm.Keyboard.wasd   = dir(65,68,87,83);
+  Elm.Keyboard.shift  = is(16);
+  Elm.Keyboard.ctrl   = is(17);
+  Elm.Keyboard.space  = is(32);
+
+}());
+
 Elm.Mouse = function() {
   var position  = Elm.Signal.constant(Value.Tuple(0,0));
   position.defaultNumberOfKids = 2;
@@ -2891,6 +2943,32 @@ Elm.Mouse = function() {
 	  isClickedOn: clickedOn
 	  };
   }();
+Elm.Touch = function() {
+  var touches = Elm.Signal.constant(["Nil"]);
+  
+  function touch(t) {
+    return {_ : [true], x: [t.pageX], y: [t.pageY], id: [t.identifier] };
+  }
+
+  function listen(name) {
+    function update(e) {
+      var ts = Elm.JavaScript.castJSArrayToList(e.touches);
+      var hasListener = Dispatcher.notify(touches.id, Elm.List.map(touch)(ts));
+      if (!hasListener)
+        return this.removeEventListener(name,arguments.callee,false);
+      e.preventDefault();
+    }
+    Value.addListener(document, name, update);
+  }
+
+  listen("touchstart");
+  listen("touchmove");
+  listen("touchend");
+  listen("touchcancel");
+  listen("touchleave");
+
+  return { touches: touches };
+}();
 Elm.Random = function() {
   var inRange = function(min) { return function(max) {
       return Elm.Signal.constant(Math.floor(Math.random() * (max-min+1)) + min);
@@ -3192,7 +3270,7 @@ Elm.Prelude = function() {
 	    lift8 : Elm.Signal.lift8,
 	    foldp : Elm.Signal.foldp,
 	    foldp1 : Elm.Signal.foldp1,
-	    foldp_ : Elm.Signal.foldp_,
+	    foldp$ : Elm.Signal.foldp$,
 	    constant : Elm.Signal.constant,
 	    merge : Elm.Signal.merge,
 	    count : Elm.Signal.count,
@@ -3833,7 +3911,7 @@ Elm.Automaton=function(){
    return function(){
    switch(Automaton$m0_14[0]){
     case "Automaton":
-    return lift(fst)(foldp_(function(a_17){
+    return lift(fst)(foldp$(function(a_17){
      return function(Tuple2$bAutomaton$m_18){
       return function(){
       switch(Tuple2$bAutomaton$m_18[0]){
@@ -3952,7 +4030,7 @@ Elm.Automaton=function(){
  combine:combine_3,
  pure:pure_4,
  init:init_5,
- init_:init__6,
+ init$:init__6,
  count:count_7,
  draggable:draggable_13};}();
 Elm.main=function(){
