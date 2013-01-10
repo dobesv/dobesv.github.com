@@ -407,7 +407,7 @@ Elm.Main=function(){
        return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30)))(Value.append(Value.str('images/icon/'),function(r){
        return r.hasOwnProperty('_') ? r.icon[0] : r.icon;}(item_201)));}
      return layers(['Cons',itemBg_200,['Cons',itemIconArea_199,['Nil']]]);}());
-    var bottomUIView_139=container(gameWidth_0)(gameHeight_1)(midBottom)(flow(down)(['Cons',tipView_135,['Cons',inventoryView_137,['Nil']]]));
+    var bottomUIView_139=container(gameWidth_0)(gameHeight_1)(midBottom)(flow(down)(['Cons',tipView_135,['Cons',offsetBy_33(inventoryArea_30)(inventoryView_137),['Nil']]]));
     var stage_140=layers(['Cons',bgImage_132,Value.append(pickupViews_136,['Cons',bottomUIView_139,['Cons',dialogView_134,['Nil']]])]);
     var view_141=Graphics.color(black)(flow(down)(['Cons',applyFade_138(stage_140),['Cons',debugView_133,['Nil']]]));
     function underMouse_123(obj_142){
@@ -456,7 +456,7 @@ Elm.Main=function(){
         _ : [true]};
       return r_217;}();
     }
-    throw "Non-exhaustive pattern match in case expression (Line 285, Column 37)";}();};};}
+    throw "Non-exhaustive pattern match in case expression (Line 286, Column 37)";}();};};}
  var gameWidth_0=1024;
  var gameHeight_1=768;
  var xga_2={
