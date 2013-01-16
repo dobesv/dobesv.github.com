@@ -1,0 +1,87 @@
+{
+
+	"HTMLFileName":"DestroyBotWalk.html",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"symbol_stage":{
+		"defaultStageParentHeight":"768px",
+		"dummyStageParentHeight":"768px",
+		"defaultStageParentWidth":"1024px",
+		"element_${_Robot}":{
+			"timelineColor2":"0xcbbd71",
+			"animationEnabled":"false",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"dummyStageParentWidth":"1024px"},
+	"TransitionIdCounter":"293",
+	"CompZoomFactor":"100",
+	"StageZoomFactor":"100",
+	"pixelsPerMs":"0.2",
+	"Robot-Default Timeline_playhead_ms":"0",
+	"usedBOM":"false",
+	"nextElementColorIndex":"5",
+	"stage-Default Timeline_playhead_ms":"1500",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+            \"ElementKeyframes\": {\
+                \"${_Group7}\": [], \
+                \"${_Robot}\": [], \
+                \"${_Stage}\": [], \
+                \"${_Rear_Leg}\": [], \
+                \"${_front_leg}\": [], \
+                \"body\": []\
+            }\
+      }\
+   }},\
+\"Leg\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Rear_Leg\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Robot\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+            \"ElementKeyframes\": {\
+                \"${_Group7}\": [], \
+                \"${_Rear_Leg}\": [], \
+                \"${_front_leg}\": [], \
+                \"${symbolSelector}\": []\
+            }\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }}\
+}",
+	"viewStartY":"0",
+	"symbol_Robot":{
+		"dummyStageParentWidth":"550px",
+		"element_${_Rear_Leg}":{
+			"timelineColor2":"0x1aa38f",
+			"animationEnabled":"true",
+			"timelineColor3":"0x2a6a61",
+			"timelineColor":"0x00bda4"},
+		"dummyStageParentHeight":"400px",
+		"defaultStageParentWidth":"1024px",
+		"element_${_front_leg}":{
+			"timelineColor2":"0x4fa275",
+			"animationEnabled":"true",
+			"timelineColor3":"0x456a55",
+			"timelineColor":"0x50bd82"},
+		"defaultStageParentHeight":"768px",
+		"element_${_Group7}":{
+			"timelineColor2":"0x81aa62",
+			"animationEnabled":"true",
+			"timelineColor3":"0x5b6c4d",
+			"timelineColor":"0x91c767"}}}

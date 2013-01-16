@@ -1,135 +1,44 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Main</title><style type="text/css">html,head,body { padding:0; margin:0; }body { font-family: helvetica, arial, sans-serif; }</style></head><body><script type="text/javascript" src="../elm-runtime-0.7.js"></script><script type="text/javascript">
-try{
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-if (Elm.Main) throw "Module name collision, 'Main' is already defined."; 
-Elm.Main=function(){
- var $op={};
- for(Elm['i'] in Elm){eval('var '+Elm['i']+'=Elm[Elm.i];');}
- try{
-  if (!(Elm.Prelude instanceof Object)) throw 'module not found';
- } catch(e) {
-  throw ("Module 'Prelude' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
- }
- var hiddenVars={};
- for (Elm['i'] in Elm.Prelude) {
-  if (hiddenVars[Elm['i']]) continue;
-  eval('var ' + Elm['i'] + ' = Elm.Prelude[Elm.i];');}
- try{
-  if (!(Elm.Automaton instanceof Object)) throw 'module not found';
- } catch(e) {
-  throw ("Module 'Automaton' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
- }
- var init_=Elm.Automaton.init_;
- function updateGame_0(a1_6){
-  return function(a0_7){
-   return function(){
-    var t_8=function(r){
-     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(a1_6);
-    var mouseDown_9=function(r){
-     return r.hasOwnProperty('_') ? r.mouseDown[0] : r.mouseDown;}(a1_6);
-    var mousePosition_10=function(r){
-     return r.hasOwnProperty('_') ? r.mousePosition[0] : r.mousePosition;}(a1_6);
-    return function(){
-     var oldFires_11=function(r){
-      return r.hasOwnProperty('_') ? r.oldFires[0] : r.oldFires;}(a0_7);
-     return function(){
-      var a0_12=mousePosition_10;
-      var mouseX_13=function(){
-      switch(a0_12[0]){
-       case 'Tuple2':
-       return a0_12[1];
-      }
-      throw "Non-exhaustive pattern match in case expression (Line 4, Column 28)";}();
-      var mouseY_14=function(){
-      switch(a0_12[0]){
-       case 'Tuple2':
-       return a0_12[2];
-      }
-      throw "Non-exhaustive pattern match in case expression (Line 4, Column 28)";}();
-      var gameWidth_15=1024;
-      var gameHeight_16=768;
-      var speed_17=2.0e-2;
-      var distanceTravelled_18=truncate((t_8*speed_17));
-      var cityShapes_20=buildings_19(0);
-      var headSize_21=div(gameHeight_16)(10);
-      var headCenter_22=['Tuple2',div(gameWidth_15)(10),div(gameHeight_16)(4)];
-      var headCircle_23=filled(red)(circle(div(gameHeight_16)(10))(headCenter_22));
-      var monsterShapes_24=['Cons',headCircle_23,['Nil']];
-      var laserShapes_25=(mouseDown_9?['Cons',solid(red)(segment(headCenter_22)(mousePosition_10)),['Nil']]:['Nil']);
-      var oldVisibleFires_29=filter(fireVisible_27)(oldFires_11);
-      var newFire_30=
-       {since : [t_8],
-        worldX : [(mouseX_13+distanceTravelled_18)],
-        worldY : [mouseY_14],
-        _ : [true]};
-      var mouseOverBuilding_31=any(isWithin(mousePosition_10))(cityShapes_20);
-      var mouseOverFire_32=any(isWithin(mousePosition_10))(map(fireShape_28)(oldVisibleFires_29));
-      var newFires_33=((mouseDown_9&&(mouseOverBuilding_31&&not(mouseOverFire_32)))?['Cons',newFire_30,oldVisibleFires_29]:oldVisibleFires_29);
-      var newState_34=
-       {oldFires : [newFires_33],
-        _ : [true]};
-      var fireShapes_35=map(fireShape_28)(newFires_33);
-      var shapes_36=Value.append(monsterShapes_24,Value.append(cityShapes_20,Value.append(laserShapes_25,fireShapes_35)));
-      var newView_37=collage(gameWidth_15)(gameHeight_16)(shapes_36);
-      function buildings_19(x_42){
-       return function(){
-        var bldgWidth_43=div(gameWidth_15)(10);
-        var bldgSpace_44=div(bldgWidth_43)(5);
-        var bldgStep_45=(bldgWidth_43+bldgSpace_44);
-        var bldgOffset_46=(div(bldgWidth_43)(2)-rem(distanceTravelled_18)(bldgStep_45));
-        var bldgStagger_47=rem((36969*div((distanceTravelled_18+truncate(x_42)))(bldgStep_45)))(100);
-        var bldgHeight_48=(div(gameHeight_16)(10)+bldgStagger_47);
-        var building_49=filled(grey)(rect(bldgWidth_43)(bldgHeight_48)(['Tuple2',(x_42+bldgOffset_46),(gameHeight_16-(bldgHeight_48/2))]));
-        return ((compare((x_42-bldgWidth_43))(gameWidth_15)[0] === 'GT')?['Nil']:['Cons',building_49,buildings_19(((x_42+bldgWidth_43)+bldgSpace_44))]);}();}
-      function fireRadius_26(since_50){
-       return (10*(sqrt((t_8-since_50))*speed_17));}
-      function fireVisible_27(a0_51){
-       return function(){
-        var worldX_52=function(r){
-         return r.hasOwnProperty('_') ? r.worldX[0] : r.worldX;}(a0_51);
-        var since_53=function(r){
-         return r.hasOwnProperty('_') ? r.since[0] : r.since;}(a0_51);
-        return (compare(worldX_52)((distanceTravelled_18-fireRadius_26(since_53)))[0] === 'GT');}();}
-      function fireShape_28(a0_54){
-       return function(){
-        var worldX_55=function(r){
-         return r.hasOwnProperty('_') ? r.worldX[0] : r.worldX;}(a0_54);
-        var worldY_56=function(r){
-         return r.hasOwnProperty('_') ? r.worldY[0] : r.worldY;}(a0_54);
-        var since_57=function(r){
-         return r.hasOwnProperty('_') ? r.since[0] : r.since;}(a0_54);
-        return function(){
-         var radius_58=fireRadius_26(since_57);
-         var x_59=(worldX_55-distanceTravelled_18);
-         return filled(red)(circle(radius_58)(['Tuple2',x_59,worldY_56]));}();}();}
-      return ['Tuple2',newView_37,newState_34];}();}();}();};}
- function mkinput_1(t_60){
-  return function(mouseDown_61){
-   return function(mousePosition_62){
-    return function(){
-     var r_63=
-      {mouseDown : [mouseDown_61],
-       mousePosition : [mousePosition_62],
-       t : [t_60],
-       _ : [true]};
-     return r_63;}();};};}
- var input_2=lift3(mkinput_1)(every(0.1))(Mouse.isDown)(Mouse.position);
- var startState_3=
-  {oldFires : [['Nil']],
-   _ : [true]};
- var gameAutomaton_4=init_(startState_3)(updateGame_0);
- var main_5=Automaton.run(gameAutomaton_4)(input_2);
- return {$op : {},
- updateGame:updateGame_0,
- mkinput:mkinput_1,
- input:input_2,
- startState:startState_3,
- gameAutomaton:gameAutomaton_4,
- main:main_5};}();
-Elm.main=function(){
- return Elm.Main.main;};
-} catch (e) {
-Elm.main=function() {
-var msg = ('<br/><h2>Your browser may not be supported. Are you using a modern browser?</h2>' + '<br/><span style="color:grey">Runtime Error in Main module:<br/>' + e + '<br/><br/>The problem may stem from an improper usage of:<br/>circle, every, init\'</span>');
-document.body.innerHTML = Elm.Text.monospace(msg);throw e;};}</script><div id="widthChecker" style="width:100%; height:1px; position:absolute; top:-1px;"></div><div id="content"></div><script type="text/javascript">Dispatcher.initialize()</script><noscript></noscript></body></html>
+    <title>City Burner</title>
+
+    <script src="edge_includes/jquery-1.7.1.min.js"></script>
+    <script src="elm-runtime-0.7.1.js"></script>
+    <script src="cityburner.js"></script>
+    <script src="cityburner-help.js"></script>
+
+    <!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="DestroyBotWalk_edgePreload.js"></script>
+    <style>
+        .edgeLoad-ROBOT-WALK { visibility:hidden; }
+    </style>
+    <!--Adobe Edge Runtime End-->
+
+    <style type="text/css">html, head, body {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: helvetica, arial, sans-serif;
+    }</style>
+
+</head>
+<body>
+<div id="widthChecker" style="width:100%; height:1px; position:absolute; top:-1px;"></div>
+<div style="position: absolute; top: 0px; z-index: -1;">
+    <div id="ROBOT-WALK" class="ROBOT-WALK">
+    </div>
+</div>
+<div id="content"></div>
+<script type="text/javascript">Dispatcher.initialize()</script>
+<noscript>
+    <noscript></noscript>
+</noscript>
+</body>
+</html>

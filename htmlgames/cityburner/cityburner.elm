@@ -1,10 +1,21 @@
 import Automaton (init')
+import JavaScript
+import JavaScript.Experimental
 
-updateGame {t,mouseDown,mousePosition} {oldFires} =
-    let (mouseX, mouseY) = mousePosition
+foreign import jsevent "provideRobotAnimation"
+    (castElementToJSElement (spacer 0 0))
+    jsRobotAnimation :: Signal JSElement
+
+robotAnimation = lift (castJSElementToElement 262 373) jsRobotAnimation
+
+updateGame input oldState =
+    let {t,mouseDown,mousePosition} = input
+        oldFires = oldState.oldFires
+        robotElt = input.jselts.robot
+        (mouseX, mouseY) = mousePosition
         gameWidth = 1024
         gameHeight = 768
-        speed = 0.02
+        speed = 0.15
         distanceTravelled = truncate (t * speed)
         buildings x =
             let bldgWidth = gameWidth `div` 10
@@ -16,15 +27,16 @@ updateGame {t,mouseDown,mousePosition} {oldFires} =
                 building = filled grey (rect bldgWidth bldgHeight (x + bldgOffset,gameHeight-bldgHeight/2))
             in if x-bldgWidth > gameWidth then [] else building : (buildings (x + bldgWidth + bldgSpace))
         cityShapes = buildings 0
-        headSize = gameHeight `div` 10
-        headCenter = (gameWidth `div` 10, gameHeight `div` 4)
-        headCircle = filled red (circle (gameHeight `div` 10) headCenter)
 
-        monsterShapes = [headCircle]
+        sunCenter = (gameWidth `div` 10, gameHeight `div` 4)
+        sunCircle = filled red (circle (gameHeight `div` 10) sunCenter)
+
+        headCenter = (200,400)
+        monsterShapes = [robotElt, sunCircle]
 
         laserShapes = if mouseDown then [solid red (segment headCenter mousePosition)] else []
 
-        fireRadius since = (sqrt (t - since))*speed*10
+        fireRadius since = (sqrt (t - since))*speed*5
         fireVisible {worldX,since} = worldX > distanceTravelled - (fireRadius since)
 
         fireShape {worldX,worldY,since} =
@@ -38,7 +50,12 @@ updateGame {t,mouseDown,mousePosition} {oldFires} =
                    since=t}
         mouseOverBuilding = any (isWithin mousePosition) cityShapes
         mouseOverFire = any (isWithin mousePosition) (map fireShape oldVisibleFires)
-        newFires = if mouseDown && mouseOverBuilding && (not mouseOverFire) then newFire : oldVisibleFires else oldVisibleFires
+        timeSinceLastFire = case oldFires of
+            f:fs -> t - f.since
+            [] -> 1000
+
+        newFires = if mouseDown && mouseOverBuilding && (not mouseOverFire) && (timeSinceLastFire > 333)
+                   then newFire : oldVisibleFires else oldVisibleFires
 
         newState = {oldFires=newFires}
         fireShapes = map fireShape newFires
@@ -49,8 +66,10 @@ updateGame {t,mouseDown,mousePosition} {oldFires} =
 
     in (newView,newState)
 
-mkinput t mouseDown mousePosition = let r = {t=t, mouseDown=mouseDown, mousePosition=mousePosition} in r
-input = lift3 mkinput (every 0.1) Mouse.isDown Mouse.position
+mkjselts r = {robot=r}
+jselts = lift mkjselts robotAnimation
+mkinput t mouseDown mousePosition jselts = let r = {t=t, mouseDown=mouseDown, mousePosition=mousePosition, jselts=jselts} in r
+input = lift4 mkinput (every 0.1) Mouse.isDown Mouse.position jselts
 startState = {oldFires=[]}
 gameAutomaton = init' startState updateGame
 main = Automaton.run gameAutomaton input
