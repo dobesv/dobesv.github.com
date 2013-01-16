@@ -1,462 +1,491 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Main</title><style type="text/css">html,head,body { padding:0; margin:0; }body { font-family: helvetica, arial, sans-serif; }</style></head><body><script type="text/javascript" src="../elm-runtime-0.7.1.js"></script><script type="text/javascript">
+<html><head><meta charset="UTF-8"><title>Main</title><style type="text/css">html,head,body { padding:0; margin:0; }body { font-family: helvetica, arial, sans-serif; }</style></head><body><script type="text/javascript" src="elm-runtime-0.7.1.js"></script><script type="text/javascript">
 try{
 
-if (Elm.Main) throw "Module name collision, 'Main' is already defined."; 
+if (Elm.Main) throw new Error("Module name collision, 'Main' is already defined."); 
 Elm.Main=function(){
  var $op={};
  for(Elm['i'] in Elm){eval('var '+Elm['i']+'=Elm[Elm.i];');}
  try{
-  if (!(Elm.Prelude instanceof Object)) throw 'module not found';
+  if (!(Elm.Prelude instanceof Object)) throw new Error('module not found');
  } catch(e) {
-  throw ("Module 'Prelude' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
+  throw new Error("Module 'Prelude' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
  }
  var hiddenVars={};
  for (Elm['i'] in Elm.Prelude) {
   if (hiddenVars[Elm['i']]) continue;
   eval('var ' + Elm['i'] + ' = Elm.Prelude[Elm.i];');}
  try{
-  if (!(Elm.Automaton instanceof Object)) throw 'module not found';
+  if (!(Elm.Automaton instanceof Object)) throw new Error('module not found');
  } catch(e) {
-  throw ("Module 'Automaton' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
+  throw new Error("Module 'Automaton' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
  }
  var init$=Elm.Automaton.init$;
  try{
-  if (!(Elm.Maybe instanceof Object)) throw 'module not found';
+  if (!(Elm.Maybe instanceof Object)) throw new Error('module not found');
  } catch(e) {
-  throw ("Module 'Maybe' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
+  throw new Error("Module 'Maybe' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
  }
  var hiddenVars={};
  for (Elm['i'] in Elm.Maybe) {
   if (hiddenVars[Elm['i']]) continue;
   eval('var ' + Elm['i'] + ' = Elm.Maybe[Elm.i];');}
  try{
-  if (!(Elm.Text instanceof Object)) throw 'module not found';
+  if (!(Elm.Text instanceof Object)) throw new Error('module not found');
  } catch(e) {
-  throw ("Module 'Text' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
+  throw new Error("Module 'Text' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
  }
  var hiddenVars={};
  for (Elm['i'] in Elm.Text) {
   if (hiddenVars[Elm['i']]) continue;
   eval('var ' + Elm['i'] + ' = Elm.Text[Elm.i];');}
  try{
-  if (!(Elm.Graphics instanceof Object)) throw 'module not found';
+  if (!(Elm.Graphics instanceof Object)) throw new Error('module not found');
  } catch(e) {
-  throw ("Module 'Graphics' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
+  throw new Error("Module 'Graphics' is missing. Compile with --make flag or load missing module in a separate JavaScript file.");
  }
  var hiddenVars={};
  for (Elm['i'] in Elm.Graphics) {
   if (hiddenVars[Elm['i']]) continue;
   eval('var ' + Elm['i'] + ' = Elm.Graphics[Elm.i];');}
- var Idle_13=['Idle'];
- function ShowDescription_14(a1){
+ var Screwdriver_8=['Screwdriver'];
+ var Superphone_9=['Superphone'];
+ var Office_10=['Office'];
+ var Corridor_11=['Corridor'];
+ var Infirmary_12=['Infirmary'];
+ var EscapePod_13=['EscapePod'];
+ var Idle_19=['Idle'];
+ function ShowDescription_20(a1){
   return ['ShowDescription',a1];}
- function FadeOutTo_15(a1){
+ function FadeOutTo_21(a1){
   return ['FadeOutTo',a1];}
- function FadeInTo_16(a1){
+ function FadeInTo_22(a1){
   return ['FadeInTo',a1];}
- function ChangeToRoom_17(a1){
+ function ChangeToRoom_23(a1){
   return ['ChangeToRoom',a1];}
- function PickUpItem_18(a1){
+ function PickUpItem_24(a1){
   return ['PickUpItem',a1];}
- function UseItem_19(a1){
+ function UseItem_25(a1){
   return ['UseItem',a1];}
- function indexBy_4(f_44){
-  return function(lst_45){
-   return Dict.fromList(map(function(v_46){
-    return function(){
-     var k_47=f_44(v_46);
-     return ['Tuple2',k_47,v_46];}();})(lst_45));};}
- function indexById_5(lst_48){
-  return indexBy_4(function(__49){
-   return function(r){
-    return r.hasOwnProperty('_') ? r.id[0] : r.id;}(__49);})(lst_48);}
- function groupBy_6(f_50){
+ function indexBy_4(f_50){
   return function(lst_51){
-   return function(){
-    function addToGroup_52(v_53){
-     return function(dict_54){
-      return function(){
-       var k_55=f_50(v_53);
-       return ['Cons',Dict.insert(k_55)(v_53),Dict.findWithDefault(['Nil'])(k_55)(dict_54)];}();};}
-    return List.foldr(addToGroup_52)(Dict.empty)(lst_51);}();};}
- $op['>>>'] = function(f_56){
-  return function(g_57){
-   return function(x){
-    return g_57(f_56(x));};};};
- $op['|>'] = function(x_58){
-  return function(g_59){
-   return g_59(x_58);};};
- function half_7(x_60){
-  return div(x_60)(2);}
- function inRect_21(x_76){
-  return function(y_77){
-   return function(rect_78){
+   return Dict.fromList(map(function(v_52){
     return function(){
-     var dx_79=(x_76-function(r){
-      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(rect_78));
-     var dy_80=(y_77-function(r){
-      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(rect_78));
-     return (function() { var ord = compare(dx_79)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&((compare(dx_79)(function(r){
-      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(rect_78))[0] === 'LT')&&(function() { var ord = compare(dy_80)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&(compare(dy_80)(function(r){
-      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(rect_78))[0] === 'LT'))));}();};};}
- function headMaybe_22(lst_81){
+     var k_53=f_50(v_52);
+     return ['Tuple2',k_53,v_52];}();})(lst_51));};}
+ function indexById_5(lst_54){
+  return indexBy_4(function(x){
+   return show(function(r){
+    return r.hasOwnProperty('_') ? r.id[0] : r.id;}(x));})(lst_54);}
+ function groupBy_6(f_56){
+  return function(lst_57){
+   return function(){
+    function addToGroup_58(v_59){
+     return function(dict_60){
+      return function(){
+       var k_61=f_56(v_59);
+       return ['Cons',Dict.insert(k_61)(v_59),Dict.findWithDefault(['Nil'])(k_61)(dict_60)];}();};}
+    return List.foldr(addToGroup_58)(Dict.empty)(lst_57);}();};}
+ $op['>>>'] = function(f_62){
+  return function(g_63){
+   return function(x){
+    return g_63(f_62(x));};};};
+ $op['|>'] = function(x_64){
+  return function(g_65){
+   return g_65(x_64);};};
+ function half_7(x_66){
+  return div(x_66)(2);}
+ function inRect_27(x_82){
+  return function(y_83){
+   return function(rect_84){
+    return function(){
+     var dx_85=(x_82-function(r){
+      return r.hasOwnProperty('_') ? r.left[0] : r.left;}(rect_84));
+     var dy_86=(y_83-function(r){
+      return r.hasOwnProperty('_') ? r.top[0] : r.top;}(rect_84));
+     return (function() { var ord = compare(dx_85)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&((compare(dx_85)(function(r){
+      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(rect_84))[0] === 'LT')&&(function() { var ord = compare(dy_86)(0)[0]; return ord==='GT' || ord==='EQ'; }()&&(compare(dy_86)(function(r){
+      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(rect_84))[0] === 'LT'))));}();};};}
+ function headMaybe_28(lst_87){
   return function(){
-  switch(lst_81[0]){
+  switch(lst_87[0]){
    case 'Cons':
-   return Just(lst_81[1]);
+   return Just(lst_87[1]);
    case 'Nil':
    return Nothing;
   }
-  throw "Non-exhaustive pattern match in case expression (Line 101, Column 17)";}();}
- function find_23(p_83){
-  return function(lst_84){
+  throw new Error("Non-exhaustive pattern match in case expression (Line 109, Column 17)");}();}
+ function find_29(p_89){
+  return function(lst_90){
    return function(){
-   switch(lst_84[0]){
+   switch(lst_90[0]){
     case 'Cons':
-    return (p_83(lst_84[1])?Just(lst_84[1]):find_23(p_83)(lst_84[2]));
+    return (p_89(lst_90[1])?Just(lst_90[1]):find_29(p_89)(lst_90[2]));
     case 'Nil':
     return Nothing;
    }
-   throw "Non-exhaustive pattern match in case expression (Line 105, Column 14)";}();};}
- function findRoom_24(id_87){
-  return Dict.findWithDefault(badRoomId_12)(id_87)(rooms_11);}
- function findItem_25(id_88){
-  return Dict.findWithDefault(badItemId_10)(id_88)(items_9);}
- function tryInTurn_26(defaultValue_89){
-  return function(flist_90){
+   throw new Error("Non-exhaustive pattern match in case expression (Line 113, Column 14)");}();};}
+ function findRoom_30(id_93){
+  return Dict.findWithDefault(badRoomId_18)(show(id_93))(rooms_17);}
+ function findItem_31(id_94){
+  return Dict.findWithDefault(badItemId_16)(show(id_94))(items_15);}
+ function tryInTurn_32(defaultValue_95){
+  return function(flist_96){
    return function(){
-   switch(flist_90[0]){
+   switch(flist_96[0]){
     case 'Cons':
     return function(){
-    var case9=flist_90[1](['Tuple0']);
+    var case9=flist_96[1](['Tuple0']);
     switch(case9[0]){
      case 'Just':
      return case9[1];
      case 'Nothing':
-     return tryInTurn_26(defaultValue_89)(flist_90[2]);
+     return tryInTurn_32(defaultValue_95)(flist_96[2]);
     }
-    throw "Non-exhaustive pattern match in case expression (Line 115, Column 17)";}();
+    throw new Error("Non-exhaustive pattern match in case expression (Line 123, Column 17)");}();
     case 'Nil':
-    return defaultValue_89;
+    return defaultValue_95;
    }
-   throw "Non-exhaustive pattern match in case expression (Line 113, Column 5)";}();};}
- function maybeMap_27(f_94){
-  return function(x_95){
+   throw new Error("Non-exhaustive pattern match in case expression (Line 121, Column 5)");}();};}
+ function maybeMap_33(f_100){
+  return function(x_101){
    return function(){
-   switch(x_95[0]){
+   switch(x_101[0]){
     case 'Just':
-    return Just(f_94(x_95[1]));
+    return Just(f_100(x_101[1]));
     case 'Nothing':
     return Nothing;
    }
-   throw "Non-exhaustive pattern match in case expression (Line 119, Column 5)";}();};}
- function offsetBy_33(_0_97){
-  return function(elt_98){
+   throw new Error("Non-exhaustive pattern match in case expression (Line 127, Column 5)");}();};}
+ function offsetBy_39(_0_103){
+  return function(elt_104){
    return function(){
-    var left_99=function(r){
-     return r.hasOwnProperty('_') ? r.left[0] : r.left;}(_0_97);
-    var top_100=function(r){
-     return r.hasOwnProperty('_') ? r.top[0] : r.top;}(_0_97);
+    var left_105=function(r){
+     return r.hasOwnProperty('_') ? r.left[0] : r.left;}(_0_103);
+    var top_106=function(r){
+     return r.hasOwnProperty('_') ? r.top[0] : r.top;}(_0_103);
     return function(){
-     var width_101=(left_99+widthOf(elt_98));
-     var height_102=(top_100+heightOf(elt_98));
-     var location_103=topLeftAt(absolute(left_99))(absolute(top_100));
-     return container(width_101)(height_102)(location_103)(elt_98);}();}();};}
- function paddedBy_35(_0_104){
-  return function(elt_105){
+     var width_107=(left_105+widthOf(elt_104));
+     var height_108=(top_106+heightOf(elt_104));
+     var location_109=topLeftAt(absolute(left_105))(absolute(top_106));
+     return container(width_107)(height_108)(location_109)(elt_104);}();}();};}
+ function paddedBy_41(_0_110){
+  return function(elt_111){
    return function(){
-    var left_106=function(r){
-     return r.hasOwnProperty('_') ? r.left[0] : r.left;}(_0_104);
-    var top_107=function(r){
-     return r.hasOwnProperty('_') ? r.top[0] : r.top;}(_0_104);
-    var right_108=function(r){
-     return r.hasOwnProperty('_') ? r.right[0] : r.right;}(_0_104);
-    var bottom_109=function(r){
-     return r.hasOwnProperty('_') ? r.bottom[0] : r.bottom;}(_0_104);
+    var left_112=function(r){
+     return r.hasOwnProperty('_') ? r.left[0] : r.left;}(_0_110);
+    var top_113=function(r){
+     return r.hasOwnProperty('_') ? r.top[0] : r.top;}(_0_110);
+    var right_114=function(r){
+     return r.hasOwnProperty('_') ? r.right[0] : r.right;}(_0_110);
+    var bottom_115=function(r){
+     return r.hasOwnProperty('_') ? r.bottom[0] : r.bottom;}(_0_110);
     return function(){
-     var location_110=topLeftAt(absolute(left_106))(absolute(top_107));
-     var width_111=((left_106+widthOf(elt_105))+right_108);
-     var height_112=((top_107+heightOf(elt_105))+bottom_109);
-     return container(width_111)(height_112)(location_110)(elt_105);}();}();};}
- function nthMaybe_36(n_113){
-  return function(lst_114){
+     var location_116=topLeftAt(absolute(left_112))(absolute(top_113));
+     var width_117=((left_112+widthOf(elt_111))+right_114);
+     var height_118=((top_113+heightOf(elt_111))+bottom_115);
+     return container(width_117)(height_118)(location_116)(elt_111);}();}();};}
+ function nthMaybe_42(n_119){
+  return function(lst_120){
    return function(){
-   switch(lst_114[0]){
+   switch(lst_120[0]){
     case 'Cons':
-    return (eq(n_113,0)?Just(lst_114[1]):nthMaybe_36((n_113-1))(lst_114[2]));
+    return (eq(n_119,0)?Just(lst_120[1]):nthMaybe_42((n_119-1))(lst_120[2]));
     case 'Nil':
     return Nothing;
    }
-   throw "Non-exhaustive pattern match in case expression (Line 164, Column 5)";}();};}
- function updateGame_39(input_117){
-  return function(oldState_118){
+   throw new Error("Non-exhaustive pattern match in case expression (Line 172, Column 5)");}();};}
+ function updateGame_45(input_123){
+  return function(oldState_124){
    return function(){
-    var _0_119=input_117;
-    var t_120=function(r){
-     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(_0_119);
-    var mouse_121=function(r){
-     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(_0_119);
-    var clicked_122=function(r){
-     return r.hasOwnProperty('_') ? r.clicked[0] : r.clicked;}(mouse_121);
-    var oldRoom_124=findRoom_24(function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_118));
-    var pickupsNotPickedUp_125=filter(function(p_143){
-     return eq(false,Dict.findWithDefault(false)(function(r){
-      return r.hasOwnProperty('_') ? r.item[0] : r.item;}(p_143))(function(r){
-      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_118)));})(function(r){
-     return r.hasOwnProperty('_') ? r.pickups[0] : r.pickups;}(oldRoom_124));
-    var heldItems_126=Dict.keys(function(r){
-     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_118));
-    var newActivity_128=function(){
-     var oldActivity_145=function(r){
-      return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_118);
-     function fadeOutTo_146(next_156){
-      return FadeOutTo_15({
-        endTime : [(t_120+fadeTime_37)],
-        next : [next_156],
-        startTime : [t_120],
+    var _0_125=input_123;
+    var t_126=function(r){
+     return r.hasOwnProperty('_') ? r.t[0] : r.t;}(_0_125);
+    var mouse_127=function(r){
+     return r.hasOwnProperty('_') ? r.mouse[0] : r.mouse;}(_0_125);
+    var clicked_128=function(r){
+     return r.hasOwnProperty('_') ? r.clicked[0] : r.clicked;}(mouse_127);
+    var oldRoom_130=findRoom_30(function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_124));
+    var pickupsNotPickedUp_131=filter(function(p_150){
+     return eq(Dict.lookup(show(function(r){
+      return r.hasOwnProperty('_') ? r.item[0] : r.item;}(p_150)))(function(r){
+      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_124)),Nothing);})(function(r){
+     return r.hasOwnProperty('_') ? r.pickups[0] : r.pickups;}(oldRoom_130));
+    var heldItems_132=Dict.values(function(r){
+     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_124));
+    var newActivity_134=function(){
+     var oldActivity_152=function(r){
+      return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_124);
+     function fadeOutTo_153(next_165){
+      return FadeOutTo_21({
+        endTime : [(t_126+fadeTime_43)],
+        next : [next_165],
+        startTime : [t_126],
         _ : [true]});}
-     function fadeInTo_147(next_157){
-      return FadeInTo_16({
-        endTime : [(t_120+fadeTime_37)],
-        next : [next_157],
-        startTime : [t_120],
+     function fadeInTo_154(next_166){
+      return FadeInTo_22({
+        endTime : [(t_126+fadeTime_43)],
+        next : [next_166],
+        startTime : [t_126],
         _ : [true]});}
-     function checkFade_148(_0_158){
-      return function(){
-      switch(_0_158[0]){
-       case 'Tuple0':
-       return function(){
-       var case17=function(r){
-        return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_118);
-       switch(case17[0]){
-        case 'FadeInTo':
-        return Just(((compare(function(r){
-         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case17[1]))(t_120)[0] === 'LT')?function(r){
-         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case17[1]):function(r){
-         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_118)));
-        case 'FadeOutTo':
-        return Just(((compare(function(r){
-         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case17[1]))(t_120)[0] === 'LT')?function(r){
-         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case17[1]):function(r){
-         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_118)));
-       }
-       return Nothing;}();
-      }
-      throw "Non-exhaustive pattern match in case expression (Line 185, Column 21)";}();}
-     function checkEnteredRoom_149(_0_162){
-      return function(){
-      switch(_0_162[0]){
-       case 'Tuple0':
-       return function(){
-       switch(oldActivity_145[0]){
-        case 'ChangeToRoom':
-        return Just(fadeInTo_147(Idle_13));
-       }
-       return Nothing;}();
-      }
-      throw "Non-exhaustive pattern match in case expression (Line 190, Column 21)";}();}
-     function showDescription_150(text_164){
-      return ShowDescription_14({
-        endTime : [(t_120+descriptionTime_38)],
-        text : [text_164],
-        _ : [true]});}
-     function checkDoor_151(_0_165){
-      return function(){
-      switch(_0_165[0]){
-       case 'Tuple0':
-       return maybeMap_27($op['>>>'](function(__166){
-        return function(r){
-         return r.hasOwnProperty('_') ? r.targetRoom[0] : r.targetRoom;}(__166);})(function(x){
-        return fadeOutTo_146(ChangeToRoom_17(x));}))(findClickedOn_127(function(r){
-        return r.hasOwnProperty('_') ? r.doors[0] : r.doors;}(oldRoom_124)));
-      }
-      throw "Non-exhaustive pattern match in case expression (Line 194, Column 32)";}();}
-     function checkPickup_152(_0_167){
+     function checkFade_155(_0_167){
       return function(){
       switch(_0_167[0]){
        case 'Tuple0':
-       return maybeMap_27($op['>>>'](function(__168){
-        return function(r){
-         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(__168);})(PickUpItem_18))(findClickedOn_127(pickupsNotPickedUp_125));
-      }
-      throw "Non-exhaustive pattern match in case expression (Line 195, Column 34)";}();}
-     function checkProp_153(_0_169){
-      return function(){
-      switch(_0_169[0]){
-       case 'Tuple0':
-       return maybeMap_27($op['>>>'](function(__170){
-        return function(r){
-         return r.hasOwnProperty('_') ? r.description[0] : r.description;}(__170);})(showDescription_150))(findClickedOn_127(function(r){
-        return r.hasOwnProperty('_') ? r.props[0] : r.props;}(oldRoom_124)));
-      }
-      throw "Non-exhaustive pattern match in case expression (Line 196, Column 32)";}();}
-     function checkInventory_154(_0_171){
-      return function(){
-      switch(_0_171[0]){
-       case 'Tuple0':
-       return (clicked_122?(underMouse_123(inventoryArea_30)?function(){
-        var firstItemLeft_172=((function(r){
-         return r.hasOwnProperty('_') ? r.x[0] : r.x;}(mouse_121)-function(r){
-         return r.hasOwnProperty('_') ? r.left[0] : r.left;}(inventoryArea_30))-function(r){
-         return r.hasOwnProperty('_') ? r.left[0] : r.left;}(function(r){
-         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30)));
-        var invIndex_173=div(firstItemLeft_172)(function(r){
-         return r.hasOwnProperty('_') ? r.width[0] : r.width;}(function(r){
-         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30)));
-        return $op['|>'](nthMaybe_36(invIndex_173)(heldItems_126))(maybeMap_27(UseItem_19));}():Nothing):function(){
-       switch(oldActivity_145[0]){
-        case 'UseItem':
-        return Just(oldActivity_145);
-       }
-       return Nothing;}());
-      }
-      throw "Non-exhaustive pattern match in case expression (Line 198, Column 21)";}();}
-     function checkDescription_155(_0_176){
-      return function(){
-      switch(_0_176[0]){
-       case 'Tuple0':
        return function(){
-       switch(oldActivity_145[0]){
-        case 'ShowDescription':
-        return ((clicked_122||(compare(function(r){
-         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(oldActivity_145[1]))(t_120)[0] === 'LT'))?Nothing:Just(oldActivity_145));
+       var case17=function(r){
+        return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_124);
+       switch(case17[0]){
+        case 'FadeInTo':
+        return Just(((compare(function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case17[1]))(t_126)[0] === 'LT')?function(r){
+         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case17[1]):function(r){
+         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_124)));
+        case 'FadeOutTo':
+        return Just(((compare(function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(case17[1]))(t_126)[0] === 'LT')?function(r){
+         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(case17[1]):function(r){
+         return r.hasOwnProperty('_') ? r.activity[0] : r.activity;}(oldState_124)));
        }
        return Nothing;}();
       }
-      throw "Non-exhaustive pattern match in case expression (Line 209, Column 21)";}();}
-     return tryInTurn_26(Idle_13)(['Cons',checkFade_148,['Cons',checkEnteredRoom_149,['Cons',checkPickup_152,['Cons',checkProp_153,['Cons',checkDoor_151,['Cons',checkInventory_154,['Cons',checkDescription_155,['Nil']]]]]]]]);}();
-    var newState_129={
-      activity : [newActivity_128],
+      throw new Error("Non-exhaustive pattern match in case expression (Line 192, Column 21)");}();}
+     function checkEnteredRoom_156(_0_171){
+      return function(){
+      switch(_0_171[0]){
+       case 'Tuple0':
+       return function(){
+       switch(oldActivity_152[0]){
+        case 'ChangeToRoom':
+        return Just(fadeInTo_154(Idle_19));
+       }
+       return Nothing;}();
+      }
+      throw new Error("Non-exhaustive pattern match in case expression (Line 197, Column 21)");}();}
+     function showDescription_157(text_173){
+      return ShowDescription_20({
+        endTime : [(t_126+descriptionTime_44)],
+        text : [text_173],
+        _ : [true]});}
+     function checkUseItem_158(_0_174){
+      return function(){
+      switch(_0_174[0]){
+       case 'Tuple0':
+       return Nothing;
+      }
+      throw new Error("Non-exhaustive pattern match in case expression (Line 201, Column 35)");}();}
+     function checkMiniGame_159(_0_175){
+      return function(){
+      switch(_0_175[0]){
+       case 'Tuple0':
+       return function(){
+       switch(oldActivity_152[0]){
+        case 'UseItem':
+        switch(oldActivity_152[1][0]){
+         case 'Superphone':
+         return Nothing;
+        }break;
+       }
+       return Nothing;}();
+      }
+      throw new Error("Non-exhaustive pattern match in case expression (Line 203, Column 21)");}();}
+     function checkDoor_160(_0_177){
+      return function(){
+      switch(_0_177[0]){
+       case 'Tuple0':
+       return maybeMap_33($op['>>>'](function(__178){
+        return function(r){
+         return r.hasOwnProperty('_') ? r.targetRoom[0] : r.targetRoom;}(__178);})(function(x){
+        return fadeOutTo_153(ChangeToRoom_23(x));}))(findClickedOn_133(function(r){
+        return r.hasOwnProperty('_') ? r.doors[0] : r.doors;}(oldRoom_130)));
+      }
+      throw new Error("Non-exhaustive pattern match in case expression (Line 206, Column 32)");}();}
+     function checkPickup_161(_0_179){
+      return function(){
+      switch(_0_179[0]){
+       case 'Tuple0':
+       return maybeMap_33($op['>>>'](function(__180){
+        return function(r){
+         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(__180);})(PickUpItem_24))(findClickedOn_133(pickupsNotPickedUp_131));
+      }
+      throw new Error("Non-exhaustive pattern match in case expression (Line 207, Column 34)");}();}
+     function checkProp_162(_0_181){
+      return function(){
+      switch(_0_181[0]){
+       case 'Tuple0':
+       return maybeMap_33($op['>>>'](function(__182){
+        return function(r){
+         return r.hasOwnProperty('_') ? r.description[0] : r.description;}(__182);})(showDescription_157))(findClickedOn_133(function(r){
+        return r.hasOwnProperty('_') ? r.props[0] : r.props;}(oldRoom_130)));
+      }
+      throw new Error("Non-exhaustive pattern match in case expression (Line 208, Column 32)");}();}
+     function checkInventory_163(_0_183){
+      return function(){
+      switch(_0_183[0]){
+       case 'Tuple0':
+       return (clicked_128?(underMouse_129(inventoryArea_36)?function(){
+        var firstItemLeft_184=((function(r){
+         return r.hasOwnProperty('_') ? r.x[0] : r.x;}(mouse_127)-function(r){
+         return r.hasOwnProperty('_') ? r.left[0] : r.left;}(inventoryArea_36))-function(r){
+         return r.hasOwnProperty('_') ? r.left[0] : r.left;}(function(r){
+         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_36)));
+        var invIndex_185=div(firstItemLeft_184)(function(r){
+         return r.hasOwnProperty('_') ? r.width[0] : r.width;}(function(r){
+         return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_36)));
+        return $op['|>'](nthMaybe_42(invIndex_185)(heldItems_132))(maybeMap_33(UseItem_25));}():Nothing):function(){
+       switch(oldActivity_152[0]){
+        case 'UseItem':
+        return Just(oldActivity_152);
+       }
+       return Nothing;}());
+      }
+      throw new Error("Non-exhaustive pattern match in case expression (Line 210, Column 21)");}();}
+     function checkDescription_164(_0_188){
+      return function(){
+      switch(_0_188[0]){
+       case 'Tuple0':
+       return function(){
+       switch(oldActivity_152[0]){
+        case 'ShowDescription':
+        return ((clicked_128||(compare(function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(oldActivity_152[1]))(t_126)[0] === 'LT'))?Nothing:Just(oldActivity_152));
+       }
+       return Nothing;}();
+      }
+      throw new Error("Non-exhaustive pattern match in case expression (Line 221, Column 21)");}();}
+     return tryInTurn_32(Idle_19)(['Cons',checkFade_155,['Cons',checkMiniGame_159,['Cons',checkEnteredRoom_156,['Cons',checkUseItem_158,['Cons',checkPickup_161,['Cons',checkProp_162,['Cons',checkDoor_160,['Cons',checkInventory_163,['Cons',checkDescription_164,['Nil']]]]]]]]]]);}();
+    var newState_135={
+      activity : [newActivity_134],
       inventory : [function(){
-    switch(newActivity_128[0]){
+    switch(newActivity_134[0]){
      case 'PickUpItem':
-     return Dict.insert(newActivity_128[1])(true)(function(r){
-      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_118));
+     return Dict.insert(show(newActivity_134[1]))(newActivity_134[1])(function(r){
+      return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_124));
     }
     return function(r){
-     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_118);}()],
-      lastClick : [(clicked_122?mouse_121:input_117)],
+     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(oldState_124);}()],
+      lastClick : [(clicked_128?mouse_127:input_123)],
       room : [function(){
-    switch(newActivity_128[0]){
+    switch(newActivity_134[0]){
      case 'ChangeToRoom':
-     return newActivity_128[1];
+     return newActivity_134[1];
     }
     return function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_118);}()],
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_124);}()],
       _ : [true]};
-    var newRoom_130=(eq(function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_129),function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_118))?oldRoom_124:findRoom_24(function(r){
-     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_129)));
-    var bg_131=function(r){
-     return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(newRoom_130);
-    var bgImage_132=image(function(r){
-     return r.hasOwnProperty('_') ? r.width[0] : r.width;}(bg_131))(function(r){
-     return r.hasOwnProperty('_') ? r.height[0] : r.height;}(bg_131))(Value.append(Value.str('images/bg/'),function(r){
-     return r.hasOwnProperty('_') ? r.image[0] : r.image;}(bg_131)));
-    var debugView_133=function(){
-     var debugTextView_183=$op['>>>'](show)($op['>>>'](toText)($op['>>>'](Text.color(green))($op['>>>'](Text.monospace)(Graphics.text))));
-     var views_184=['Cons',input_117,['Cons',oldState_118,['Cons',newState_129,['Nil']]]];
-     return flow(down)(map(debugTextView_183)(views_184));}();
-    var dialogView_134=function(){
-     var text_185=function(){
-     switch(newActivity_128[0]){
+    var newRoom_136=(eq(function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_135),function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(oldState_124))?oldRoom_130:findRoom_30(function(r){
+     return r.hasOwnProperty('_') ? r.room[0] : r.room;}(newState_135)));
+    var bg_137=function(r){
+     return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(newRoom_136);
+    var bgImage_138=image(function(r){
+     return r.hasOwnProperty('_') ? r.width[0] : r.width;}(bg_137))(function(r){
+     return r.hasOwnProperty('_') ? r.height[0] : r.height;}(bg_137))(Value.append(Value.str('images/bg/'),function(r){
+     return r.hasOwnProperty('_') ? r.image[0] : r.image;}(bg_137)));
+    var debugView_139=function(){
+     var debugTextView_195=$op['>>>'](show)($op['>>>'](toText)($op['>>>'](Text.color(green))($op['>>>'](Text.monospace)(Graphics.text))));
+     var views_196=['Cons',input_123,['Cons',oldState_124,['Cons',newState_135,['Nil']]]];
+     return flow(down)(map(debugTextView_195)(views_196));}();
+    var dialogView_140=function(){
+     var text_197=function(){
+     switch(newActivity_134[0]){
       case 'ShowDescription':
       return function(){
-       var _0_187=newActivity_128[1];
-       var text_188=function(r){
-        return r.hasOwnProperty('_') ? r.text[0] : r.text;}(_0_187);
-       return text_188;}();
+       var _0_199=newActivity_134[1];
+       var text_200=function(r){
+        return r.hasOwnProperty('_') ? r.text[0] : r.text;}(_0_199);
+       return text_200;}();
      }
      return Value.str('');}();
-     return $op['|>'](text_185)($op['>>>'](toText)($op['>>>'](Text.color(dialogTextColor_31))($op['>>>'](Text.height(2))($op['>>>'](Text.typeface(Value.str('\'Trebuchet MS\', Helvetica, sans-serif')))($op['>>>'](centeredText)($op['>>>'](Graphics.width(gameWidth_0))($op['>>>'](Graphics.color(Color.rgba(0)(0)(0)(0.5)))(container(gameWidth_0)(half_7(gameHeight_1))(middle)))))))));}();
-    var tipView_135=function(){
-     var tipText_191=tryInTurn_26(Value.str(''))(['Cons',checkPickup_190,['Nil']]);
-     function checkPickup_190(_0_192){
+     return $op['|>'](text_197)($op['>>>'](toText)($op['>>>'](Text.color(dialogTextColor_37))($op['>>>'](Text.height(1.5))($op['>>>'](Text.typeface(Value.str('\'Trebuchet MS\', Helvetica, sans-serif')))($op['>>>'](centeredText)($op['>>>'](Graphics.width(gameWidth_0))($op['>>>'](Graphics.color(Color.rgba(0)(0)(0)(0.5)))(container(gameWidth_0)(half_7(gameHeight_1))(middle)))))))));}();
+    var tipView_141=function(){
+     var tipText_203=tryInTurn_32(Value.str(''))(['Cons',checkPickup_202,['Nil']]);
+     function checkPickup_202(_0_204){
       return function(){
-      switch(_0_192[0]){
+      switch(_0_204[0]){
        case 'Tuple0':
-       return maybeMap_27($op['>>>'](function(__193){
+       return maybeMap_33($op['>>>'](function(__205){
         return function(r){
-         return r.hasOwnProperty('_') ? r.label[0] : r.label;}(__193);})(function(y_195){
-        return Value.append(Value.str('Pick up '),y_195);}))(find_23(underMouse_123)(pickupsNotPickedUp_125));
+         return r.hasOwnProperty('_') ? r.label[0] : r.label;}(__205);})(function(y_207){
+        return Value.append(Value.str('Pick up '),y_207);}))(find_29(underMouse_129)(pickupsNotPickedUp_131));
       }
-      throw "Non-exhaustive pattern match in case expression (Line 251, Column 34)";}();}
-     return $op['|>'](tipText_191)($op['>>>'](toText)($op['>>>'](Text.color(dialogTextColor_31))($op['>>>'](Text.height(1))($op['>>>'](Text.typeface(Value.str('\'Trebuchet MS\', Helvetica, sans-serif')))($op['>>>'](centeredText)($op['>>>'](Graphics.width(gameWidth_0))($op['>>>'](Graphics.color(Color.rgba(0)(0)(0)(0.5)))(container(gameWidth_0)(half_7(gameHeight_1))(middle)))))))));}();
-    var pickupViews_136=map(function(p_196){
-     return offsetBy_33(p_196)(image(function(r){
-      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(p_196))(function(r){
-      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(p_196))(Value.append(Value.str('images/props/'),function(r){
-      return r.hasOwnProperty('_') ? r.image[0] : r.image;}(p_196))));})(pickupsNotPickedUp_125);
-    var inventoryView_137=(eq(function(r){
-     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(newState_129),Dict.empty)?plainText(''):function(){
-     var itemIcons_198=flow(right)(List.map($op['>>>'](findItem_25)(itemImage_197))(heldItems_126));
-     var itemIconArea_199=offsetBy_33(function(r){
-      return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30))(itemIcons_198);
-     var itemBg_200=image(function(r){
-      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(inventoryArea_30))(function(r){
-      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(inventoryArea_30))(function(r){
-      return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(inventoryArea_30));
-     function itemImage_197(item_201){
+      throw new Error("Non-exhaustive pattern match in case expression (Line 265, Column 34)");}();}
+     return $op['|>'](tipText_203)($op['>>>'](toText)($op['>>>'](Text.color(dialogTextColor_37))($op['>>>'](Text.height(1))($op['>>>'](Text.typeface(Value.str('\'Trebuchet MS\', Helvetica, sans-serif')))($op['>>>'](centeredText)($op['>>>'](Graphics.width(gameWidth_0))($op['>>>'](Graphics.color(Color.rgba(0)(0)(0)(0.5)))(container(gameWidth_0)(half_7(gameHeight_1))(middle)))))))));}();
+    var pickupViews_142=map(function(p_208){
+     return offsetBy_39(p_208)(image(function(r){
+      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(p_208))(function(r){
+      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(p_208))(Value.append(Value.str('images/props/'),function(r){
+      return r.hasOwnProperty('_') ? r.image[0] : r.image;}(p_208))));})(pickupsNotPickedUp_131);
+    var inventoryView_143=(eq(function(r){
+     return r.hasOwnProperty('_') ? r.inventory[0] : r.inventory;}(newState_135),Dict.empty)?plainText(''):function(){
+     var itemIcons_210=flow(right)(List.map($op['>>>'](findItem_31)(itemImage_209))(heldItems_132));
+     var itemIconArea_211=offsetBy_39(function(r){
+      return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_36))(itemIcons_210);
+     var itemBg_212=image(function(r){
+      return r.hasOwnProperty('_') ? r.width[0] : r.width;}(inventoryArea_36))(function(r){
+      return r.hasOwnProperty('_') ? r.height[0] : r.height;}(inventoryArea_36))(function(r){
+      return r.hasOwnProperty('_') ? r.bg[0] : r.bg;}(inventoryArea_36));
+     function itemImage_209(item_213){
       return image(function(r){
        return r.hasOwnProperty('_') ? r.width[0] : r.width;}(function(r){
-       return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30)))(function(r){
+       return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_36)))(function(r){
        return r.hasOwnProperty('_') ? r.height[0] : r.height;}(function(r){
-       return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_30)))(Value.append(Value.str('images/icon/'),function(r){
-       return r.hasOwnProperty('_') ? r.icon[0] : r.icon;}(item_201)));}
-     return layers(['Cons',itemBg_200,['Cons',itemIconArea_199,['Nil']]]);}());
-    var bottomUIView_139=container(gameWidth_0)(gameHeight_1)(midBottom)(flow(down)(['Cons',tipView_135,['Cons',offsetBy_33(inventoryArea_30)(inventoryView_137),['Nil']]]));
-    var stage_140=layers(['Cons',bgImage_132,Value.append(pickupViews_136,['Cons',bottomUIView_139,['Cons',dialogView_134,['Nil']]])]);
-    var view_141=Graphics.color(black)(flow(down)(['Cons',applyFade_138(stage_140),['Cons',debugView_133,['Nil']]]));
-    function underMouse_123(obj_142){
-     return inRect_21(function(r){
-      return r.hasOwnProperty('_') ? r.x[0] : r.x;}(mouse_121))(function(r){
-      return r.hasOwnProperty('_') ? r.y[0] : r.y;}(mouse_121))(obj_142);}
-    function findClickedOn_127(objs_144){
-     return (clicked_122?find_23(underMouse_123)(objs_144):Nothing);}
-    function applyFade_138(elt_202){
+       return r.hasOwnProperty('_') ? r.item[0] : r.item;}(inventoryArea_36)))(Value.append(Value.str('images/icon/'),function(r){
+       return r.hasOwnProperty('_') ? r.icon[0] : r.icon;}(item_213)));}
+     return layers(['Cons',itemBg_212,['Cons',itemIconArea_211,['Nil']]]);}());
+    var bottomUIView_145=container(gameWidth_0)(gameHeight_1)(midBottom)(flow(down)(['Cons',tipView_141,['Cons',offsetBy_39(inventoryArea_36)(inventoryView_143),['Nil']]]));
+    var miniGameViews_146=['Nil'];
+    var stage_147=layers(['Cons',bgImage_138,Value.append(pickupViews_142,['Cons',bottomUIView_145,['Cons',dialogView_140,miniGameViews_146]])]);
+    var view_148=Graphics.color(black)(flow(down)(['Cons',applyFade_144(stage_147),['Cons',debugView_139,['Nil']]]));
+    function underMouse_129(obj_149){
+     return inRect_27(function(r){
+      return r.hasOwnProperty('_') ? r.x[0] : r.x;}(mouse_127))(function(r){
+      return r.hasOwnProperty('_') ? r.y[0] : r.y;}(mouse_127))(obj_149);}
+    function findClickedOn_133(objs_151){
+     return (clicked_128?find_29(underMouse_129)(objs_151):Nothing);}
+    function applyFade_144(elt_214){
      return function(){
-      var alpha_204=function(){
-      switch(newActivity_128[0]){
+      var alpha_216=function(){
+      switch(newActivity_134[0]){
        case 'ChangeToRoom':
        return 0.0;
        case 'FadeInTo':
-       return fadeAmount_203(newActivity_128[1]);
+       return fadeAmount_215(newActivity_134[1]);
        case 'FadeOutTo':
-       return (1.0-fadeAmount_203(newActivity_128[1]));
+       return (1.0-fadeAmount_215(newActivity_134[1]));
       }
       return 1.0;}();
-      function fadeAmount_203(_0_205){
+      function fadeAmount_215(_0_217){
        return function(){
-        var next_206=function(r){
-         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(_0_205);
-        var startTime_207=function(r){
-         return r.hasOwnProperty('_') ? r.startTime[0] : r.startTime;}(_0_205);
-        var endTime_208=function(r){
-         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(_0_205);
-        return ((t_120-startTime_207)/(endTime_208-startTime_207));}();}
-      return ((compare(alpha_204)(1.0)[0] === 'LT')?opacity(alpha_204)(elt_202):elt_202);}();}
-    return ['Tuple2',view_141,newState_129];}();};}
- function mkinput_40(t_212){
-  return function(clicked_213){
-   return function(_0_214){
+        var next_218=function(r){
+         return r.hasOwnProperty('_') ? r.next[0] : r.next;}(_0_217);
+        var startTime_219=function(r){
+         return r.hasOwnProperty('_') ? r.startTime[0] : r.startTime;}(_0_217);
+        var endTime_220=function(r){
+         return r.hasOwnProperty('_') ? r.endTime[0] : r.endTime;}(_0_217);
+        return ((t_126-startTime_219)/(endTime_220-startTime_219));}();}
+      return ((compare(alpha_216)(1.0)[0] === 'LT')?opacity(alpha_216)(elt_214):elt_214);}();}
+    return ['Tuple2',view_148,newState_135];}();};}
+ function mkinput_46(t_224){
+  return function(clicked_225){
+   return function(_0_226){
     return function(){
-    switch(_0_214[0]){
+    switch(_0_226[0]){
      case 'Tuple2':
      return function(){
-      var r_217={
+      var r_229={
         mouse : [{
-        clicked : [clicked_213],
-        x : [_0_214[1]],
-        y : [_0_214[2]],
+        clicked : [clicked_225],
+        x : [_0_226[1]],
+        y : [_0_226[2]],
         _ : [true]}],
-        t : [t_212],
+        t : [t_224],
         _ : [true]};
-      return r_217;}();
+      return r_229;}();
     }
-    throw "Non-exhaustive pattern match in case expression (Line 286, Column 37)";}();};};}
+    throw new Error("Non-exhaustive pattern match in case expression (Line 301, Column 37)");}();};};}
  var gameWidth_0=1024;
  var gameHeight_1=768;
  var xga_2={
@@ -467,32 +496,20 @@ Elm.Main=function(){
    height : [100],
    width : [100],
    _ : [true]};
- var itemList_8=['Cons',{
+ var itemList_14=['Cons',{
    icon : [Value.str('screwdriver.png')],
-   id : [Value.str('screwdriver')],
+   id : [Screwdriver_8],
    _ : [true]},['Cons',{
    icon : [Value.str('superphone.png')],
-   id : [Value.str('superphone')],
+   id : [Superphone_9],
    _ : [true]},['Nil']]];
- var items_9=indexById_5(itemList_8);
- var badItemId_10={
+ var items_15=indexById_5(itemList_14);
+ var badItemId_16={
    icon : [Value.str('XXX.png')],
-   id : [Value.str('bad')],
+   id : [Screwdriver_8],
    _ : [true]};
- var rooms_11=function(){
-  var roomList_61=['Cons',{
-    bg : [function(){
-   var r={_:[true]};
-   var e=xga_2;
-   for(var i in e){r[i]=e[i];}
-   var v=Value.str('Office.jpg');
-   if (r.hasOwnProperty('image')) {
-    r.image = r.image.slice(0);
-    r.image.unshift(v);
-   } else { r.image = [v]; }
-   return r;}()],
-    id : [Value.str('office')],
-    _ : [true]},['Cons',{
+ var rooms_17=function(){
+  var roomList_67=['Cons',{
     bg : [function(){
    var r={_:[true]};
    var e=xga_2;
@@ -503,7 +520,7 @@ Elm.Main=function(){
     r.image.unshift(v);
    } else { r.image = [v]; }
    return r;}()],
-    id : [Value.str('corridor')],
+    id : [Corridor_11],
     _ : [true]},['Cons',{
     bg : [function(){
    var r={_:[true]};
@@ -515,7 +532,7 @@ Elm.Main=function(){
     r.image.unshift(v);
    } else { r.image = [v]; }
    return r;}()],
-    id : [Value.str('infirmary')],
+    id : [Infirmary_12],
     _ : [true]},['Cons',{
     bg : [function(){
    var r={_:[true]};
@@ -527,142 +544,154 @@ Elm.Main=function(){
     r.image.unshift(v);
    } else { r.image = [v]; }
    return r;}()],
-    id : [Value.str('escapePod')],
+    id : [EscapePod_13],
+    _ : [true]},['Cons',{
+    bg : [function(){
+   var r={_:[true]};
+   var e=xga_2;
+   for(var i in e){r[i]=e[i];}
+   var v=Value.str('Office.jpg');
+   if (r.hasOwnProperty('image')) {
+    r.image = r.image.slice(0);
+    r.image.unshift(v);
+   } else { r.image = [v]; }
+   return r;}()],
+    id : [Office_10],
     _ : [true]},['Nil']]]]];
-  var doors_62=['Cons',{
+  var doors_68=['Cons',{
     height : [407],
     left : [473],
-    room : [Value.str('office')],
-    targetRoom : [Value.str('corridor')],
+    room : [Office_10],
+    targetRoom : [Corridor_11],
     top : [99],
     width : [248],
     _ : [true]},['Cons',{
     height : [120],
     left : [140],
-    room : [Value.str('corridor')],
-    targetRoom : [Value.str('office')],
+    room : [Corridor_11],
+    targetRoom : [Office_10],
     top : [320],
     width : [96],
     _ : [true]},['Cons',{
     height : [120],
     left : [770],
-    room : [Value.str('corridor')],
-    targetRoom : [Value.str('infirmary')],
+    room : [Corridor_11],
+    targetRoom : [Infirmary_12],
     top : [320],
     width : [96],
     _ : [true]},['Cons',{
     height : [395],
     left : [665],
-    room : [Value.str('infirmary')],
-    targetRoom : [Value.str('corridor')],
+    room : [Infirmary_12],
+    targetRoom : [Corridor_11],
     top : [232],
     width : [313],
     _ : [true]},['Cons',{
     height : [26],
     left : [305],
-    room : [Value.str('corridor')],
-    targetRoom : [Value.str('escapePod')],
+    room : [Corridor_11],
+    targetRoom : [EscapePod_13],
     top : [469],
     width : [118],
     _ : [true]},['Cons',{
     height : [91],
     left : [294],
-    room : [Value.str('escapePod')],
-    targetRoom : [Value.str('corridor')],
+    room : [EscapePod_13],
+    targetRoom : [Corridor_11],
     top : [139],
     width : [199],
     _ : [true]},['Nil']]]]]]];
-  var props_63=['Cons',{
+  var props_69=['Cons',{
     description : [Value.str('Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!')],
     height : [93],
     left : [117],
-    room : [Value.str('office')],
+    room : [Office_10],
     top : [249],
     width : [59],
     _ : [true]},['Cons',{
     description : [Value.str('My predecessor.')],
     height : [213],
     left : [183],
-    room : [Value.str('office')],
+    room : [Office_10],
     top : [316],
     width : [106],
     _ : [true]},['Cons',{
     description : [Value.str('Those instruments look very unique.  Could they be part of my job here?')],
     height : [390],
     left : [738],
-    room : [Value.str('office')],
+    room : [Office_10],
     top : [290],
     width : [133],
     _ : [true]},['Cons',{
     description : [Value.str('Looks like the escape pod has already launched!')],
     height : [25],
     left : [514],
-    room : [Value.str('corridor')],
+    room : [Corridor_11],
     top : [469],
     width : [111],
     _ : [true]},['Nil']]]]];
-  var pickups_64=['Cons',{
+  var pickups_70=['Cons',{
     height : [100],
     image : [Value.str('ScrewDriver_1_screen.png')],
-    item : [Value.str('screwdriver')],
+    item : [Screwdriver_8],
     label : [Value.str('screw driver')],
     left : [190],
-    room : [Value.str('office')],
+    room : [Office_10],
     top : [291],
     width : [100],
     _ : [true]},['Cons',{
     height : [100],
     image : [Value.str('phone_pocket.png')],
-    item : [Value.str('superphone')],
+    item : [Superphone_9],
     label : [Value.str('phone')],
     left : [169],
-    room : [Value.str('office')],
+    room : [Office_10],
     top : [379],
     width : [100],
     _ : [true]},['Nil']]];
-  function aug_65(r_66){
+  function aug_71(r_72){
    return function(){
-    var r1_68=function(){
+    var r1_74=function(){
      var r={_:[true]};
-     var e=r_66;
+     var e=r_72;
      for(var i in e){r[i]=e[i];}
-     var v=flt_67(r_66)(doors_62);
+     var v=flt_73(r_72)(doors_68);
      if (r.hasOwnProperty('doors')) {
       r.doors = r.doors.slice(0);
       r.doors.unshift(v);
      } else { r.doors = [v]; }
      return r;}();
-    var r2_69=function(){
+    var r2_75=function(){
      var r={_:[true]};
-     var e=r1_68;
+     var e=r1_74;
      for(var i in e){r[i]=e[i];}
-     var v=flt_67(r_66)(props_63);
+     var v=flt_73(r_72)(props_69);
      if (r.hasOwnProperty('props')) {
       r.props = r.props.slice(0);
       r.props.unshift(v);
      } else { r.props = [v]; }
      return r;}();
-    var r3_70=function(){
+    var r3_76=function(){
      var r={_:[true]};
-     var e=r2_69;
+     var e=r2_75;
      for(var i in e){r[i]=e[i];}
-     var v=flt_67(r_66)(pickups_64);
+     var v=flt_73(r_72)(pickups_70);
      if (r.hasOwnProperty('pickups')) {
       r.pickups = r.pickups.slice(0);
       r.pickups.unshift(v);
      } else { r.pickups = [v]; }
      return r;}();
-    function flt_67(r_71){
-     return function(lst_72){
-      return List.filter($op['>>>'](function(__73){
+    function flt_73(r_77){
+     return function(lst_78){
+      return List.filter($op['>>>'](function(__79){
        return function(r){
-        return r.hasOwnProperty('_') ? r.room[0] : r.room;}(__73);})(function(x_74){
-       return function(y_75){
-        return eq(x_74,y_75);};}(function(r){
-       return r.hasOwnProperty('_') ? r.id[0] : r.id;}(r_71))))(lst_72);};}
-    return r3_70;}();}
-  return indexById_5(map(aug_65)(roomList_61));}();
- var badRoomId_12={
+        return r.hasOwnProperty('_') ? r.room[0] : r.room;}(__79);})(function(x_80){
+       return function(y_81){
+        return eq(x_80,y_81);};}(function(r){
+       return r.hasOwnProperty('_') ? r.id[0] : r.id;}(r_77))))(lst_78);};}
+    return r3_76;}();}
+  return indexById_5(map(aug_71)(roomList_67));}();
+ var badRoomId_18={
    bg : [function(){
   var r={_:[true]};
   var e=xga_2;
@@ -674,51 +703,51 @@ Elm.Main=function(){
   } else { r.image = [v]; }
   return r;}()],
    doors : [['Nil']],
-   id : [Value.str('bad')],
+   id : [Office_10],
    pickups : [['Nil']],
    props : [['Nil']],
    _ : [true]};
- var startState_20={
-   activity : [Idle_13],
+ var startState_26={
+   activity : [Idle_19],
    dialog : [Nothing],
    fade : [0],
    inventory : [Dict.empty],
    lastClick : [{
    _ : [true]}],
-   room : [Value.str('office')],
+   room : [Office_10],
    showingInventory : [true],
    _ : [true]};
- var inventoryWidth_28=809;
- var inventoryHeight_29=106;
- var inventoryArea_30={
+ var inventoryWidth_34=809;
+ var inventoryHeight_35=106;
+ var inventoryArea_36={
    bg : [Value.str('images/ui/inventorybg.png')],
-   height : [inventoryHeight_29],
+   height : [inventoryHeight_35],
    item : [{
    height : [100],
    left : [3],
    top : [3],
    width : [100],
    _ : [true]}],
-   left : [div((gameWidth_0-inventoryWidth_28))(2)],
-   top : [(gameHeight_1-inventoryHeight_29)],
-   width : [inventoryWidth_28],
+   left : [div((gameWidth_0-inventoryWidth_34))(2)],
+   top : [(gameHeight_1-inventoryHeight_35)],
+   width : [inventoryWidth_34],
    _ : [true]};
- var dialogTextColor_31=Color.rgb(220)(220)(220);
- var noOffset_32={
+ var dialogTextColor_37=Color.rgb(220)(220)(220);
+ var noOffset_38={
    left : [0],
    top : [0],
    _ : [true]};
- var noPadding_34={
+ var noPadding_40={
    bottom : [0],
    left : [0],
    right : [0],
    top : [0],
    _ : [true]};
- var fadeTime_37=500;
- var descriptionTime_38=5000;
- var input_41=lift3(mkinput_40)(Time.every(0.1))(Mouse.isClicked)(Mouse.position);
- var gameAutomaton_42=init$(startState_20)(updateGame_39);
- var main_43=Automaton.run(gameAutomaton_42)(input_41);
+ var fadeTime_43=500;
+ var descriptionTime_44=5000;
+ var input_47=lift3(mkinput_46)(Time.every(0.1))(Mouse.isClicked)(Mouse.position);
+ var gameAutomaton_48=init$(startState_26)(updateGame_45);
+ var main_49=Automaton.run(gameAutomaton_48)(input_47);
  return {$op : {'>>>' : $op['>>>'], '|>' : $op['|>']},
  gameWidth:gameWidth_0,
  gameHeight:gameHeight_1,
@@ -728,42 +757,48 @@ Elm.Main=function(){
  indexById:indexById_5,
  groupBy:groupBy_6,
  half:half_7,
- itemList:itemList_8,
- items:items_9,
- badItemId:badItemId_10,
- rooms:rooms_11,
- badRoomId:badRoomId_12,
- Idle:Idle_13,
- ShowDescription:ShowDescription_14,
- FadeOutTo:FadeOutTo_15,
- FadeInTo:FadeInTo_16,
- ChangeToRoom:ChangeToRoom_17,
- PickUpItem:PickUpItem_18,
- UseItem:UseItem_19,
- startState:startState_20,
- inRect:inRect_21,
- headMaybe:headMaybe_22,
- find:find_23,
- findRoom:findRoom_24,
- findItem:findItem_25,
- tryInTurn:tryInTurn_26,
- maybeMap:maybeMap_27,
- inventoryWidth:inventoryWidth_28,
- inventoryHeight:inventoryHeight_29,
- inventoryArea:inventoryArea_30,
- dialogTextColor:dialogTextColor_31,
- noOffset:noOffset_32,
- offsetBy:offsetBy_33,
- noPadding:noPadding_34,
- paddedBy:paddedBy_35,
- nthMaybe:nthMaybe_36,
- fadeTime:fadeTime_37,
- descriptionTime:descriptionTime_38,
- updateGame:updateGame_39,
- mkinput:mkinput_40,
- input:input_41,
- gameAutomaton:gameAutomaton_42,
- main:main_43};}();
+ Screwdriver:Screwdriver_8,
+ Superphone:Superphone_9,
+ Office:Office_10,
+ Corridor:Corridor_11,
+ Infirmary:Infirmary_12,
+ EscapePod:EscapePod_13,
+ itemList:itemList_14,
+ items:items_15,
+ badItemId:badItemId_16,
+ rooms:rooms_17,
+ badRoomId:badRoomId_18,
+ Idle:Idle_19,
+ ShowDescription:ShowDescription_20,
+ FadeOutTo:FadeOutTo_21,
+ FadeInTo:FadeInTo_22,
+ ChangeToRoom:ChangeToRoom_23,
+ PickUpItem:PickUpItem_24,
+ UseItem:UseItem_25,
+ startState:startState_26,
+ inRect:inRect_27,
+ headMaybe:headMaybe_28,
+ find:find_29,
+ findRoom:findRoom_30,
+ findItem:findItem_31,
+ tryInTurn:tryInTurn_32,
+ maybeMap:maybeMap_33,
+ inventoryWidth:inventoryWidth_34,
+ inventoryHeight:inventoryHeight_35,
+ inventoryArea:inventoryArea_36,
+ dialogTextColor:dialogTextColor_37,
+ noOffset:noOffset_38,
+ offsetBy:offsetBy_39,
+ noPadding:noPadding_40,
+ paddedBy:paddedBy_41,
+ nthMaybe:nthMaybe_42,
+ fadeTime:fadeTime_43,
+ descriptionTime:descriptionTime_44,
+ updateGame:updateGame_45,
+ mkinput:mkinput_46,
+ input:input_47,
+ gameAutomaton:gameAutomaton_48,
+ main:main_49};}();
 Elm.main=function(){
  return Elm.Main.main;};
 } catch (e) {

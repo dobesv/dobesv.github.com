@@ -9,7 +9,7 @@ xga = { width=1024, height=768 }
 ico = { width=100, height=100 }
 
 indexBy f lst = Dict.fromList (map (\v -> let k = f v in (k,v)) lst)
-indexById lst = indexBy .id lst
+indexById lst = indexBy (show . .id) lst
 
 
 groupBy f lst =
@@ -24,44 +24,52 @@ f >>> g = g . f
 x |> g = g x
 half x = x `div` 2
 
+data ItemID = Screwdriver
+            | Superphone
+
+data RoomID = Office
+            | Corridor
+            | Infirmary
+            | EscapePod
+
 -- Screwdriver
 itemList = [
-    { id="screwdriver", icon="screwdriver.png" },
-    { id="superphone", icon="superphone.png" }
+    { id=Screwdriver, icon="screwdriver.png" },
+    { id=Superphone, icon="superphone.png" }
  ]
 items = indexById itemList
-badItemId = { id="bad", icon="XXX.png" }
+badItemId = { id=Screwdriver, icon="XXX.png" }
 
 rooms =
     let roomList = [
-            { id="office",    bg = {xga|image="Office.jpg"} },
-            { id="corridor",  bg = {xga|image="Corridor.jpg"} },
-            { id="infirmary", bg = {xga|image="Infirmary.jpg"} },
-            { id="escapePod", bg = {xga|image="Escape Pod.jpg"} }
+            { id=Corridor,  bg = {xga|image="Corridor.jpg"} },
+            { id=Infirmary, bg = {xga|image="Infirmary.jpg"} },
+            { id=EscapePod, bg = {xga|image="Escape Pod.jpg"} },
+            { id=Office,    bg = {xga|image="Office.jpg"} }
         ]
 
         -- Doors
         doors = [
-            { room="office",    left=473, top= 99, width=248, height=407, targetRoom="corridor"  }, -- Office Exit
-            { room="corridor",  left=140, top=320, width= 96, height=120, targetRoom="office"    }, -- Office Entrance
-            { room="corridor",  left=770, top=320, width= 96, height=120, targetRoom="infirmary" }, -- Infirmary Entrance
-            { room="infirmary", left=665, top=232, width=313, height=395, targetRoom="corridor"  }, -- Infirmary Exit
-            { room="corridor",  left=305, top=469, width=118, height= 26, targetRoom="escapePod" }, -- Escape Pod Entrance
-            { room="escapePod", left=294, top=139, width=199, height= 91, targetRoom="corridor"  }  -- Infirmary Exit
+            { room=Office,    left=473, top= 99, width=248, height=407, targetRoom=Corridor  }, -- Office Exit
+            { room=Corridor,  left=140, top=320, width= 96, height=120, targetRoom=Office    }, -- Office Entrance
+            { room=Corridor,  left=770, top=320, width= 96, height=120, targetRoom=Infirmary }, -- Infirmary Entrance
+            { room=Infirmary, left=665, top=232, width=313, height=395, targetRoom=Corridor  }, -- Infirmary Exit
+            { room=Corridor,  left=305, top=469, width=118, height= 26, targetRoom=EscapePod }, -- Escape Pod Entrance
+            { room=EscapePod, left=294, top=139, width=199, height= 91, targetRoom=Corridor  }  -- Infirmary Exit
          ]
 
         -- Props
         props = [
-            {room="office",   left=117, top=249, width= 59, height= 93, description="Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!"},
-            {room="office",   left=183, top=316, width=106, height=213, description="My predecessor."},
-            {room="office",   left=738, top=290, width=133, height=390, description="Those instruments look very unique.  Could they be part of my job here?"},
-            {room="corridor", left=514, top=469, width=111, height= 25, description="Looks like the escape pod has already launched!"}
+            {room=Office,   left=117, top=249, width= 59, height= 93, description="Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!"},
+            {room=Office,   left=183, top=316, width=106, height=213, description="My predecessor."},
+            {room=Office,   left=738, top=290, width=133, height=390, description="Those instruments look very unique.  Could they be part of my job here?"},
+            {room=Corridor, left=514, top=469, width=111, height= 25, description="Looks like the escape pod has already launched!"}
          ]
 
         -- Pickups
         pickups = [
-            {room="office",   left=190, top=291, width=100, height=100, label="screw driver", item="screwdriver", image="ScrewDriver_1_screen.png"},
-            {room="office",   left=169, top=379, width=100, height=100, label="phone", item="superphone",  image="phone_pocket.png"}
+            {room=Office,   left=190, top=291, width=100, height=100, label="screw driver", item=Screwdriver, image="ScrewDriver_1_screen.png"},
+            {room=Office,   left=169, top=379, width=100, height=100, label="phone", item=Superphone,  image="phone_pocket.png"}
          ]
 
         aug r =
@@ -72,19 +80,19 @@ rooms =
             in r3
     in indexById (map aug roomList)
 
-badRoomId = {id="bad", bg = {xga|image="Missing.jpg"}, doors=[], props=[], pickups=[]}
+badRoomId = {id=Office, bg = {xga|image="Missing.jpg"}, doors=[], props=[], pickups=[]}
 
 -- Game state
 data Activity = Idle
               | ShowDescription {text::String, endTime::Int}
               | FadeOutTo {next::Activity, startTime::Int, endTime::Int}
               | FadeInTo {next::Activity, startTime::Int, endTime::Int}
-              | ChangeToRoom String
-              | PickUpItem String
-              | UseItem String
+              | ChangeToRoom RoomID
+              | PickUpItem ItemID
+              | UseItem ItemID
 
 startState = {
-    room = "office",
+    room = Office,
     inventory = Dict.empty,
     showingInventory = True,
     activity = Idle,
@@ -106,8 +114,8 @@ find p lst = case lst of
     [] -> Nothing
     x:xs -> if p x then Just x else find p xs
 
-findRoom id = Dict.findWithDefault badRoomId id rooms
-findItem id = Dict.findWithDefault badItemId id items
+findRoom id = Dict.findWithDefault badRoomId (show id) rooms
+findItem id = Dict.findWithDefault badItemId (show id) items
 
 tryInTurn defaultValue flist =
     case flist of
@@ -165,7 +173,6 @@ nthMaybe n lst =
         [] -> Nothing
         x:xs -> if n == 0 then Just x else nthMaybe (n-1) xs
 
-
 fadeTime = 500
 descriptionTime = 5000
 
@@ -174,8 +181,8 @@ updateGame input oldState =
         clicked = mouse.clicked
         underMouse obj = inRect mouse.x mouse.y obj
         oldRoom = findRoom oldState.room
-        pickupsNotPickedUp = filter (\p -> False == Dict.findWithDefault False p.item oldState.inventory) oldRoom.pickups
-        heldItems = Dict.keys oldState.inventory
+        pickupsNotPickedUp = filter (\p -> (Dict.lookup (show p.item) oldState.inventory) == Nothing) oldRoom.pickups
+        heldItems = Dict.values oldState.inventory
         findClickedOn objs = if clicked then find underMouse objs else Nothing
         newActivity =
             let oldActivity = oldState.activity
@@ -191,6 +198,11 @@ updateGame input oldState =
                         ChangeToRoom _ -> Just (fadeInTo Idle)
                         otherwise -> Nothing
                 showDescription text = ShowDescription {text=text, endTime=t+descriptionTime}
+                checkUseItem () = Nothing
+                checkMiniGame () =
+                    case oldActivity of
+                        UseItem Superphone -> Nothing
+                        otherwise -> Nothing
                 checkDoor () = maybeMap (.targetRoom >>> (fadeOutTo . ChangeToRoom)) (findClickedOn oldRoom.doors)
                 checkPickup () = maybeMap (.item >>> PickUpItem) (findClickedOn pickupsNotPickedUp)
                 checkProp () = maybeMap (.description >>> showDescription) (findClickedOn oldRoom.props)
@@ -211,7 +223,9 @@ updateGame input oldState =
                         otherwise -> Nothing
             in tryInTurn Idle [
                 checkFade,
+                checkMiniGame,
                 checkEnteredRoom,
+                checkUseItem,
                 checkPickup,
                 checkProp,
                 checkDoor,
@@ -223,7 +237,7 @@ updateGame input oldState =
                      ChangeToRoom id -> id
                      otherwise -> oldState.room,
             inventory=case newActivity of
-                          PickUpItem id -> Dict.insert id True oldState.inventory
+                          PickUpItem id -> Dict.insert (show id) id oldState.inventory
                           otherwise -> oldState.inventory,
             activity=newActivity,
             lastClick = if clicked then mouse else input
@@ -241,7 +255,7 @@ updateGame input oldState =
                             otherwise -> ""
             in text |> (toText
                     >>> (Text.color dialogTextColor)
-                    >>> (Text.height 2)
+                    >>> (Text.height 1.5)
                     >>> (Text.typeface "'Trebuchet MS', Helvetica, sans-serif")
                     >>> centeredText
                     >>> (Graphics.width gameWidth)
@@ -253,15 +267,15 @@ updateGame input oldState =
                     checkPickup
                 ]
             in tipText |> (toText
-              >>> (Text.color dialogTextColor)
-              >>> (Text.height 1)
-              >>> (Text.typeface "'Trebuchet MS', Helvetica, sans-serif")
-              >>> centeredText
-              >>> (Graphics.width gameWidth)
-              >>> (Graphics.color (Color.rgba 0 0 0 0.5))
-              >>> (container gameWidth (half gameHeight) middle))
+               >>> (Text.color dialogTextColor)
+               >>> (Text.height 1)
+               >>> (Text.typeface "'Trebuchet MS', Helvetica, sans-serif")
+               >>> centeredText
+               >>> (Graphics.width gameWidth)
+               >>> (Graphics.color (Color.rgba 0 0 0 0.5))
+               >>> (container gameWidth (half gameHeight) middle))
 
-        pickupViews = map (\p -> offsetBy p (image p.width p.height ("images/props/"++p.image))) pickupsNotPickedUp
+        pickupViews = map (\ p -> offsetBy p (image p.width p.height ("images/props/"++p.image))) pickupsNotPickedUp
         inventoryView =
             if newState.inventory == Dict.empty then plainText "" else
                 let itemImage item = image inventoryArea.item.width inventoryArea.item.height ("images/icon/"++item.icon)
@@ -279,7 +293,8 @@ updateGame input oldState =
             in if alpha < 1.0 then opacity alpha elt else elt
         bottomUIView = container gameWidth gameHeight midBottom
             (flow down [tipView, offsetBy inventoryArea inventoryView])
-        stage = layers ([bgImage] ++ pickupViews ++ [bottomUIView, dialogView])
+        miniGameViews = []
+        stage = layers ([bgImage] ++ pickupViews ++ [bottomUIView, dialogView] ++ miniGameViews)
         view = Graphics.color black (flow down [applyFade stage, debugView])
     in (view,newState)
 
