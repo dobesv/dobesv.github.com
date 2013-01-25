@@ -3,6 +3,10 @@ import Maybe
 import Text
 import Graphics
 
+
+fromMaybe default option = maybe default id option
+mapMaybe f xs = justs (map f xs)
+
 gameWidth = 1024
 gameHeight = 768
 xga = { width=1024, height=768 }
