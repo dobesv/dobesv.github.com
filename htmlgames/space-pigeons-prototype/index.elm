@@ -26,16 +26,30 @@ half x = x `div` 2
 
 data ItemID = Screwdriver
             | Superphone
+            | Knife
 
 data RoomID = Office
             | Corridor
             | Infirmary
             | EscapePod
 
+data EventID = BoughtCake
+
+
+data Cond = EventOccurred EventID
+          | Have ItemID
+          | InRoom RoomID
+          | Always
+          | CondNot Cond
+          | CondAnd Cond Cond
+          | CondOr Cond Cond
+
+
 -- Screwdriver
 itemList = [
     { id=Screwdriver, icon="screwdriver.png" },
-    { id=Superphone, icon="superphone.png" }
+    { id=Superphone,  icon="superphone.png" },
+    { id=Knife,       icon="knife.png"}
  ]
 items = indexById itemList
 badItemId = { id=Screwdriver, icon="XXX.png" }
@@ -60,16 +74,18 @@ rooms =
 
         -- Props
         props = [
-            {room=Office,   left=117, top=249, width= 59, height= 93, description="Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!"},
-            {room=Office,   left=183, top=316, width=106, height=213, description="My predecessor."},
-            {room=Office,   left=738, top=290, width=133, height=390, description="Those instruments look very unique.  Could they be part of my job here?"},
-            {room=Corridor, left=514, top=469, width=111, height= 25, description="Looks like the escape pod has already launched!"}
+            {room=Office,   left=117, top=249, width= 59, height= 93, image=Nothing, description="Some kind of display terminal.  Probably displays very useful information; if I only knew how to turn it on!"},
+            {room=Office,   left=183, top=316, width=106, height=213, image=Nothing, description="My predecessor."},
+            {room=Office,   left=738, top=290, width=133, height=390, image=Nothing, description="Could they be part of my job here?"},
+            {room=Office,   left=213, top=466, width=100, height=100, image=Just "cake.png", description="A cake.  I can't eat it."},
+            {room=Corridor, left=514, top=469, width=111, height= 25, image=Nothing, description="Looks like the escape pod has already launched!"}
          ]
 
         -- Pickups
         pickups = [
             {room=Office,   left=190, top=291, width=100, height=100, label="screw driver", item=Screwdriver, image="ScrewDriver_1_screen.png"},
-            {room=Office,   left=169, top=379, width=100, height=100, label="phone", item=Superphone,  image="phone_pocket.png"}
+            {room=Office,   left=169, top=379, width=100, height=100, label="phone", item=Superphone,  image="phone_pocket.png"},
+            {room=Office,   left=202, top=465, width=133, height=111, label="cake with knife", item=Knife, image="cake_knife.png"}
          ]
 
         aug r =
@@ -173,6 +189,16 @@ nthMaybe n lst =
         [] -> Nothing
         x:xs -> if n == 0 then Just x else nthMaybe (n-1) xs
 
+-- Position the object in the middle of a box bw by bh
+centerIn bw bh elt =
+    let ew = widthOf elt
+        pl = (bw - ew) `div` 2
+        pr = bw - ew - pl
+        eh = heightOf elt
+        pt = (bh - eh) `div` 2
+        pb = bh - eh - pt
+    in paddedBy {left = pl, top = pt, right=pr, bottom=pb } elt
+
 fadeTime = 500
 descriptionTime = 5000
 
@@ -275,7 +301,10 @@ updateGame input oldState =
                >>> (Graphics.color (Color.rgba 0 0 0 0.5))
                >>> (container gameWidth (half gameHeight) middle))
 
-        pickupViews = map (\ p -> offsetBy p (image p.width p.height ("images/props/"++p.image))) pickupsNotPickedUp
+        visibleProps = mapMaybe (\ p -> maybeMap (\img -> {p|image<-img}) p.image) oldRoom.props
+        propView p = offsetBy p (image p.width p.height ("images/props/"++p.image))
+        propViews = map propView visibleProps
+        pickupViews = map propView pickupsNotPickedUp
         inventoryView =
             if newState.inventory == Dict.empty then plainText "" else
                 let itemImage item = image inventoryArea.item.width inventoryArea.item.height ("images/icon/"++item.icon)
@@ -293,8 +322,12 @@ updateGame input oldState =
             in if alpha < 1.0 then opacity alpha elt else elt
         bottomUIView = container gameWidth gameHeight midBottom
             (flow down [tipView, offsetBy inventoryArea inventoryView])
-        miniGameViews = []
-        stage = layers ([bgImage] ++ pickupViews ++ [bottomUIView, dialogView] ++ miniGameViews)
+
+        miniGameViews = case newActivity of
+            UseItem Superphone -> [centerIn gameWidth gameHeight (image 454 707 "images/ui/superphone.png")]
+            otherwise -> []
+
+        stage = layers ([bgImage] ++ propViews ++ pickupViews ++ [bottomUIView, dialogView] ++ miniGameViews)
         view = Graphics.color black (flow down [applyFade stage, debugView])
     in (view,newState)
 
