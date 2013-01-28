@@ -14,7 +14,7 @@ updateGame input oldState =
         robotElt = input.jselts.robot
         (mouseX, mouseY) = mousePosition
         gameWidth = 1024
-        gameHeight = 768
+        gameHeight = 630
         speed = 0.15
         distanceTravelled = truncate (t * speed)
         buildings x =
@@ -24,15 +24,12 @@ updateGame input oldState =
                 bldgOffset = (bldgWidth `div` 2) - (distanceTravelled `rem` bldgStep)
                 bldgStagger = (((distanceTravelled + (truncate x)) `div` bldgStep) * 36969) `rem` 100
                 bldgHeight = (gameHeight `div` 10) + bldgStagger
-                building = filled grey (rect bldgWidth bldgHeight (x + bldgOffset,gameHeight-bldgHeight/2))
+                building = filled black (rect bldgWidth bldgHeight (x + bldgOffset,gameHeight-bldgHeight/2))
             in if x-bldgWidth > gameWidth then [] else building : (buildings (x + bldgWidth + bldgSpace))
         cityShapes = buildings 0
 
-        sunCenter = (gameWidth `div` 10, gameHeight `div` 4)
-        sunCircle = filled red (circle (gameHeight `div` 10) sunCenter)
-
-        headCenter = (200,400)
-        monsterShapes = [robotElt, sunCircle]
+        headCenter = (292,410)
+        monsterShapes = [robotElt]
 
         laserShapes = if mouseDown then [solid red (segment headCenter mousePosition)] else []
 

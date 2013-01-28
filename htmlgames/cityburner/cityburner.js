@@ -69,24 +69,22 @@ Elm.Main=function(){
     }
     throw new Error("Non-exhaustive pattern match in case expression (Line 15, Column 28)");}();
     var gameWidth_21=1024;
-    var gameHeight_22=768;
+    var gameHeight_22=630;
     var speed_23=0.15;
     var distanceTravelled_24=truncate((t_13*speed_23));
     var cityShapes_26=buildings_25(0);
-    var sunCenter_27=['Tuple2',div(gameWidth_21)(10),div(gameHeight_22)(4)];
-    var sunCircle_28=filled(red)(circle(div(gameHeight_22)(10))(sunCenter_27));
-    var headCenter_29=['Tuple2',200,400];
-    var monsterShapes_30=['Cons',robotElt_17,['Cons',sunCircle_28,['Nil']]];
-    var laserShapes_31=(mouseDown_14?['Cons',solid(red)(segment(headCenter_29)(mousePosition_15)),['Nil']]:['Nil']);
-    var oldVisibleFires_35=filter(fireVisible_33)(oldFires_16);
-    var newFire_36={
+    var headCenter_27=['Tuple2',292,410];
+    var monsterShapes_28=['Cons',robotElt_17,['Nil']];
+    var laserShapes_29=(mouseDown_14?['Cons',solid(red)(segment(headCenter_27)(mousePosition_15)),['Nil']]:['Nil']);
+    var oldVisibleFires_33=filter(fireVisible_31)(oldFires_16);
+    var newFire_34={
       since : [t_13],
       worldX : [(mouseX_19+distanceTravelled_24)],
       worldY : [mouseY_20],
       _ : [true]};
-    var mouseOverBuilding_37=any(isWithin(mousePosition_15))(cityShapes_26);
-    var mouseOverFire_38=any(isWithin(mousePosition_15))(map(fireShape_34)(oldVisibleFires_35));
-    var timeSinceLastFire_39=function(){
+    var mouseOverBuilding_35=any(isWithin(mousePosition_15))(cityShapes_26);
+    var mouseOverFire_36=any(isWithin(mousePosition_15))(map(fireShape_32)(oldVisibleFires_33));
+    var timeSinceLastFire_37=function(){
     switch(oldFires_16[0]){
      case 'Cons':
      return (t_13-function(r){
@@ -94,62 +92,62 @@ Elm.Main=function(){
      case 'Nil':
      return 1000;
     }
-    throw new Error("Non-exhaustive pattern match in case expression (Line 53, Column 29)");}();
-    var newFires_40=((mouseDown_14&&(mouseOverBuilding_37&&(not(mouseOverFire_38)&&(compare(timeSinceLastFire_39)(333)[0] === 'GT'))))?['Cons',newFire_36,oldVisibleFires_35]:oldVisibleFires_35);
-    var newState_41={
-      oldFires : [newFires_40],
+    throw new Error("Non-exhaustive pattern match in case expression (Line 50, Column 29)");}();
+    var newFires_38=((mouseDown_14&&(mouseOverBuilding_35&&(not(mouseOverFire_36)&&(compare(timeSinceLastFire_37)(333)[0] === 'GT'))))?['Cons',newFire_34,oldVisibleFires_33]:oldVisibleFires_33);
+    var newState_39={
+      oldFires : [newFires_38],
       _ : [true]};
-    var fireShapes_42=map(fireShape_34)(newFires_40);
-    var shapes_43=Value.append(monsterShapes_30,Value.append(cityShapes_26,Value.append(laserShapes_31,fireShapes_42)));
-    var newView_44=collage(gameWidth_21)(gameHeight_22)(shapes_43);
-    function buildings_25(x_49){
+    var fireShapes_40=map(fireShape_32)(newFires_38);
+    var shapes_41=Value.append(monsterShapes_28,Value.append(cityShapes_26,Value.append(laserShapes_29,fireShapes_40)));
+    var newView_42=collage(gameWidth_21)(gameHeight_22)(shapes_41);
+    function buildings_25(x_47){
      return function(){
-      var bldgWidth_50=div(gameWidth_21)(10);
-      var bldgSpace_51=div(bldgWidth_50)(5);
-      var bldgStep_52=(bldgWidth_50+bldgSpace_51);
-      var bldgOffset_53=(div(bldgWidth_50)(2)-rem(distanceTravelled_24)(bldgStep_52));
-      var bldgStagger_54=rem((36969*div((distanceTravelled_24+truncate(x_49)))(bldgStep_52)))(100);
-      var bldgHeight_55=(div(gameHeight_22)(10)+bldgStagger_54);
-      var building_56=filled(grey)(rect(bldgWidth_50)(bldgHeight_55)(['Tuple2',(x_49+bldgOffset_53),(gameHeight_22-(bldgHeight_55/2))]));
-      return ((compare((x_49-bldgWidth_50))(gameWidth_21)[0] === 'GT')?['Nil']:['Cons',building_56,buildings_25(((x_49+bldgWidth_50)+bldgSpace_51))]);}();}
-    function fireRadius_32(since_57){
-     return (5*(sqrt((t_13-since_57))*speed_23));}
-    function fireVisible_33(_0_58){
+      var bldgWidth_48=div(gameWidth_21)(10);
+      var bldgSpace_49=div(bldgWidth_48)(5);
+      var bldgStep_50=(bldgWidth_48+bldgSpace_49);
+      var bldgOffset_51=(div(bldgWidth_48)(2)-rem(distanceTravelled_24)(bldgStep_50));
+      var bldgStagger_52=rem((36969*div((distanceTravelled_24+truncate(x_47)))(bldgStep_50)))(100);
+      var bldgHeight_53=(div(gameHeight_22)(10)+bldgStagger_52);
+      var building_54=filled(black)(rect(bldgWidth_48)(bldgHeight_53)(['Tuple2',(x_47+bldgOffset_51),(gameHeight_22-(bldgHeight_53/2))]));
+      return ((compare((x_47-bldgWidth_48))(gameWidth_21)[0] === 'GT')?['Nil']:['Cons',building_54,buildings_25(((x_47+bldgWidth_48)+bldgSpace_49))]);}();}
+    function fireRadius_30(since_55){
+     return (5*(sqrt((t_13-since_55))*speed_23));}
+    function fireVisible_31(_0_56){
      return function(){
-      var worldX_59=function(r){
-       return r.hasOwnProperty('_') ? r.worldX[0] : r.worldX;}(_0_58);
-      var since_60=function(r){
-       return r.hasOwnProperty('_') ? r.since[0] : r.since;}(_0_58);
-      return (compare(worldX_59)((distanceTravelled_24-fireRadius_32(since_60)))[0] === 'GT');}();}
-    function fireShape_34(_0_61){
+      var worldX_57=function(r){
+       return r.hasOwnProperty('_') ? r.worldX[0] : r.worldX;}(_0_56);
+      var since_58=function(r){
+       return r.hasOwnProperty('_') ? r.since[0] : r.since;}(_0_56);
+      return (compare(worldX_57)((distanceTravelled_24-fireRadius_30(since_58)))[0] === 'GT');}();}
+    function fireShape_32(_0_59){
      return function(){
-      var worldX_62=function(r){
-       return r.hasOwnProperty('_') ? r.worldX[0] : r.worldX;}(_0_61);
-      var worldY_63=function(r){
-       return r.hasOwnProperty('_') ? r.worldY[0] : r.worldY;}(_0_61);
-      var since_64=function(r){
-       return r.hasOwnProperty('_') ? r.since[0] : r.since;}(_0_61);
+      var worldX_60=function(r){
+       return r.hasOwnProperty('_') ? r.worldX[0] : r.worldX;}(_0_59);
+      var worldY_61=function(r){
+       return r.hasOwnProperty('_') ? r.worldY[0] : r.worldY;}(_0_59);
+      var since_62=function(r){
+       return r.hasOwnProperty('_') ? r.since[0] : r.since;}(_0_59);
       return function(){
-       var radius_65=fireRadius_32(since_64);
-       var x_66=(worldX_62-distanceTravelled_24);
-       return filled(red)(circle(radius_65)(['Tuple2',x_66,worldY_63]));}();}();}
-    return ['Tuple2',newView_44,newState_41];}();};}
- function mkjselts_3(r_69){
+       var radius_63=fireRadius_30(since_62);
+       var x_64=(worldX_60-distanceTravelled_24);
+       return filled(red)(circle(radius_63)(['Tuple2',x_64,worldY_61]));}();}();}
+    return ['Tuple2',newView_42,newState_39];}();};}
+ function mkjselts_3(r_67){
   return {
-    robot : [r_69],
+    robot : [r_67],
     _ : [true]};}
- function mkinput_5(t_70){
-  return function(mouseDown_71){
-   return function(mousePosition_72){
-    return function(jselts_73){
+ function mkinput_5(t_68){
+  return function(mouseDown_69){
+   return function(mousePosition_70){
+    return function(jselts_71){
      return function(){
-      var r_74={
-        jselts : [jselts_73],
-        mouseDown : [mouseDown_71],
-        mousePosition : [mousePosition_72],
-        t : [t_70],
+      var r_72={
+        jselts : [jselts_71],
+        mouseDown : [mouseDown_69],
+        mousePosition : [mousePosition_70],
+        t : [t_68],
         _ : [true]};
-      return r_74;}();};};};}
+      return r_72;}();};};};}
  var robotAnimation_1=lift(castJSElementToElement(262)(373))(jsRobotAnimation_0);
  var jselts_4=lift(mkjselts_3)(robotAnimation_1);
  var input_6=lift4(mkinput_5)(every(0.1))(Mouse.isDown)(Mouse.position)(jselts_4);

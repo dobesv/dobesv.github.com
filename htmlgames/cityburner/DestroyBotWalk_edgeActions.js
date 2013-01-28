@@ -3,6 +3,11 @@
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym,e){sym.play(500);});
 //Edge binding end
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
+         // insert code here
+      });
+      //Edge binding end
+
 })("stage");
    //Edge symbol end:'stage'
 
@@ -16,16 +21,16 @@
 
 //=========================================================
 
-//Edge symbol: 'Leg_1'
-(function(symbolName){Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym,e){sym.play(500);});
-//Edge binding end
-})("Rear_Leg");
-   //Edge symbol end:'Rear_Leg'
-
-//=========================================================
-
 //Edge symbol: 'Robot'
 (function(symbolName){})("Robot");
    //Edge symbol end:'Robot'
+
+   //=========================================================
+   
+   //Edge symbol: 'Buildings'
+   (function(symbolName) {   
+   
+   })("Buildings");
+   //Edge symbol end:'Buildings'
 
 })(jQuery, AdobeEdge, "ROBOT-WALK");
