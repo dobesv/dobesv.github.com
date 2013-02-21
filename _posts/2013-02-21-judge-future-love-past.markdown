@@ -1,7 +1,6 @@
 ---
 title: Judge the Future, Love the Past
 layout: index
-published: false
 category: enlightenment
 ---
 
