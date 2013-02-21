@@ -6,9 +6,8 @@ category: books
 
 Don Miguel Ruiz has become my favorite author on the subject of personal development and reaching enlightenment.
 
-I recently picked up his book
-[http://www.amazon.com/gp/product/B005BSQWVM/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B005BSQWVM&linkCode=as2&tag=dobesvcom-20](The Mastery of Love)
-on my Kindle.  Here's what I got out of it.
+I recently read his book [The Mastery of Love](http://amzn.to/W6av60) on my Kindle.  Here's some of the big learnings
+I got from from it.
 
 ## The Pizza Guy
 
@@ -69,15 +68,15 @@ One thing that stood out for me in the descriptions of love and respect in the b
 I respect someone I won't try and clean up their emotional garbage for them.  If someone has issues, it's not my
 job to jump in and "fix them up".
 
-I know sometimes I feel compelled to give people unsolicited advice and register them in my [http://www.landmarkeducation.com/](favorite personal
-development course).  I really prefer to be around people who are actively cleaning up their emotional garbage and
+I know sometimes I feel compelled to give people unsolicited advice and register them in my [favorite personal
+development course](http://www.landmarkeducation.com/).  I really prefer to be around people who are actively cleaning up their emotional garbage and
 this shows up as me trying to help people do that - whether they want it or not.  But if this isn't something they were
 asking for, it's not respect.  In doing so I am judging them as lacking something and pushing them to fix a problem
 with them that I perceive but they might not (yet).  At times like that they probably feel annoyed, criticized, or
 unworthy.
 Sometimes, of course, someone's garbage is troublesome for me to deal with.  Maybe they are someone I'm working with
 on something and their issues are hampering their performance.  One way of being respectful might be to have a
-[http://amzn.to/YExLnV](fierce conversation) about the ways in which their issues are troubling me - to tell them what
+[fierce conversation](http://amzn.to/YExLnV) about the ways in which their issues are troubling me - to tell them what
 I'm dealing with as a result of it and what future I see coming if nothing changes.  If the relationship is at stake,
 I can make that clear.  Then we can explore together what kinds of solutions might work best.
 
