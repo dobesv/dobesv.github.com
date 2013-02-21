@@ -74,6 +74,7 @@ this shows up as me trying to help people do that - whether they want it or not.
 asking for, it's not respect.  In doing so I am judging them as lacking something and pushing them to fix a problem
 with them that I perceive but they might not (yet).  At times like that they probably feel annoyed, criticized, or
 unworthy.
+
 Sometimes, of course, someone's garbage is troublesome for me to deal with.  Maybe they are someone I'm working with
 on something and their issues are hampering their performance.  One way of being respectful might be to have a
 [fierce conversation](http://amzn.to/YExLnV) about the ways in which their issues are troubling me - to tell them what
