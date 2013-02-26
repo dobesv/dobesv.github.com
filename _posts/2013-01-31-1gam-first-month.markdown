@@ -1,5 +1,5 @@
 ---
-title: One Game a Month, Month 1: Cityburner
+title: City Burner Game - My First One Game of the Month
 category: programming
 layout: post
 ---
