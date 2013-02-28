@@ -14,6 +14,8 @@ it using javascript and the playcraft javascript library.
 
 Try it here: <http://dobesv.com/1gam-LaserPuzzle/>
 
+Source code here: <http://dobesv.com/1gam-LaserPuzzle/>
+
 ## Lua
 
 I remember a long time ago when I first ran into Lua, before it even used much for game development, I really liked
