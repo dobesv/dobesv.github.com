@@ -7,7 +7,7 @@ layout: post
 For my second one game a month challenge I initially tried writing it in Lua, using Marmalade Quick.  Then I re-wrote
 it using javascript and the playcraft javascript library.
 
-Try it here: http://dobesv.com/1gam-LaserPuzzle/
+Try it here: <http://dobesv.com/1gam-LaserPuzzle/>
 
 ## Lua
 
