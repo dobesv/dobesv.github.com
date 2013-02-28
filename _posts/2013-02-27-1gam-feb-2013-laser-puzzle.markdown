@@ -48,11 +48,21 @@ some simple refactorings.
 
 ## Playcraft
 
-[Playcraft](http://playcraftlabs.com/) is currently in beta, and I did run into one bug I had to tweak in their library.
-I also had some trouble figuring out how exactly the rotation and scaling work - they are doing the math a bit
-differently here from what I was used to.  But I figured it all out and it worked great after that.
+The thing that impressed me about [Playcraft](http://playcraftlabs.com/) was their demos - they look great,
+have sound, and and great frame rates (on my machine, anyhow).  That gives me some confidence that I can make a
+good game on those platforms.
 
-The thing that impressed me about playcraft was their demo's - they look great, have sound, and and great frame rates
-(on my machine, anyhow).  That gives me some confidence that I can make a good game on those platforms.
+The playcraft API is relatively well organized and documented.  It took me a little while to figure out how
+the rotation and scaling work.  It turns out that they maintain the same top-left anchor point when rotating and
+scaling, which means your x,y coordinate is upper-left corner of the image before transforms are applied.
+
+It is currently in beta, and I did run into one bug I had to tweak in their library.
+
+Generally, however, I liked playcraft.  I think when some of their more interesting features start to show
+up, like the editor, mobile device deployment, and so on it'll be worth spending money on.
+
+
+
+
 
 
