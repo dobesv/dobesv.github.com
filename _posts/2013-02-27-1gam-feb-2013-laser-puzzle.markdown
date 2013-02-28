@@ -4,6 +4,11 @@ category: programming
 layout: post
 ---
 
+This is a prototype of a mini-game concept for a bigger game.
+
+How to play: rotate the pieces until the lasers reach the sensors.  When all the sensors are
+activated, you win!
+
 For my second one game a month challenge I initially tried writing it in Lua, using Marmalade Quick.  Then I re-wrote
 it using javascript and the playcraft javascript library.
 
@@ -27,7 +32,6 @@ inside another function it has to be explicitly declared local or it will be glo
 about Lua that I dislike, which are not a problem in Javascript: the lack of a ternary conditional expression
 (?:), the use of keywords instead of punctuation to delimit things, limited standard library out of the box (no
 math.round(), no shorthand to get an individual character from a string).
-
 
 ## Marmalade Quick
 
@@ -61,6 +65,22 @@ It is currently in beta, and I did run into one bug I had to tweak in their libr
 Generally, however, I liked playcraft.  I think when some of their more interesting features start to show
 up, like the editor, mobile device deployment, and so on it'll be worth spending money on.
 
+## Credits
+
+All the graphics are original artwork by my partner in crime [Glenn Martin](http://bunyep.com).
+
+Game mechanic by Duncan Shields (thought of the rotating pieces) with help from Dobes Vandermeer,
+Leigh Tingle, and Glenn Martin.
+
+Programming by Dobes Vandermeer.
+
+Sounds:
+
+- Door noise from http://www.trekcore.com/audio/
+- Applause from http://www.soundjay.com/applause-sounds-1.html
+- Level complete from http://noproblo.dayjo.org/ZeldaSounds/
+- Beep from http://archive.org/details/TickSound
+- Pivot sound from http://soundcli.ps/sound/camera-shutter-3
 
 
 
