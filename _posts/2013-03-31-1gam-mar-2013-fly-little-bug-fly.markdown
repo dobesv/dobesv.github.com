@@ -1,5 +1,5 @@
 ---
-title: Announcing Laser Puzzle, my Second One Game a Month Game
+title: Announcing "Fly, Little Bug, Fly!", my Third One Game a Month Game
 category: programming
 layout: post
 ---
