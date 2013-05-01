@@ -1,5 +1,5 @@
 ---
-title: Announcing Laser Puzzle V2
+title: Announcing Laser Puzzle V2, April #1GAM
 category: programming
 layout: post
 ---
