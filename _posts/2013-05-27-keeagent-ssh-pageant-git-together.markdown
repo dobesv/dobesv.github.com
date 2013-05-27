@@ -47,6 +47,9 @@ Finally, for reasons unknown the ssh-pageant thing doesn't work with git for win
 However, I found that I can configure git to use putty's plink for ssh connections,
 and plink will read the keys from the KeeAgent directly, so it all works great.
 
+To tell git to use plink, create a global environment variable GIT_SSH, set to the full
+windows path to plink.exe, i.e. "C:\Program Files (x86)\putty\plink.exe"
+
 Here's the links you need to get going:
 
  * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
