@@ -1,5 +1,5 @@
 ---
-title: Be Yourself: Too Scary?
+title: "Be Yourself: Too Scary?"
 category: enlightenment
 layout: post
 ---
