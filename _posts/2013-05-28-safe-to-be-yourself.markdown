@@ -1,12 +1,10 @@
 ---
-title: "Be Yourself": Too Scary?
+title: Be Yourself: Too Scary?
 category: enlightenment
 layout: post
 ---
 
-## "Be Yourself": Too Scary?
-
-Sometimes we're advised to "be yourself!"  One common question that comes out of that
+Sometimes we're advised "be yourself!"  One common question that comes out of that
 is: does that mean I really should go vandalize that car whose car alarm goes off
 for no reason in the middle of the night?  Or take candy from the store without
 paying?  Or eat all kinds of unhealthy food until I become very sick?
