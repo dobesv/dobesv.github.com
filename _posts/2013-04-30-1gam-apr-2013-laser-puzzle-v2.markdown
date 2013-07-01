@@ -12,7 +12,7 @@ sensors are activated, you win!
 
 Try it here: <http://dobesv.com/1gam-LaserPuzzle/>
 
-Source code here: <http://dobesv.com/1gam-LaserPuzzle/>
+Source code here: <http://github.com/dobesv/1gam-LaserPuzzle/>
 
 ## New Levels / Features
 

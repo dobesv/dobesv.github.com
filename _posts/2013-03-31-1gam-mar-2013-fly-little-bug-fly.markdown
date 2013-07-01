@@ -9,7 +9,7 @@ assisted by a bit of wing power.
 
 Try it here: <http://dobesv.com/1gam-FlyLittleBugFly/>
 
-Source code here: <http://dobesv.com/1gam-FlyLittleBugFly/>
+Source code here: <http://github.com/dobesv/1gam-FlyLittleBugFly/>
 
 ## Lessons Learned
 

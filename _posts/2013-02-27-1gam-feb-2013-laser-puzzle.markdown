@@ -14,7 +14,7 @@ it using javascript and the playcraft javascript library.
 
 Try it here: <http://dobesv.com/1gam-LaserPuzzle/>
 
-Source code here: <http://dobesv.com/1gam-LaserPuzzle/>
+Source code here: <http://github.com/dobesv/1gam-LaserPuzzle/>
 
 ## Lua
 

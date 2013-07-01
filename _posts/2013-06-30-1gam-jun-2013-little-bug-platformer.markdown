@@ -11,7 +11,7 @@ it's called "Hop, Little Bug, Hop!"
 
 Try it here: <http://dobesv.com/1gam-BugHop/>
 
-Source code here: <http://dobesv.com/1gam-BugHop/>
+Source code here: <http://github.com/dobesv/1gam-BugHop/>
 
 ## Credits
 
