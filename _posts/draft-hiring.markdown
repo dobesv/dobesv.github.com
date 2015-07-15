@@ -25,7 +25,7 @@ is a short-term play - you might as well hire contractors (ideally ones working
 at a great company) to build the product.  Investors won't like this because
 "all contractors" means you're not building a great team and company, just a
 product, and that's a lot less likely to deliver huge returns.  By trying to hire
-great employees you can make it <b>look<b> like you are trying to build a great
+great employees you can make it <b>look</b> like you are trying to build a great
 company... but if you're doing this in a hurry the underlying truth is that you're
 focused more on getting it out the door.
 
