@@ -4,7 +4,7 @@ category: programming
 title: Why I'm Applying at TopTal
 ---
 
-I recently ran into an interesting sounding company called "TopTal".  I think the name
+I recently ran into an interesting sounding company called "[TopTal Software Programmers Group](https://www.toptal.com/software)".  I think the name
 is short for "Top Talent" but that's just a guess.  For a while I have been thinking 
 about where I could some more freelance work at local north american rates.  I prefer to
 do everything online, because that's the way I am.  However, normally when
