@@ -4,8 +4,6 @@ category: programming
 title: Do Partial Functions Exist?
 ---
 
-# Do Partial Functions Exist?
-
 Total functions are those which are defined for all inputs in their domain.  Normally, all functions 
 are total because the domain of a function is the inputs for which it is defined.
 
